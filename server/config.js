@@ -1,14 +1,14 @@
 exports.PORT = process.env.PORT || 3000;
 
 exports.KEYS = {
-	googKey: 'AIzaSyAhAa06SlCVLDelyM5lMuwmhnxJnZK1Tr8'
+	igdbKey: ''
 };
 
 exports.DATABASE_URL = process.env.DATABASE_URL ||
 global.DATABASE_URL ||
 (process.env.NODE_ENV === 'production' ?
 	'x' :
-	'mongodb://localhost/youtubeVideo');
+	'mongodb://localhost/igdb');
 
 
 // mLab (production):

@@ -6,21 +6,16 @@ const router = express.Router();
 
 const config = require('../config');
 
-// Make regular YouTube search with given query
+// Make regular IGDB search with given query
 // Body would contain query string, q.
-router.post('/search-videos', function(req, res) {
+router.post('/search', function(req, res) {
     console.log('req.body',req.body);
 
-    let _url = 'https://www.googleapis.com/youtube/v3/search';
+    let _url = '';
     let _q = req.body._q;
 
     let _req = {
-			key: config.KEYS.googKey,
-			part: 'snippet',
-			maxResults: 50,
-			q: _q,
-			type: 'video',
-			videoEmbeddable: true,
+			key: config.KEYS.igdbKey
 		};
 
     axios.get(_url, {

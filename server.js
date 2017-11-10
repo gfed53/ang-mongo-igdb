@@ -11,7 +11,7 @@ const config = require('./server/config.js');
 
 // Get our API routes
 const api = require('./server/routes/api');
-const youtube_api = require('./server/routes/youtube-api');
+const igdb_api = require('./server/routes/igdb-api');
 
 // Create express app
 const app = express();
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
 app.use('/api', api);
-app.use('/youtube-api', youtube_api);
+app.use('/igdb-api', igdb_api);
 
 
 // Catch all other routes and return the index file
@@ -43,7 +43,7 @@ const server = http.createServer(app);
 //****** Mongoose
 
 var runServer = function(callback) {
-		// Must be running MongoDB if running locally!
+	// Must be running MongoDB if running locally!
     mongoose.connect(config.DATABASE_URL, function(err) {
         if (err && callback) {
             return callback(err);

@@ -10,11 +10,11 @@ export class SearchService {
 	constructor(private _http: Http){}
 
 	//Will use backend to make API requests
-	getVideos(q): Observable<any> {
-		console.log('search service: getVideos');
+	getGames(q): Observable<any> {
+		console.log('search service: getGames');
 		console.log('q',q);
 
-		return this._http.post('/youtube-api/search-videos', {
+		return this._http.post('/igdb-api/search-videos', {
 			_q: q
 		}).map(res => res.json());
 	}
