@@ -12,18 +12,20 @@ export class SearchComponent implements OnInit {
 
   constructor(private searchService: SearchService) { }
 
-  searchVideo(f: NgForm): void {
-  	console.log('searchVideo from search component');
-  	console.log('q', f.value.search);
-  	this.searchService.getVideos(f.value.search)
+  searchGame(f?: NgForm): void {
+  	console.log('search from search component');
+  	console.log('f.value.search', f.value.search);
+    let _input: any = f.value.search || 'placeholder';
+  	this.searchService.getGames(_input)
   	.subscribe(res => {
   		console.log('res', res);
   	});
+    // return false;
 
   }
 
   ngOnInit() {
-  	console.log('search component on init');
+  	console.log('search component onInit');
   }
 
 }

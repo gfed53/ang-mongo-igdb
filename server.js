@@ -24,13 +24,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
-app.use('/api', api);
+// app.use('/api', api);
 app.use('/igdb-api', igdb_api);
 
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+  // res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
 app.set('port', config.PORT);
