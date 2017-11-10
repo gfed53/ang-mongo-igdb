@@ -1,0 +1,9 @@
+<section>
+	<p class="p-lg">Search.</p>
+	<div class="input-container">
+		<form #f="ngForm" (ngSubmit)="searchVideo(f)">
+			<input name="search" ngModel #search="ngModel">
+			<button type="submit" class="btn-submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+		</form>
+	</div>
+</section>

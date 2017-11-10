@@ -1,0 +1,17 @@
+<div>
+	<h1>Todo List</h1>
+	<!-- Input to add todos -->
+	<input [(ngModel)]="todoInput">
+	<button (click)="addTodo(todoInput)">Add to List</button>
+
+	<!-- List of our todos -->
+	<ul>
+		<li *ngFor="let todo of todos">
+			<span [ngClass]="{'checked': todo._checked}">{{ todo._description }}</span>
+			<button (click)="updateTodo(todo)">Toggle</button>
+			<button (click)="deleteTodo(todo)">Delete Me</button>
+		</li>
+
+	</ul>
+
+</div>
