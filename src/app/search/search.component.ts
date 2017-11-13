@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ViewEncapsulation } from '@angular/core';
 
 import { SearchService } from '../services/search.service';
 
@@ -7,6 +8,7 @@ import { SearchService } from '../services/search.service';
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
+  // encapsulation: ViewEncapsulation.None
 })
 export class SearchComponent implements OnInit {
 
