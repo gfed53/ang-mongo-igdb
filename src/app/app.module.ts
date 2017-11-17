@@ -12,6 +12,8 @@ import { SearchComponent } from './search/search.component';
 // Services
 import { TodoService } from './services/todo.service';
 import { SearchService } from './services/search.service';
+import { HeaderComponent } from './header/header.component';
+import { SingleGameComponent } from './single-game/single-game.component';
 
 
 
@@ -20,7 +22,9 @@ import { SearchService } from './services/search.service';
   declarations: [
     AppComponent,
     TodoListComponent,
-    SearchComponent
+    SearchComponent,
+    HeaderComponent,
+    SingleGameComponent
   ],
   imports: [
     BrowserModule,
