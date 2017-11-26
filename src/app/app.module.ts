@@ -14,6 +14,8 @@ import { TodoService } from './services/todo.service';
 import { SearchService } from './services/search.service';
 import { HeaderComponent } from './header/header.component';
 import { SingleGameComponent } from './single-game/single-game.component';
+import { SingleSearchComponent } from './single-search/single-search.component';
+import { SingleSearchControlsComponent } from './single-search-controls/single-search-controls.component';
 
 
 
@@ -24,7 +26,9 @@ import { SingleGameComponent } from './single-game/single-game.component';
     TodoListComponent,
     SearchComponent,
     HeaderComponent,
-    SingleGameComponent
+    SingleGameComponent,
+    SingleSearchComponent,
+    SingleSearchControlsComponent
   ],
   imports: [
     BrowserModule,
