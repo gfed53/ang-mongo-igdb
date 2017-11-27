@@ -2,8 +2,10 @@
 	<p class="p-lg">Search for a game.</p>
 	<div class="input-container">
 		<form #f="ngForm" (ngSubmit)="searchGame(f)">
-			<input name="search" ngModel #search="ngModel">
-			<button type="submit" class="btn-submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+			<div class="form-inline">
+				<input name="search" ngModel #search="ngModel">
+				<button type="submit" class="btn-submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+			</div>
 			<app-single-search-controls>
 			</app-single-search-controls>
 		</form>

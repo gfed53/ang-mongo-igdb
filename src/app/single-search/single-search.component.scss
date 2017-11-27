@@ -1,0 +1,36 @@
+input {
+	border: 1px solid lightgrey;
+}
+
+.form-inline:after {
+	clear: both;
+	content: '';
+	display: table;
+}
+
+input, button {
+	font-size: 1em;
+}
+
+input[name="search"] {
+	float: left;
+	height: 35px;
+	line-height: 33px;
+	padding: 0 3px;
+	border: 1px solid lightgrey
+}	
+
+.btn-submit {
+	float: left;
+	height: 37px;
+	line-height: 37px;
+	padding: 0 20px;
+	background-color: #03C9A9;
+	border: none;
+	border-radius: 0 5px 5px 0;
+	cursor: pointer;
+
+	i {
+		color: #fff;
+	}
+}

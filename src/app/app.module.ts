@@ -16,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { SingleGameComponent } from './single-game/single-game.component';
 import { SingleSearchComponent } from './single-search/single-search.component';
 import { SingleSearchControlsComponent } from './single-search-controls/single-search-controls.component';
+import { SingleResultComponent } from './single-result/single-result.component';
 
 
 
@@ -28,7 +29,8 @@ import { SingleSearchControlsComponent } from './single-search-controls/single-s
     HeaderComponent,
     SingleGameComponent,
     SingleSearchComponent,
-    SingleSearchControlsComponent
+    SingleSearchControlsComponent,
+    SingleResultComponent
   ],
   imports: [
     BrowserModule,
