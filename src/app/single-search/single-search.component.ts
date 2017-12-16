@@ -10,9 +10,22 @@ import { SearchService } from '../services/search.service';
 })
 export class SingleSearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private searchService: SearchService) { }
+
+  searchGame(f?: NgForm): void {
+  	console.log('search from search component');
+  	console.log('f.value.search', f.value.search);
+    let _input: any = f.value.search || 'placeholder';
+  	this.searchService.getGames(_input)
+  	.subscribe(res => {
+  		console.log('res', res);
+  	});
+    // return false;
+
+  }
 
   ngOnInit() {
+    console.log('single-search component onInit');
   }
 
 }
