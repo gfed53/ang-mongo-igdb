@@ -12,6 +12,9 @@ import { SearchComponent } from './search/search.component';
 // Services
 import { TodoService } from './services/todo.service';
 import { SearchService } from './services/search.service';
+import { GetPlatformsService } from './services/get-platforms.service';
+
+
 import { HeaderComponent } from './header/header.component';
 import { SingleGameComponent } from './single-game/single-game.component';
 import { SingleSearchComponent } from './single-search/single-search.component';
@@ -37,7 +40,7 @@ import { SingleResultComponent } from './single-result/single-result.component';
     FormsModule,
     HttpModule
   ],
-  providers: [TodoService, SearchService],
+  providers: [TodoService, SearchService, GetPlatformsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
