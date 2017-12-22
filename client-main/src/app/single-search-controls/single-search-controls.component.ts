@@ -19,7 +19,12 @@ export class SingleSearchControlsComponent implements OnInit {
     //   console.log('res', res);
     //   this.platforms = this.getPlatformsService.sortedByName(res); 
     //   console.log('this.platforms', this.platforms);
-  	// });
+    // });
+    
+    this.getPlatformsService.getTestData()
+    .subscribe(res => {
+      console.log('res',res);
+    })
   }
 
 }

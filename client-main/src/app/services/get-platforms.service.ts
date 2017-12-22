@@ -17,6 +17,13 @@ export class GetPlatformsService {
     return this._http.get('/igdb-api/get-platforms')
             .map(res => res.json());
   }
+
+  // Test route
+  getTestData(): Observable<any> {
+    console.log('getTestData');
+    return this._http.get('/igdb-api/record-test')
+    .map(res => res.json());
+  }
   
   getSortedPlatforms(): any {
     console.log('getSortedPlatforms');
