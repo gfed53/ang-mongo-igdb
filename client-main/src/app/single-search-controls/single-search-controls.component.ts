@@ -14,17 +14,17 @@ export class SingleSearchControlsComponent implements OnInit {
   constructor(private getPlatformsService: GetPlatformsService) { }
 
   ngOnInit() {
-    // this.getPlatformsService.getPlatforms()
-    // .subscribe(res => {
-    //   console.log('res', res);
-    //   this.platforms = this.getPlatformsService.sortedByName(res); 
-    //   console.log('this.platforms', this.platforms);
-    // });
-    
-    this.getPlatformsService.getTestData()
+    this.getPlatformsService.getPlatforms()
     .subscribe(res => {
-      console.log('res',res);
-    })
+      console.log('res', res);
+      this.platforms = this.getPlatformsService.sortedByName(res.data); 
+      console.log('this.platforms', this.platforms);
+    });
+    
+    // this.getPlatformsService.getTestData()
+    // .subscribe(res => {
+    //   console.log('res',res);
+    // });
   }
 
 }
