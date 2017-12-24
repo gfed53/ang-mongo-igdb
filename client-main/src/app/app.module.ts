@@ -13,6 +13,8 @@ import { SearchComponent } from './search/search.component';
 import { TodoService } from './services/todo.service';
 import { SearchService } from './services/search.service';
 import { GetPlatformsService } from './services/get-platforms.service';
+import { GetGenresService } from './services/get-genres.service';
+import { UtilitiesService } from './services/utilities.service';
 
 
 import { HeaderComponent } from './header/header.component';
@@ -40,7 +42,13 @@ import { SingleResultComponent } from './single-result/single-result.component';
     FormsModule,
     HttpModule
   ],
-  providers: [TodoService, SearchService, GetPlatformsService],
+  providers: [
+    TodoService, 
+    SearchService, 
+    GetPlatformsService,
+    GetGenresService,
+    UtilitiesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
