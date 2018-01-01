@@ -12,6 +12,7 @@ import { UtilitiesService } from '../services/utilities.service';
 export class SingleSearchControlsComponent implements OnInit {
 
   platforms: any[];
+  genres: any[];
 
   constructor(
     private getPlatformsService: GetPlatformsService,
@@ -32,8 +33,8 @@ export class SingleSearchControlsComponent implements OnInit {
     this.getGenresService.getGenres()
     .subscribe(res => {
       console.log('res', res);
-      this.platforms = this.utilitiesService.sortedByName(res.data); 
-      console.log('this.genres', this.platforms);
+      this.genres = this.utilitiesService.sortedByName(res.data); 
+      console.log('this.genres', this.genres);
     });
   }
 
