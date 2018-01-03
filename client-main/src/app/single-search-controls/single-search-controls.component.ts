@@ -11,8 +11,17 @@ import { UtilitiesService } from '../services/utilities.service';
 })
 export class SingleSearchControlsComponent implements OnInit {
 
-  platforms: any[];
+  platforms: any[] = [
+    {
+      name: 'Test'
+    }
+  ];
   genres: any[];
+
+  //
+  platformsExpanded: boolean;
+  genresExpanded: boolean;
+
 
   constructor(
     private getPlatformsService: GetPlatformsService,
@@ -36,6 +45,16 @@ export class SingleSearchControlsComponent implements OnInit {
       this.genres = this.utilitiesService.sortedByName(res.data); 
       console.log('this.genres', this.genres);
     });
+  }
+
+  togglePlatforms(){
+    this.genresExpanded = false;
+    this.platformsExpanded = !this.platformsExpanded;
+  }
+
+  toggleGenres(){
+    this.platformsExpanded = false;
+    this.genresExpanded = !this.genresExpanded;
   }
 
 }

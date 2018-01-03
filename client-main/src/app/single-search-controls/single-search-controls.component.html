@@ -1,8 +1,18 @@
 <div class="search-controls-container">
     <p class="search-controls-header">Filter By:</p>
     <div class="search-controls-btns-container">
-      <button class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
-      <button class="search-controls-btn">Genre <i class="fa fa-caret-down"></i></button>
+      <button (click)="togglePlatforms()" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
+      <button (click)="toggleGenres()" class="search-controls-btn">Genre <i class="fa fa-caret-down"></i></button>
+    </div>
+    <div class="expanded-container platforms-expanded-container" *ngIf="platformsExpanded">
+      <div *ngFor="let platform of platforms" class="platform-container">
+        {{platform.name}}
+      </div>
+    </div>
+    <div class="expanded-container genres-expanded-container" *ngIf="genresExpanded">
+        <div *ngFor="let genre of genres" class="genre-container">
+          {{genre.name}}
+        </div>
     </div>
 </div>
 
