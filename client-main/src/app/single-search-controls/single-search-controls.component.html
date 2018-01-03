@@ -6,12 +6,14 @@
     </div>
     <div class="expanded-container platforms-expanded-container" *ngIf="platformsExpanded">
       <div *ngFor="let platform of platforms" class="platform-container">
-        {{platform.name}}
+        <label for={{platform.id}}>{{platform.name}}</label>
+        <input type="checkbox" name="platform" value={{platform.id}} />
       </div>
     </div>
     <div class="expanded-container genres-expanded-container" *ngIf="genresExpanded">
         <div *ngFor="let genre of genres" class="genre-container">
-          {{genre.name}}
+          <label for={{genre.id}}>{{genre.name}}</label>
+          <input type="checkbox" name="genre" value={{genre.id}} />
         </div>
     </div>
 </div>
