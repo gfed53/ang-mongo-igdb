@@ -22,6 +22,7 @@ import { SingleGameComponent } from './single-game/single-game.component';
 import { SingleSearchComponent } from './single-search/single-search.component';
 import { SingleSearchControlsComponent } from './single-search-controls/single-search-controls.component';
 import { SingleResultComponent } from './single-result/single-result.component';
+import { RelatedSearchControlsComponent } from './related-search-controls/related-search-controls.component';
 
 
 
@@ -35,7 +36,8 @@ import { SingleResultComponent } from './single-result/single-result.component';
     SingleGameComponent,
     SingleSearchComponent,
     SingleSearchControlsComponent,
-    SingleResultComponent
+    SingleResultComponent,
+    RelatedSearchControlsComponent
   ],
   imports: [
     BrowserModule,

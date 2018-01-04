@@ -5,11 +5,13 @@ import { GetGenresService } from '../services/get-genres.service';
 import { UtilitiesService } from '../services/utilities.service';
 
 @Component({
-  selector: 'app-single-search-controls',
-  templateUrl: './single-search-controls.component.html',
-  styleUrls: ['./single-search-controls.component.scss']
+  selector: 'app-related-search-controls',
+  templateUrl: './related-search-controls.component.html',
+  styleUrls: ['./related-search-controls.component.css']
 })
-export class SingleSearchControlsComponent implements OnInit {
+export class RelatedSearchControlsComponent implements OnInit {
+
+  // Originally copied over content from single-search component since most of this will be used.
 
   platforms: any[] = [
     // {
@@ -65,7 +67,5 @@ export class SingleSearchControlsComponent implements OnInit {
     console.log('platforms now',this.platforms);
     console.log('genres now',this.genres);
   }
-
-  
 
 }
