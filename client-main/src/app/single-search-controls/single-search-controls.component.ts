@@ -12,9 +12,9 @@ import { UtilitiesService } from '../services/utilities.service';
 export class SingleSearchControlsComponent implements OnInit {
 
   platforms: any[] = [
-    {
-      name: 'Test'
-    }
+    // {
+    //   name: 'Test'
+    // }
   ];
   genres: any[];
 
@@ -55,6 +55,25 @@ export class SingleSearchControlsComponent implements OnInit {
   toggleGenres(){
     this.platformsExpanded = false;
     this.genresExpanded = !this.genresExpanded;
+  }
+
+  updateState(item){
+    // If there's no checked property to begin with, set it to true automatically
+    // Else, toggle it
+    item.checked = item.checked ? true : !item.checked;
+
+    console.log('platforms now',this.platforms);
+    console.log('genres now',this.genres);
+
+    // This is to update the view
+    // return item.checked;
+  }
+
+  getChecked(list){
+    let result = list.filter((item)=>{
+
+    })
+    console.log(result);
   }
 
 }
