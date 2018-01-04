@@ -1,6 +1,18 @@
 <div class="search-controls-container">
     <p class="search-controls-header">Filter By:</p>
-    <div class="search-controls-btns-container">
+    <div class="search-control-container">
+      <label for="selected-platform">Platform</label>
+      <select [(ngModel)]="selectedPlatform" id="selected-platform">
+        <option *ngFor="let platform of platforms" [ngValue]="platform">{{platform.name}}</option>
+      </select>
+    </div>
+    <div class="search-control-container">
+      <label for="selected-genre">Genre</label>
+      <select [(ngModel)]="selectedGenre" id="selected-genre">
+        <option *ngFor="let genre of genres" [ngValue]="genre">{{genre.name}}</option>
+      </select>
+    </div>
+    <!-- <div class="search-controls-btns-container">
       <button (click)="togglePlatforms()" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
       <button (click)="toggleGenres()" class="search-controls-btn">Genre <i class="fa fa-caret-down"></i></button>
     </div>
@@ -15,6 +27,6 @@
           <label for={{genre.id}}>{{genre.name}}</label>
           <input type="checkbox" name="genre" value={{genre.id}}  [checked]="genre.checked" (change)="updateState(genre)"/>
         </div>
-    </div>
+    </div> -->
 </div>
 

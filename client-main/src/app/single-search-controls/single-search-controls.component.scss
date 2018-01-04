@@ -2,6 +2,15 @@
   position: relative;
   margin-top: 0.5em;
 
+  .search-control-container {
+    margin-bottom: 0.5em;
+    select {
+      display: block;
+    }
+  }
+
+  
+
   .search-controls-btns-container {
     .search-controls-btn {
       background-color: white;
