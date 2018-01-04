@@ -1,0 +1,22 @@
+.search-controls-container {
+  position: relative;
+  margin-top: 0.5em;
+
+  .search-controls-btns-container {
+    .search-controls-btn {
+      background-color: white;
+      padding: 0.5em;
+    }
+  }
+
+  .expanded-container {
+    position: fixed;
+    margin-top: 1em;
+    padding: 1em;
+    background-color: #b4f1b4;
+    // border-radius: 1em;
+    box-shadow: 1px 1px 8px black;
+    overflow-y: scroll;
+    max-height: 15em;
+  }
+}

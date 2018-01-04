@@ -62,8 +62,8 @@ export class SingleSearchControlsComponent implements OnInit {
     // Else, toggle it
     item.checked = item.checked ? true : !item.checked;
 
-    console.log('platforms now',this.platforms);
-    console.log('genres now',this.genres);
+    // console.log('platforms now',this.platforms);
+    // console.log('genres now',this.genres);
   }
 
   

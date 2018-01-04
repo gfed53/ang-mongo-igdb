@@ -7,7 +7,7 @@ import { UtilitiesService } from '../services/utilities.service';
 @Component({
   selector: 'app-related-search-controls',
   templateUrl: './related-search-controls.component.html',
-  styleUrls: ['./related-search-controls.component.css']
+  styleUrls: ['./related-search-controls.component.scss']
 })
 export class RelatedSearchControlsComponent implements OnInit {
 
@@ -64,8 +64,8 @@ export class RelatedSearchControlsComponent implements OnInit {
     // Else, toggle it
     item.checked = item.checked ? true : !item.checked;
 
-    console.log('platforms now',this.platforms);
-    console.log('genres now',this.genres);
+    // console.log('platforms now',this.platforms);
+    // console.log('genres now',this.genres);
   }
 
 }
