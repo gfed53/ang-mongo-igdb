@@ -18,7 +18,8 @@ export class SingleSearchComponent implements OnInit {
     let _input: any = f.value.search || 'placeholder';
   	this.searchService.getGames(_input)
   	.subscribe(res => {
-  		console.log('res', res);
+      console.log('res', res);
+      this.searchService.updateSingle(res);
   	});
     // return false;
 
