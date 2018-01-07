@@ -33,17 +33,17 @@ export class SingleSearchControlsComponent implements OnInit {
     // Get our list of platforms
     this.getPlatformsService.getPlatforms()
     .subscribe(res => {
-      console.log('res', res);
+      // console.log('res', res);
       this.platforms = this.utilitiesService.sortedByName(res.data); 
-      console.log('this.platforms', this.platforms);
+      // console.log('this.platforms', this.platforms);
     });
     
     // Get our list of genres
     this.getGenresService.getGenres()
     .subscribe(res => {
-      console.log('res', res);
+      // console.log('res', res);
       this.genres = this.utilitiesService.sortedByName(res.data); 
-      console.log('this.genres', this.genres);
+      // console.log('this.genres', this.genres);
     });
   }
 
@@ -62,8 +62,8 @@ export class SingleSearchControlsComponent implements OnInit {
     // Else, toggle it
     item.checked = item.checked ? true : !item.checked;
 
-    console.log('platforms now',this.platforms);
-    console.log('genres now',this.genres);
+    // console.log('platforms now',this.platforms);
+    // console.log('genres now',this.genres);
   }
 
   

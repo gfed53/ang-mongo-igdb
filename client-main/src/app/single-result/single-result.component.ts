@@ -12,7 +12,11 @@ export class SingleResultComponent implements OnInit {
 
   @Input() results: any[];
 
+  currentIndex: number = 0;
   currentResult: any;
+  // hasNext: boolean;
+  // hasPrev: boolean;
+  
 
   constructor() { }
 
@@ -20,7 +24,25 @@ export class SingleResultComponent implements OnInit {
   }
 
   ngOnChanges() {
-    this.currentResult = this.results[0];
+    this.currentResult = this.results[this.currentIndex];
   }
+
+  // hasNext(): boolean {
+
+  // };
+
+  goNext(): void {
+    this.currentIndex = (this.currentIndex + 1) % this.results.length;
+    this.currentResult = this.results[this.currentIndex];
+  }
+
+  goPrev(): void {
+    //TODO: fix, won't work w/o absolute values
+    this.currentIndex = (this.currentIndex - 1) % this.results.length;
+    this.currentResult = this.results[this.currentIndex];
+  }
+  
+
+
 
 }

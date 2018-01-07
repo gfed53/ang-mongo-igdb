@@ -12,7 +12,7 @@ export class GetGenresService {
 
 	//Will use backend to make API requests
 	getGenres(): Observable<any> {
-		console.log('getPlatforms service: getPlatforms');
+		// console.log('getPlatforms service: getPlatforms');
 
     return this._httpClient.get('/igdb-api/get-genres');
             // .map(res => res.json());

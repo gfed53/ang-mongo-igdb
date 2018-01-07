@@ -23,8 +23,8 @@ export class SearchService {
 
 	// Will use backend to make API requests
 	getGames(q): Observable<any> {
-		console.log('search service: getGames');
-		console.log('q', q);
+		// console.log('search service: getGames');
+		// console.log('q', q);
 
 		return this._httpClient.post('/igdb-api/search-games', {
 			_q: q
@@ -33,10 +33,10 @@ export class SearchService {
 
 	// Takes array of items and pushes it to source
 	updateSingle(list: any[]): void {
-		console.log('list',list);
+		// console.log('list',list);
 		this.singleSearchResultsSource.next(list);
-		console.log('source',this.singleSearchResultsSource);
-		console.log('stream',this.singleSearchResults$);
+		// console.log('source',this.singleSearchResultsSource);
+		// console.log('stream',this.singleSearchResults$);
 	}
 
 	updateSingleResults(list: any[]): void {
