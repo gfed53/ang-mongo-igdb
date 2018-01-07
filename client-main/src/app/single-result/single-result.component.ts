@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
 import { SearchService } from '../services/search.service';
+// import {  } from '@angular/core/src/metadata/directives';
 
 @Component({
   selector: 'app-single-result',
@@ -9,9 +10,17 @@ import { SearchService } from '../services/search.service';
 })
 export class SingleResultComponent implements OnInit {
 
+  @Input() results: any[];
+
+  currentResult: any;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    this.currentResult = this.results[0];
   }
 
 }
