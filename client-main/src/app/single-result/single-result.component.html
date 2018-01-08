@@ -2,15 +2,15 @@
   <div class="result-container">
     <p>You've selected...</p>
     <h2>{{currentResult.name}}</h2>
-    <img *ngIf="currentResult.cover.url" [src]="currentResult.cover.url">
+    <img *ngIf="currentResult.cover?.url" [src]="currentResult.cover.url">
     <p>{{currentResult.first_release_date | date}}</p>
     <p>{{currentResult.summary}}</p>
     <div class="row result-nav-container">
       <div class="col-1-2 col-left">
-        <button *ngIf="currentIndex > 0" class="result-next"><i class="fa fa-chevron-left"></i> Previous</button>
+        <button (click)="toggleGame('prev')" *ngIf="currentIndex > 0" class="result-next"><i class="fa fa-chevron-left"></i> Previous</button>
       </div>
       <div class="col-1-2 col-right">
-        <button (click)="goNext()" class="result-next">Next Closest Match <i class="fa fa-chevron-right"></i></button>
+        <button (click)="toggleGame('next')" *ngIf="currentIndex < results.length - 1" class="result-next">Next Closest Match <i class="fa fa-chevron-right"></i></button>
       </div>
       
     </div>

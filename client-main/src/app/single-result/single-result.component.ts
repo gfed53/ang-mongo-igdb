@@ -41,6 +41,18 @@ export class SingleResultComponent implements OnInit {
     this.currentIndex = (this.currentIndex - 1) % this.results.length;
     this.currentResult = this.results[this.currentIndex];
   }
+
+  toggleGame(dir) {
+    if(dir === 'prev'){
+      this.currentIndex = Math.abs(this.currentIndex - 1 + this.results.length) % this.results.length;
+    }
+
+    if(dir === 'next'){
+      this.currentIndex = Math.abs(this.currentIndex + 1 + this.results.length) % this.results.length;
+    }
+    
+    this.currentResult = this.results[this.currentIndex];
+  }
   
 
 
