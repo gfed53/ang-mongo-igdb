@@ -36,7 +36,8 @@ export class SingleSearchControlsComponent implements OnInit {
     this.getPlatformsService.getPlatforms()
     .subscribe(res => {
       // console.log('res', res);
-      this.platforms = this.utilitiesService.sortedByName(res.data); 
+      let sorted = this.utilitiesService.sortedByName(res.data); 
+      this.platforms = this.utilitiesService.postConfig(sorted); 
       // console.log('this.platforms', this.platforms);
     });
     
@@ -44,7 +45,8 @@ export class SingleSearchControlsComponent implements OnInit {
     this.getGenresService.getGenres()
     .subscribe(res => {
       // console.log('res', res);
-      this.genres = this.utilitiesService.sortedByName(res.data); 
+      let sorted = this.utilitiesService.sortedByName(res.data);
+      this.genres = this.utilitiesService.postConfig(sorted); 
       // console.log('this.genres', this.genres);
     });
   }

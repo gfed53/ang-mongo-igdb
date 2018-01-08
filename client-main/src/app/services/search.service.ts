@@ -22,12 +22,19 @@ export class SearchService {
 	}
 
 	// Will use backend to make API requests
-	getGames(q): Observable<any> {
+	getGames(q, filters?): Observable<any> {
 		// console.log('search service: getGames');
 		// console.log('q', q);
+		// let options: any;
+
+		// options.selectedPlatform = filters.selectedPlatform ? filters.selectedPlatform : null;
+		// options.selectedGenre = filters.selectedGenre ? filters.selectedGenre : null;
+
+		
 
 		return this._httpClient.post('/igdb-api/search-games', {
-			_q: q
+			_q: q,
+			_filters: filters
 		});
 	}
 

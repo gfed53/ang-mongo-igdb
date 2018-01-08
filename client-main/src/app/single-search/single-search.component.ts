@@ -12,13 +12,16 @@ export class SingleSearchComponent implements OnInit {
 
   constructor(private searchService: SearchService) { }
 
-  filters: Object;
+  filters: Object = {
+    selectedPlatform: null,
+    selectedGenre: null
+  };
 
-  searchGame(f?: NgForm): void {
+  searchGame(f?: NgForm, filters?): void {
   	console.log('search from search component');
   	console.log('f.value.search', f.value.search);
     let _input: any = f.value.search || 'placeholder';
-  	this.searchService.getGames(_input)
+  	this.searchService.getGames(_input, filters)
   	.subscribe(res => {
       console.log('res', res);
       this.searchService.updateSingle(res);
@@ -33,6 +36,7 @@ export class SingleSearchComponent implements OnInit {
 
   onFiltersChange(event){
     console.log('onFiltersChange',event);
+    this.filters = event; 
   }
 
 }

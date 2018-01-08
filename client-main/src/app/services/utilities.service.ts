@@ -25,4 +25,14 @@ export class UtilitiesService {
     console.log(result);
   }
 
+  // Adds an ANY default option with null value
+  postConfig(arr: any[]): any[] {
+    arr.unshift({
+      name: 'Any',
+      id: null
+    });
+
+    return arr;
+  }
+
 }
