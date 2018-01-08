@@ -12,6 +12,8 @@ export class SingleSearchComponent implements OnInit {
 
   constructor(private searchService: SearchService) { }
 
+  filters: Object;
+
   searchGame(f?: NgForm): void {
   	console.log('search from search component');
   	console.log('f.value.search', f.value.search);
@@ -27,6 +29,10 @@ export class SingleSearchComponent implements OnInit {
 
   ngOnInit() {
     console.log('single-search component onInit');
+  }
+
+  onFiltersChange(event){
+    console.log('onFiltersChange',event);
   }
 
 }
