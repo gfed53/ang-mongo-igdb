@@ -2,7 +2,10 @@
   <div class="result-container">
     <p>You've selected...</p>
     <h2>{{currentResult.name}}</h2>
-    <img *ngIf="currentResult.cover?.url" [src]="currentResult.cover.url">
+    <!-- <img class="img-cover" *ngIf="currentResult.cover?.url" [src]="currentResult.cover.url"> -->
+    <img class="img-cover" *ngIf="currentResult.cover?.url" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{currentResult.cover.cloudinary_id}}.jpg">
+    <!-- <img class="img-screenshot" *ngIf="currentResult.screenshots" [src]="currentResult.screenshots[0].url"> -->
+    <img class="img-screenshot" *ngIf="currentResult.screenshots" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{currentResult.screenshots[0].cloudinary_id}}.jpg">
     <p>{{currentResult.first_release_date | date}}</p>
     <p>{{currentResult.summary}}</p>
     <div class="row result-nav-container">

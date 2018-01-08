@@ -1,3 +1,5 @@
+@import '../../assets/external-styles/variables';
+
 .result-container {
   background-color: #8961bb; 
   box-shadow: 1px 1px 10px black;
@@ -8,18 +10,36 @@
     color: white;
   }
 
- img {
-   width: 12em;
-   box-shadow: 1px 1px 10px black;
- }
+  img {
+    box-shadow: 1px 1px 10px black;
+    margin: 0 1em;
+    max-width: 100%;
+  }
+
+  img.img-cover {
+    // width: 12em;
+  }
+
+  img.img-screenshot {
+    // width: 20em;
+  }
+
 
  .result-nav-container {
    button {
      padding: 0.5em;
    }
 
-   button.result-next {
-    //  float: right;
-   }
+  //  button.result-next {
+  //    float: right;
+  //  }
  }
+}
+
+@media screen and ($desktop-1024){
+  .result-container {
+    img {
+      max-width: 40%;
+    }
+  }
 }
