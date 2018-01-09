@@ -5,8 +5,39 @@
   .search-control-container {
     margin-bottom: 0.5em;
     select {
+      // background: transparent;
       display: block;
+      
     }
+
+    .styled-select {
+      background: url(../../assets/images/arrow-2.png) no-repeat 96% 0;
+      height: 29px;
+      overflow: hidden;
+      width: 19em;
+    }
+
+    .styled-select select {
+      background: transparent;
+      color: white;
+      border: none;
+      font-size: 14px;
+      height: 29px;
+      padding: 5px; /* If you add too much padding here, the options won't show in IE */
+      width: 23em;
+    }
+
+    .semi-square {
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+    }
+
+    .green   { background-color: #03C9A9; }
+
+
+
+
   }
 
   
