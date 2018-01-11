@@ -3,8 +3,15 @@
   margin-top: 0.5em;
 
   .search-controls-btns-container {
+    .search-controls-btn, .search-controls-btn i {
+      color: white;
+    }
+
     .search-controls-btn {
-      background-color: white;
+      -webkit-appearance: none;
+      background-color: #03C9A9;
+      border: none;
+      box-shadow: 1px 1px 2px grey;
       padding: 0.5em;
     }
   }
@@ -13,10 +20,14 @@
     position: fixed;
     margin-top: 1em;
     padding: 1em;
-    background-color: #b4f1b4;
+    background-color: #8961bb;
     // border-radius: 1em;
     box-shadow: 1px 1px 8px black;
     overflow-y: scroll;
     max-height: 15em;
+  }
+
+  .expanded-container div label {
+    color: white;
   }
 }
