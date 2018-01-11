@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
 import { SearchService } from '../services/search.service';
-// import {  } from '@angular/core/src/metadata/directives';
+import { SingleGameService } from '../services/single-game.service';
 
 @Component({
   selector: 'app-single-result',
@@ -18,7 +18,7 @@ export class SingleResultComponent implements OnInit {
   // hasPrev: boolean;
   
 
-  constructor() { }
+  constructor(private singleGameService: SingleGameService) { }
 
   ngOnInit() {
   }
@@ -52,6 +52,9 @@ export class SingleResultComponent implements OnInit {
     }
     
     this.currentResult = this.results[this.currentIndex];
+
+    // Update observable
+    this.singleGameService.updateIndex(this.currentIndex);
   }
   
 

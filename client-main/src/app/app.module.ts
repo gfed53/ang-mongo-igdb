@@ -10,6 +10,7 @@ import { SearchService } from './services/search.service';
 import { GetPlatformsService } from './services/get-platforms.service';
 import { GetGenresService } from './services/get-genres.service';
 import { UtilitiesService } from './services/utilities.service';
+import { SingleGameService } from './services/single-game.service';
 
 // Components
 import { AppComponent } from './app.component';
@@ -47,7 +48,8 @@ import { RelatedSearchComponent } from './related-search/related-search.componen
   ],
   providers: [
     TodoService, 
-    SearchService, 
+    SearchService,
+    SingleGameService,
     GetPlatformsService,
     GetGenresService,
     UtilitiesService
