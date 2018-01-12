@@ -18,11 +18,11 @@ export class UtilitiesService {
     // This utility method will take a list (genres, platforms), filter out all but checked items, and convert array to just array of id's.
     // This method will most likely just be used for getting related results after a search for a single game.
     
-    let result = list
-                  .filter((item) => item.checked)
-                  .map((item) => item.id);
+    return list
+            .filter((item) => item.checked)
+            .map((item) => item.id);
                   
-    console.log(result);
+    // console.log(result);
   }
 
   // Adds an ANY default option with null value
