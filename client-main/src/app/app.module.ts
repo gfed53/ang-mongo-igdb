@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 // Services
 import { TodoService } from './services/todo.service';
-import { SearchService } from './services/search.service';
+import { SingleSearchService } from './services/single-search.service';
 import { GetPlatformsService } from './services/get-platforms.service';
 import { GetGenresService } from './services/get-genres.service';
 import { UtilitiesService } from './services/utilities.service';
@@ -16,7 +16,7 @@ import { SingleGameService } from './services/single-game.service';
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoComponent } from './todo/todo.component';
-import { SearchComponent } from './search/search.component';
+// import { SearchComponent } from './search/search.component';
 import { HeaderComponent } from './header/header.component';
 import { SingleGameComponent } from './single-game/single-game.component';
 import { SingleSearchComponent } from './single-search/single-search.component';
@@ -32,7 +32,7 @@ import { RelatedSearchComponent } from './related-search/related-search.componen
   declarations: [
     AppComponent,
     TodoListComponent,
-    SearchComponent,
+    // SearchComponent,
     HeaderComponent,
     SingleGameComponent,
     SingleSearchComponent,
@@ -48,7 +48,7 @@ import { RelatedSearchComponent } from './related-search/related-search.componen
   ],
   providers: [
     TodoService, 
-    SearchService,
+    SingleSearchService,
     SingleGameService,
     GetPlatformsService,
     GetGenresService,

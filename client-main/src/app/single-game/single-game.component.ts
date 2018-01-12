@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SearchService } from '../services/search.service';
+import { SingleSearchService } from '../services/single-search.service';
+import { SingleGameService } from '../services/single-game.service';
 
 @Component({
   selector: 'app-single-game',
@@ -10,13 +11,13 @@ import { SearchService } from '../services/search.service';
 export class SingleGameComponent implements OnInit {
   
 
-  constructor(private searchService: SearchService) { 
+  constructor(private singleGameService: SingleGameService) { 
   }
 
   singleSearchResults: any[];
 
   ngOnInit() {
-    this.searchService.singleSearchResults$
+    this.singleGameService.singleSearchResults$
     .subscribe(list => {
       console.log('in subscribe, list',list);
       this.singleSearchResults = list;

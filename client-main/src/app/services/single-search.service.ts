@@ -8,7 +8,7 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class SearchService {
+export class SingleSearchService {
 	constructor(private _httpClient: HttpClient){}
 
 	// Use observable source/stream for singleSearchResults
@@ -22,7 +22,7 @@ export class SearchService {
 	}
 
 	// Will use backend to make API requests
-	getGames(q, filters?): Observable<any> {
+	getGame(q, filters?): Observable<any> {
 		// console.log('search service: getGames');
 		// console.log('q', q);
 		// let options: any;
@@ -32,7 +32,7 @@ export class SearchService {
 
 		
 
-		return this._httpClient.post('/igdb-api/search-games', {
+		return this._httpClient.post('/igdb-api/search-game', {
 			_q: q,
 			_filters: filters
 		});

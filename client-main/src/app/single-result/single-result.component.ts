@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
-import { SearchService } from '../services/search.service';
+// import { SingleSearchService } from '../services/single-search.service';
 import { SingleGameService } from '../services/single-game.service';
 
 @Component({

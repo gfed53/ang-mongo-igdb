@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ViewEncapsulation } from '@angular/core';
 
-import { SearchService } from '../services/search.service';
+import { SingleSearchService } from '../services/single-search.service';
 
 @Component({
   selector: 'app-search',
@@ -12,13 +12,13 @@ import { SearchService } from '../services/search.service';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private searchService: SearchService) { }
+  constructor(private singleSearchService: SingleSearchService) { }
 
   searchGame(f?: NgForm): void {
   	console.log('search from search component');
   	console.log('f.value.search', f.value.search);
     let _input: any = f.value.search || 'placeholder';
-  	this.searchService.getGames(_input)
+  	this.singleSearchService.getGame(_input)
   	.subscribe(res => {
   		console.log('res', res);
   	});

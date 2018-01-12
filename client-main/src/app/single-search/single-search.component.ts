@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { SearchService } from '../services/search.service';
+import { SingleSearchService } from '../services/single-search.service';
+import { SingleGameService } from '../services/single-game.service';
 
 @Component({
   selector: 'app-single-search',
@@ -10,7 +11,10 @@ import { SearchService } from '../services/search.service';
 })
 export class SingleSearchComponent implements OnInit {
 
-  constructor(private searchService: SearchService) { }
+  constructor(
+    private singleSearchService: SingleSearchService,
+    private singleGameService: SingleGameService
+  ) { }
 
   filters: Object = {
     selectedPlatform: null,
@@ -21,10 +25,10 @@ export class SingleSearchComponent implements OnInit {
   	console.log('search from search component');
   	console.log('f.value.search', f.value.search);
     let _input: any = f.value.search || 'placeholder';
-  	this.searchService.getGames(_input, filters)
+  	this.singleSearchService.getGame(_input, filters)
   	.subscribe(res => {
       console.log('res', res);
-      this.searchService.updateSingle(res);
+      this.singleGameService.updateSingle(res);
   	});
     // return false;
 
