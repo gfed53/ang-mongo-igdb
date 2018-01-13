@@ -11,6 +11,7 @@ export class RelatedSearchComponent implements OnInit {
 
   @Input() results: any[];
   selectedResult: any;
+  filters: any;
 
   constructor(private singleGameService: SingleGameService) { }
 
@@ -26,6 +27,11 @@ export class RelatedSearchComponent implements OnInit {
       this.selectedResult = this.results[i];
       console.log('this.selectedResult',this.selectedResult);
     });
+  }
+
+  onFiltersChange(event){
+    console.log('onFiltersChange',event);
+    this.filters = event; 
   }
 
 }
