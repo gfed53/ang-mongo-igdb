@@ -21,26 +21,29 @@ export class SingleResultComponent implements OnInit {
   constructor(private singleGameService: SingleGameService) { }
 
   ngOnInit() {
+    this.currentResult = this.results[this.currentIndex];
   }
 
   ngOnChanges() {
-    this.currentResult = this.results[0];
+    // Reset
+    this.currentIndex = 0;
+    this.currentResult = this.results[this.currentIndex];
   }
 
   // hasNext(): boolean {
 
   // };
 
-  goNext(): void {
-    this.currentIndex = (this.currentIndex + 1) % this.results.length;
-    this.currentResult = this.results[this.currentIndex];
-  }
+  // goNext(): void {
+  //   this.currentIndex = (this.currentIndex + 1) % this.results.length;
+  //   this.currentResult = this.results[this.currentIndex];
+  // }
 
-  goPrev(): void {
-    //TODO: fix, won't work w/o absolute values
-    this.currentIndex = (this.currentIndex - 1) % this.results.length;
-    this.currentResult = this.results[this.currentIndex];
-  }
+  // goPrev(): void {
+  //   //TODO: fix, won't work w/o absolute values
+  //   this.currentIndex = (this.currentIndex - 1) % this.results.length;
+  //   this.currentResult = this.results[this.currentIndex];
+  // }
 
   toggleGame(dir) {
     if(dir === 'prev'){
@@ -54,7 +57,7 @@ export class SingleResultComponent implements OnInit {
     this.currentResult = this.results[this.currentIndex];
 
     // Update observable
-    this.singleGameService.updateIndex(this.currentIndex);
+    this.singleGameService.updateGame(this.currentResult);
   }
   
 
