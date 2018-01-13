@@ -28,7 +28,10 @@ export class SingleSearchComponent implements OnInit {
   	this.singleSearchService.getGame(_input, filters)
   	.subscribe(res => {
       console.log('res', res);
-      this.singleGameService.updateSingle(res);
+      // Reset to first game
+      // this.singleGameService.updateIndex(0);
+      this.singleGameService.updateResults(res);
+      this.singleGameService.updateGame(res[0]);
   	});
     // return false;
 

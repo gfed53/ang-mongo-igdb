@@ -15,12 +15,21 @@ export class SingleGameComponent implements OnInit {
   }
 
   singleSearchResults: any[];
+  selectedResult: any;
 
   ngOnInit() {
     this.singleGameService.singleSearchResults$
     .subscribe(list => {
       console.log('in subscribe, list',list);
+
       this.singleSearchResults = list;
+    });
+
+    this.singleGameService.currentGame$
+    .subscribe(game => {
+      console.log('game now',game);
+      this.selectedResult = game;
+      console.log('this.selectedResult',this.selectedResult);
     });
   }
 

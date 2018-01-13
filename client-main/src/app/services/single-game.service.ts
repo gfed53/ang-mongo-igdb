@@ -18,17 +18,21 @@ export class SingleGameService {
   // The index is used to determine the current game selected within singleSearchResults array.
   // Rather than just holding onto a single game, for now we'll continue using observables for both array and index.
   private currentGameIndexSource = new Subject<number>();
-  currentGameIndex$ = this.currentGameIndexSource.asObservable();
+	currentGameIndex$ = this.currentGameIndexSource.asObservable();
+	
+	// An alternate method would be to use an observable for our currently selected game.
+	private currentGameSource = new Subject<any>();
+	currentGame$ = this.currentGameSource.asObservable();
 
-  singleSearchResults: any[];
-  currentGameIndex: number = 0;
+  // singleSearchResults: any[];
+  // currentGameIndex: number = 0;
 
-	get latest() {
-		return this.singleSearchResults;
-	}
+	// get latest() {
+	// 	return this.singleSearchResults;
+	// }
 
 	// Takes array of items and pushes it to source
-	updateSingle(list: any[]): void {
+	updateResults(list: any[]): void {
 		// console.log('list',list);
 		this.singleSearchResultsSource.next(list);
 		// console.log('source',this.singleSearchResultsSource);
@@ -40,13 +44,9 @@ export class SingleGameService {
     this.currentGameIndexSource.next(i);
   }
 
-  // Not using this, right?
-	updateSingleResults(list: any[]): void {
-		this.singleSearchResults = list;
-		// set this.latest(list) {
-
-		// }
-		console.log('this.singleSearchResults',this.singleSearchResults);
+	updateGame(game: any): void {
+		console.log('updateGame, game:',game);
+		this.currentGameSource.next(game);
 	}
 
 }

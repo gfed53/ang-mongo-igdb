@@ -24,7 +24,7 @@ export class SingleResultComponent implements OnInit {
   }
 
   ngOnChanges() {
-    this.currentResult = this.results[this.currentIndex];
+    this.currentResult = this.results[0];
   }
 
   // hasNext(): boolean {
