@@ -7,6 +7,8 @@ import { Observable } from 'rxjs/Observable.js';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
+
+// Service that handles our secondary search for related results based on our base game retrieved during our initial search.
 @Injectable()
 export class RelatedSearchService {
 	constructor(private _httpClient: HttpClient){}

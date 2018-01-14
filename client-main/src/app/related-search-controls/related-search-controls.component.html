@@ -2,7 +2,6 @@
   <p class="search-controls-header">Filter By:</p>
   <div class="search-controls-btns-container">
     <button (click)="togglePlatforms()" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
-    <!-- <button (click)="toggleGenres()" class="search-controls-btn">Genre <i class="fa fa-caret-down"></i></button> -->
   </div>
   <div class="expanded-container platforms-expanded-container" *ngIf="platformsExpanded">
     <div *ngFor="let platform of platforms" class="platform-container">
@@ -10,11 +9,8 @@
       <input type="checkbox" name="platform" value={{platform.id}} [checked]="platform.checked" (change)="updateState(platform)" />
     </div>
   </div>
-  <!-- <div class="expanded-container genres-expanded-container" *ngIf="genresExpanded">
-      <div *ngFor="let genre of genres" class="genre-container">
-        <label for={{genre.id}}>{{genre.name}}</label>
-        <input type="checkbox" name="genre" value={{genre.id}}  [checked]="genre.checked" (change)="updateState(genre)"/>
-      </div>
-  </div> -->
+  <!-- Inputs to specify a range -->
+
+  <!-- Quick Preferences (top-rated, lesser-known) -->
 </div>
 

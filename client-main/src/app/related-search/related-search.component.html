@@ -1,4 +1,7 @@
 <div>
   <h3>Find more games like this!</h3>
   <app-related-search-controls (onFiltersChange)="onFiltersChange($event)"></app-related-search-controls>
+
+  <!-- Get related results -->
+  <button (click)="searchRelated(selected,filters)" class="btn-get-related">Go!</button>
 </div>
