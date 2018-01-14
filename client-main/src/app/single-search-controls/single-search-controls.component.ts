@@ -4,7 +4,6 @@ import { NgModel } from '@angular/forms';
 import { GetPlatformsService } from '../services/get-platforms.service';
 import { GetGenresService } from '../services/get-genres.service';
 import { UtilitiesService } from '../services/utilities.service';
-// import { EventEmitter } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-single-search-controls',
@@ -74,16 +73,16 @@ export class SingleSearchControlsComponent implements OnInit {
     // console.log('genres now',this.genres);
   }
 
-  onPlatformChange(val) {
-    console.log('onPlatformChange',val);
-  }
+  // onPlatformChange(val) {
+  //   // console.log('onPlatformChange',val);
+  // }
 
-  onGenreChange(val) {
-    console.log('onGenreChange',val);
-  }
+  // onGenreChange(val) {
+  //   // console.log('onGenreChange',val);
+  // }
 
   onChange() {
-    console.log('onChange');
+    // console.log('onChange');
     this.filters = {
       selectedPlatform: this.selectedPlatform,
       selectedGenre: this.selectedGenre

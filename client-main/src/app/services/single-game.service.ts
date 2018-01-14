@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable.js';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
+// Service to store data for initially retrieved game (game which will be used as a basis to find related games).
 @Injectable()
 export class SingleGameService {
 	constructor(private _httpClient: HttpClient){}
@@ -45,7 +46,7 @@ export class SingleGameService {
   }
 
 	updateGame(game: any): void {
-		console.log('updateGame, game:',game);
+		// console.log('updateGame, game:',game);
 		this.currentGameSource.next(game);
 	}
 

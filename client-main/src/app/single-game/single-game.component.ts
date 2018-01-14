@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { SingleSearchService } from '../services/single-search.service';
 import { SingleGameService } from '../services/single-game.service';
 
+
 @Component({
   selector: 'app-single-game',
   templateUrl: './single-game.component.html',
@@ -20,16 +21,16 @@ export class SingleGameComponent implements OnInit {
   ngOnInit() {
     this.singleGameService.singleSearchResults$
     .subscribe(list => {
-      console.log('in subscribe, list',list);
+      // console.log('in subscribe, list',list);
 
       this.singleSearchResults = list;
     });
 
     this.singleGameService.currentGame$
     .subscribe(game => {
-      console.log('game now',game);
+      // console.log('game now',game);
       this.selectedResult = game;
-      console.log('this.selectedResult',this.selectedResult);
+      // console.log('this.selectedResult',this.selectedResult);
     });
   }
 

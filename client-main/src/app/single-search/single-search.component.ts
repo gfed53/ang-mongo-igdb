@@ -38,11 +38,11 @@ export class SingleSearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('single-search component onInit');
+    // console.log('single-search component onInit');
   }
 
   onFiltersChange(event){
-    console.log('onFiltersChange',event);
+    // console.log('onFiltersChange',event);
     this.filters = event; 
   }
 

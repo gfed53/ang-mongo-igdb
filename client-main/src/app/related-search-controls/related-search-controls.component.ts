@@ -31,9 +31,9 @@ export class RelatedSearchControlsComponent implements OnInit {
     // Get our list of platforms
     this.getPlatformsService.getPlatforms()
     .subscribe(res => {
-      console.log('res', res);
+      // console.log('res', res);
       this.platforms = this.utilitiesService.sortedByName(res.data); 
-      console.log('this.platforms', this.platforms);
+      // console.log('this.platforms', this.platforms);
     });
   }
 
@@ -53,7 +53,7 @@ export class RelatedSearchControlsComponent implements OnInit {
     // Else, toggle it
     item.checked = item.checked ? !item.checked : true;
 
-    console.log('platforms now',this.platforms);
+    // console.log('platforms now',this.platforms);
 
     const selectedPlatforms = this.utilitiesService.getChecked(this.platforms);
     this.filters = {
@@ -66,7 +66,7 @@ export class RelatedSearchControlsComponent implements OnInit {
   }
 
   onChange() {
-    console.log('onChange');
+    // console.log('onChange');
     const selectedPlatforms = this.utilitiesService.getChecked(this.platforms);
     this.filters = {
       selectedPlatforms

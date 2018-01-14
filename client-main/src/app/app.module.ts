@@ -5,7 +5,7 @@ import { FormsModule, NgModel } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 // Services
-import { TodoService } from './services/todo.service';
+// import { TodoService } from './services/todo.service';
 import { SingleSearchService } from './services/single-search.service';
 import { RelatedSearchService } from './services/related-search.service';
 import { GetPlatformsService } from './services/get-platforms.service';
@@ -16,8 +16,8 @@ import { RelatedGamesService } from './services/related-games.service';
 
 // Components
 import { AppComponent } from './app.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
-import { TodoComponent } from './todo/todo.component';
+// import { TodoListComponent } from './todo-list/todo-list.component';
+// import { TodoComponent } from './todo/todo.component';
 import { HeaderComponent } from './header/header.component';
 import { SingleGameComponent } from './single-game/single-game.component';
 import { SingleSearchComponent } from './single-search/single-search.component';
@@ -32,7 +32,6 @@ import { RelatedSearchComponent } from './related-search/related-search.componen
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListComponent,
     HeaderComponent,
     SingleGameComponent,
     SingleSearchComponent,
@@ -46,8 +45,7 @@ import { RelatedSearchComponent } from './related-search/related-search.componen
     FormsModule,
     HttpClientModule
   ],
-  providers: [
-    TodoService, 
+  providers: [ 
     SingleSearchService,
     RelatedSearchService,
     SingleGameService,

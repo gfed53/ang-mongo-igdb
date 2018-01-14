@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable.js';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
+// Service used to store games related to our initially searched game.
 @Injectable()
 export class RelatedGamesService {
 	constructor(private _httpClient: HttpClient){}
