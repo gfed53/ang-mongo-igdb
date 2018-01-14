@@ -1,12 +1,17 @@
 @import '../../assets/external-styles/variables';
 
-.btn-get-related {
-  -webkit-appearance: none;
-  font-size: 1.25em;
-  color: white;
-  padding: 0.5em;
-  background-color: #03C9A9;
-  border: none;
-  box-shadow: 1px 1px 5px black;
-  width: 6em;
+.related-search-container {
+  margin: 3em 0;
+
+  .btn-get-related {
+    -webkit-appearance: none;
+    font-size: 1.25em;
+    color: white;
+    padding: 0.5em;
+    background-color: #03C9A9;
+    border: none;
+    box-shadow: 1px 1px 5px black;
+    width: 6em;
+  }
 }
+
