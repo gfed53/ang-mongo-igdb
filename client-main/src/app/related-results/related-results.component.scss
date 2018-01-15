@@ -1,0 +1,47 @@
+@import '../../assets/external-styles/variables';
+
+.related-results-container {
+  margin-top: 2em;
+}
+
+.result-container {
+  // background-color: #8961bb; 
+  margin: 1em 0;
+  box-shadow: 1px 1px 10px black;
+  padding: 1em;
+
+  h2, p, a {
+    margin: 1em 0;
+    // color: white;
+  }
+
+  img {
+    box-shadow: 1px 1px 10px black;
+    margin: 0 1em;
+    max-width: 100%;
+  }
+
+  img.img-cover {
+    // width: 12em;
+  }
+
+  img.img-screenshot {
+    // width: 20em;
+  }
+
+
+ .result-nav-container {
+   margin: 1em 0;
+   button {
+     padding: 0.5em;
+   }
+ }
+}
+
+@media screen and ($desktop-1024){
+  .result-container {
+    img {
+      max-width: 40%;
+    }
+  }
+}
