@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
 import { SingleGameService } from '../services/single-game.service';
 import { RelatedSearchService } from '../services/related-search.service';
+import { RelatedGamesService } from '../services/related-games.service';
 
 @Component({
   selector: 'app-related-search',
@@ -16,7 +17,8 @@ export class RelatedSearchComponent implements OnInit {
 
   constructor(
     private singleGameService: SingleGameService,
-    private relatedSearchService: RelatedSearchService
+    private relatedSearchService: RelatedSearchService,
+    private relatedGamesService: RelatedGamesService
   ) { }
 
   ngOnInit() {
@@ -53,6 +55,7 @@ export class RelatedSearchComponent implements OnInit {
     this.relatedSearchService.getRelated(game,filters)
     .subscribe(res => {
       console.log('res',res);
+      this.relatedGamesService.updateResults(res);
     });
 
 

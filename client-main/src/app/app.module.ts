@@ -25,6 +25,7 @@ import { SingleSearchControlsComponent } from './single-search-controls/single-s
 import { SingleResultComponent } from './single-result/single-result.component';
 import { RelatedSearchControlsComponent } from './related-search-controls/related-search-controls.component';
 import { RelatedSearchComponent } from './related-search/related-search.component';
+import { RelatedResultsComponent } from './related-results/related-results.component';
 
 
 
@@ -38,7 +39,8 @@ import { RelatedSearchComponent } from './related-search/related-search.componen
     SingleSearchControlsComponent,
     SingleResultComponent,
     RelatedSearchControlsComponent,
-    RelatedSearchComponent
+    RelatedSearchComponent,
+    RelatedResultsComponent
   ],
   imports: [
     BrowserModule,

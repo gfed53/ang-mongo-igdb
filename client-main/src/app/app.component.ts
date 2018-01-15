@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
+
+import { RelatedGamesService } from './services/related-games.service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +11,19 @@ import { ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  relatedResults = [];
+
+  constructor(
+    private relatedGamesService: RelatedGamesService
+  ) { }
+
+  ngOnInit() {
+    this.relatedGamesService.relatedSearchResults$
+    .subscribe((list) => {
+      this.relatedResults = list;
+      console.log('this.relatedResults',this.relatedResults);
+    });
+  }
+
+
 }

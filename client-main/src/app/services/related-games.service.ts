@@ -16,6 +16,13 @@ export class RelatedGamesService {
 	private relatedSearchResultsSource = new Subject<any>();
 	relatedSearchResults$ = this.relatedSearchResultsSource.asObservable();
 
+	updateResults(list: any[]): void {
+		console.log('list',list);
+		this.relatedSearchResultsSource.next(list);
+		// console.log('source',this.singleSearchResultsSource);
+		// console.log('stream',this.singleSearchResults$);
+  }
+
 
 	
 
