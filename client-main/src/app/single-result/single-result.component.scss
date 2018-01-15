@@ -10,10 +10,13 @@
     color: white;
   }
 
-  img {
-    box-shadow: 1px 1px 10px black;
-    margin: 0 1em;
-    max-width: 100%;
+  .result-images-container {
+    text-align: center;
+    img {
+      box-shadow: 1px 1px 10px black;
+      margin: 1em 0;
+      max-width: 100%;
+    }
   }
 
   img.img-cover {
@@ -33,10 +36,25 @@
  }
 }
 
+@media screen and ($tablet-768) {
+  .result-container {
+    .result-images-container {
+      img {
+        margin: 0 1em;
+        max-width: 40%;
+      }
+    }
+  }
+}
+
 @media screen and ($desktop-1024){
   .result-container {
-    img {
-      max-width: 40%;
+    .result-images-container {
+      text-align: left;
+      img {
+        
+        max-width: 40%;
+      }
     }
   }
 }

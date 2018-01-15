@@ -1,5 +1,8 @@
+@import '../../assets/external-styles/variables';
+
 .search-controls-container {
   position: relative;
+  overflow: hidden;
   margin-top: 0.5em;
 
   .search-control-container {
@@ -10,22 +13,31 @@
       
     }
 
+    // Not being used, caused issues with overflow and grid system.
     .styled-select {
-      background: url(../../assets/images/arrow-2.png) no-repeat 96% 0;
-      box-shadow: 1px 1px 2px grey;
-      height: 29px;
-      overflow: hidden;
-      width: 22em;
+      // background: url(../../assets/images/arrow-2.png) no-repeat 96% 0;
+      // box-shadow: 1px 1px 2px grey;
+      // height: 29px;
+      // overflow: hidden;
+      // width: 22em;
     }
 
     .styled-select select {
-      background: transparent;
+      // background: transparent;
       color: white;
-      border: none;
-      font-size: 14px;
-      height: 29px;
+      // border: none;
+      // font-size: 14px;
+      // height: 29px;
       padding: 5px; /* If you add too much padding here, the options won't show in IE */
-      width: 26em;
+      // width: 26em;
+    }
+
+    //
+
+    select {
+      color: white;
+      height: 1.75em;
+      background-color: $my-green;
     }
 
     .semi-square {
