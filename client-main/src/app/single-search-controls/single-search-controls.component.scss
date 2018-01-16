@@ -2,7 +2,7 @@
 
 .search-controls-container {
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   margin-top: 0.5em;
 
   .search-control-container {
@@ -36,6 +36,7 @@
 
     select {
       color: white;
+      max-width: 100%;
       height: 1.75em;
       background-color: $my-green;
     }
