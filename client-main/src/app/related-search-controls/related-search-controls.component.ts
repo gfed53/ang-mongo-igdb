@@ -17,6 +17,7 @@ export class RelatedSearchControlsComponent implements OnInit {
 
   platforms: any[] = [];
   filters: any;
+  selectedPlatformLabels: string[] = [];
   platformsExpanded: boolean;
   genresExpanded: boolean;
 
@@ -59,6 +60,8 @@ export class RelatedSearchControlsComponent implements OnInit {
     this.filters = {
       selectedPlatforms
     };
+
+    this.selectedPlatformLabels = this.utilitiesService.getCheckedLabels(this.platforms);
 
     console.log('this.filters',this.filters);
     this.onFiltersChange.emit(this.filters);

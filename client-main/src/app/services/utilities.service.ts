@@ -25,6 +25,14 @@ export class UtilitiesService {
     // console.log(result);
   }
 
+  // Similar to getChecked, but instead of grabbing id's, we want to map the name property.
+  // Possible TODO: instead of using two different methods, maybe just use one to return whole platform object.
+  getCheckedLabels(list){
+    return list
+      .filter((item) => item.checked)
+      .map((item) => item.name);
+  }
+
   // Adds an ANY default option with null value
   postConfig(arr: any[]): any[] {
     arr.unshift({

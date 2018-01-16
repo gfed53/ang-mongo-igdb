@@ -2,6 +2,11 @@
   <p class="search-controls-header">Filter By:</p>
   <div class="search-controls-btns-container">
     <button (click)="platformsExpanded = true" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
+    <div class="platform-labels-container" *ngIf="selectedPlatformLabels.length">
+      <span *ngFor="let label of selectedPlatformLabels" class="platform-label">
+        {{label}}
+      </span>
+    </div>
   </div>
   <div class="expanded-container platforms-expanded-container" *ngIf="platformsExpanded">
     <div class="expanded-container-top">
