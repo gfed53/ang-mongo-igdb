@@ -2,7 +2,7 @@
 
 .result-container {
   background-color: #8961bb; 
-  box-shadow: 1px 1px 10px black;
+  box-shadow: $my-box-shadow;
   padding: 1em;
 
   h2, p, a {
@@ -13,7 +13,7 @@
   .result-images-container {
     text-align: center;
     img {
-      box-shadow: 1px 1px 10px black;
+      box-shadow: $my-image-shadow;
       margin: 1em 0;
       max-width: 100%;
     }
@@ -31,9 +31,27 @@
  .result-nav-container {
    margin: 1em 0;
    button {
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     background: white;
+     border: none;
+     box-shadow: $my-button-shadow;
      padding: 0.5em;
    }
  }
+
+ .col-lg-left, .col-lg-right {
+   text-align: center;
+ }
+}
+
+@media screen and ($breakpoint-719) {
+  .col-lg-left {
+    text-align: left;
+  }
+  .col-lg-right {
+    text-align: right;
+  }
 }
 
 @media screen and ($tablet-768) {

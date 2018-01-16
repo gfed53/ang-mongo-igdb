@@ -1,6 +1,7 @@
 // Variables
 
 $breakpoint-442: 'min-width: 442px';
+$breakpoint-719: 'min-width: 719px';
 $tablet-768: 'min-width: 768px';
 
 $breakpoint-973: 'min-width: 973px';
@@ -8,3 +9,8 @@ $desktop-1024: 'min-width: 1024px';
 
 // Colors
 $my-green: #03C9A9;
+
+// Shadows
+$my-button-shadow: 1px 1px 3px black;
+$my-image-shadow: 1px 1px 10px black;
+$my-box-shadow: 1px 1px 10px black;

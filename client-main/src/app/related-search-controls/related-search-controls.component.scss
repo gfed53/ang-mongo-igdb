@@ -20,6 +20,7 @@
 
   .expanded-container {
     position: absolute;
+    z-index: 99;
     top: 0;
     margin-top: 1em;
     padding: 1em;

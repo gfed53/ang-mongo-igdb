@@ -11,10 +11,10 @@
     <p>{{currentResult.summary}}</p>
     <a href={{currentResult.url}} target="_blank">More Info</a>
     <div class="row result-nav-container">
-      <div class="col-6 left">
+      <div class="col-5 col-lg-left">
         <button (click)="toggleGame('prev')" *ngIf="currentIndex > 0" class="result-next"><i class="fa fa-chevron-left"></i> Previous</button>
       </div>
-      <div class="col-6 right">
+      <div class="col-7 col-lg-right">
         <button (click)="toggleGame('next')" *ngIf="currentIndex < results.length - 1" class="result-next">Next Closest Match <i class="fa fa-chevron-right"></i></button>
       </div>
       
