@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { FormsModule, NgModel } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { Ng2PageScrollModule } from 'ng2-page-scroll';
 
 // Services
 // import { TodoService } from './services/todo.service';
@@ -13,6 +14,10 @@ import { GetGenresService } from './services/get-genres.service';
 import { UtilitiesService } from './services/utilities.service';
 import { SingleGameService } from './services/single-game.service';
 import { RelatedGamesService } from './services/related-games.service';
+
+// Directives
+// import { SmoothScrollToDirective, SmoothScrollDirective } from 'ng2-smooth-scroll';
+import { NgxAutoScroll } from "ngx-auto-scroll/lib/ngx-auto-scroll.directive";
 
 // Components
 import { AppComponent } from './app.component';
@@ -40,12 +45,14 @@ import { RelatedResultsComponent } from './related-results/related-results.compo
     SingleResultComponent,
     RelatedSearchControlsComponent,
     RelatedSearchComponent,
-    RelatedResultsComponent
+    RelatedResultsComponent,
+    NgxAutoScroll
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2PageScrollModule
   ],
   providers: [ 
     SingleSearchService,

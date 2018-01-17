@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { PageScrollConfig, PageScrollService, PageScrollInstance } from 'ng2-page-scroll';
+
 
 import { RelatedGamesService } from './services/related-games.service';
 
@@ -14,7 +17,9 @@ export class AppComponent {
   relatedResults = [];
 
   constructor(
-    private relatedGamesService: RelatedGamesService
+    private relatedGamesService: RelatedGamesService,
+    private pageScrollService: PageScrollService, 
+    @Inject(DOCUMENT) private document: any
   ) { }
 
   ngOnInit() {
@@ -22,7 +27,15 @@ export class AppComponent {
     .subscribe((list) => {
       this.relatedResults = list;
       console.log('this.relatedResults',this.relatedResults);
+      // Wait a tick
+      setTimeout(this.scrollDown, 0);
     });
+  }
+
+  scrollDown(): void {
+    console.log('scrollDown running');
+    let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, '#related-results');
+    // this.pageScrollService.start(pageScrollInstance);
   }
 
 
