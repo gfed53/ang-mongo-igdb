@@ -14,7 +14,7 @@ import { RelatedGamesService } from './services/related-games.service';
 })
 export class AppComponent {
   title = 'app';
-  relatedResults = [];
+  relatedResults: any[];
 
   constructor(
     private relatedGamesService: RelatedGamesService,

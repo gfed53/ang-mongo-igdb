@@ -1,11 +1,17 @@
 <div class="related-results-container">
-  <div *ngFor="let result of relatedResults" class="row result-container"> 
-    <h2>{{result.name}}</h2>
-    <div class="col-12">
-      <img class="img-cover" *ngIf="result.cover?.url" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{result.cover.cloudinary_id}}.jpg">
-      <p>{{result.first_release_date | date}}</p>
-      <p>{{result.summary}}</p>
-      <a href={{result.url}} target="_blank">More Info</a>
+  <div *ngIf="relatedResults.length">
+    <div *ngFor="let result of relatedResults" class="row result-container"> 
+      <h2>{{result.name}}</h2>
+      <div class="col-12">
+        <img class="img-cover" *ngIf="result.cover?.url" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{result.cover.cloudinary_id}}.jpg">
+        <p>{{result.first_release_date | date}}</p>
+        <p>{{result.summary}}</p>
+        <a href={{result.url}} target="_blank">More Info</a>
+      </div>
     </div>
+  </div>
+  <div class="zero-state-container" *ngIf="relatedResults.length === 0">
+    <h2>Whoops..</h2>
+    <p>Sorry, we couldn't find anything. Please refine your search.</p>
   </div>
 </div>
