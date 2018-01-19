@@ -5,6 +5,7 @@ import { PageScrollConfig, PageScrollService, PageScrollInstance } from 'ng2-pag
 
 
 import { RelatedGamesService } from './services/related-games.service';
+import { ModalsService } from './services/modals.service';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +16,13 @@ import { RelatedGamesService } from './services/related-games.service';
 export class AppComponent {
   title = 'app';
   relatedResults: any[];
+  inModalState: boolean = false;
 
   constructor(
     private relatedGamesService: RelatedGamesService,
     private pageScrollService: PageScrollService, 
-    @Inject(DOCUMENT) private document: any
+    @Inject(DOCUMENT) private document: any,
+    private modalsService: ModalsService
   ) { 
     PageScrollConfig.defaultDuration = 750;
   }
@@ -32,6 +35,11 @@ export class AppComponent {
       console.log('this.relatedResults',this.relatedResults);
       // Wait a tick
       setTimeout(this.scrollDown.bind(this), 0);
+    });
+
+    this.modalsService.modalState$
+    .subscribe(bool => {
+      this.inModalState = bool;
     });
   }
 

@@ -1,9 +1,12 @@
+// Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { FormsModule, NgModel } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
+import { ModalModule } from "ng2-modal";
+
 
 // Services
 // import { TodoService } from './services/todo.service';
@@ -14,6 +17,7 @@ import { GetGenresService } from './services/get-genres.service';
 import { UtilitiesService } from './services/utilities.service';
 import { SingleGameService } from './services/single-game.service';
 import { RelatedGamesService } from './services/related-games.service';
+import { ModalsService } from './services/modals.service';
 
 // Directives
 // import { SmoothScrollToDirective, SmoothScrollDirective } from 'ng2-smooth-scroll';
@@ -52,7 +56,8 @@ import { RelatedResultsComponent } from './related-results/related-results.compo
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    Ng2PageScrollModule
+    Ng2PageScrollModule,
+    ModalModule
   ],
   providers: [ 
     SingleSearchService,
@@ -61,7 +66,8 @@ import { RelatedResultsComponent } from './related-results/related-results.compo
     RelatedGamesService,
     GetPlatformsService,
     GetGenresService,
-    UtilitiesService
+    UtilitiesService,
+    ModalsService
   ],
   bootstrap: [AppComponent]
 })
