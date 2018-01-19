@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GetPlatformsService } from '../services/get-platforms.service';
 import { GetGenresService } from '../services/get-genres.service';
 import { UtilitiesService } from '../services/utilities.service';
-import { ModalsService } from '../services/modals.service';
+import { ModalService } from '../services/modal.service';
 
 @Component({
   selector: 'app-related-search-controls',
@@ -27,7 +27,7 @@ export class RelatedSearchControlsComponent implements OnInit {
     private getPlatformsService: GetPlatformsService,
     private getGenresService: GetGenresService,
     private utilitiesService: UtilitiesService,
-    private modalsService: ModalsService
+    private modalService: ModalService
   ) { }
 
   ngOnInit() {
@@ -43,7 +43,15 @@ export class RelatedSearchControlsComponent implements OnInit {
   // Passing true will expand. False will collapse.
   togglePlatforms(bool){
       this.platformsExpanded = bool;
-      this.modalsService.updateModalState(bool);
+      // this.modalsService.updateModalState(bool);
+  }
+
+  openModal(id: string){
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string){
+    this.modalService.close(id);
   }
 
   

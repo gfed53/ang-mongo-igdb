@@ -17,7 +17,7 @@ import { GetGenresService } from './services/get-genres.service';
 import { UtilitiesService } from './services/utilities.service';
 import { SingleGameService } from './services/single-game.service';
 import { RelatedGamesService } from './services/related-games.service';
-import { ModalsService } from './services/modals.service';
+import { ModalService } from './services/modal.service';
 
 // Directives
 // import { SmoothScrollToDirective, SmoothScrollDirective } from 'ng2-smooth-scroll';
@@ -35,6 +35,7 @@ import { SingleResultComponent } from './single-result/single-result.component';
 import { RelatedSearchControlsComponent } from './related-search-controls/related-search-controls.component';
 import { RelatedSearchComponent } from './related-search/related-search.component';
 import { RelatedResultsComponent } from './related-results/related-results.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 
@@ -50,14 +51,15 @@ import { RelatedResultsComponent } from './related-results/related-results.compo
     RelatedSearchControlsComponent,
     RelatedSearchComponent,
     RelatedResultsComponent,
-    NgxAutoScroll
+    NgxAutoScroll,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     Ng2PageScrollModule,
-    ModalModule
+    // ModalModule
   ],
   providers: [ 
     SingleSearchService,
@@ -67,7 +69,7 @@ import { RelatedResultsComponent } from './related-results/related-results.compo
     GetPlatformsService,
     GetGenresService,
     UtilitiesService,
-    ModalsService
+    ModalService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,14 +1,14 @@
 <div class="search-controls-container">
   <p class="search-controls-header">Filter By:</p>
   <div class="search-controls-btns-container">
-    <button (click)="togglePlatforms(true)" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
+    <button (click)="openModal('platforms-modal')" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
     <div class="platform-labels-container" *ngIf="selectedPlatformLabels.length">
       <span *ngFor="let label of selectedPlatformLabels" class="platform-label">
         {{label}}
       </span>
     </div>
   </div>
-  <div class="expanded-container platforms-expanded-container" *ngIf="platformsExpanded">
+  <!-- <div class="expanded-container platforms-expanded-container" *ngIf="platformsExpanded">
     <div class="expanded-container-top">
       <button (click)="togglePlatforms(false)"><i class="fa fa-times"></i></button>
     </div>
@@ -16,9 +16,25 @@
       <label for={{platform.id}}>{{platform.name}}</label>
       <input type="checkbox" name="platform" value={{platform.id}} [checked]="platform.checked" (change)="updateState(platform)" />
     </div>
-  </div>
+  </div> -->
+
+  <modal id="platforms-modal" class="">
+    <div class="modal platforms-modal-inner">
+      <!-- <div class="expanded-container-top">
+        <button (click)="closeModal('platforms-modal')"><i class="fa fa-times"></i></button>
+      </div> -->
+      <div class="modal-body">
+        <div *ngFor="let platform of platforms" class="platform-container">
+          <label for={{platform.id}}>{{platform.name}}</label>
+          <input type="checkbox" name="platform" value={{platform.id}} [checked]="platform.checked" (change)="updateState(platform)" />
+        </div>
+      </div>
+    </div>
+    <div class="modal-background"></div>
+  </modal>
+
+
   <!-- Inputs to specify a range -->
 
-  <!-- Quick Preferences (top-rated, lesser-known) -->
 </div>
 
