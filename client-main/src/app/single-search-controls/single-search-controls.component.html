@@ -2,19 +2,15 @@
     <p class="search-controls-header">Filter By:</p>
     <div class="search-control-container">
       <label for="selected-platform">Platform</label>
-      <!-- <div class="styled-select green semi-square"> -->
-        <select (change)="onChange($event.target.value)" [(ngModel)]="selectedPlatform" id="selected-platform">
-          <option *ngFor="let platform of platforms" [ngValue]="platform">{{platform.name}}</option>
-        </select>
-      <!-- </div> -->
+      <select (change)="onChange($event.target.value)" [(ngModel)]="selectedPlatform" id="selected-platform">
+        <option *ngFor="let platform of platforms" [ngValue]="platform">{{platform.name}}</option>
+      </select>
     </div>
     <div class="search-control-container">
       <label for="selected-genre">Genre</label>
-      <!-- <div class="styled-select green semi-square"> -->
-        <select (change)="onChange($event.target.value)"  [(ngModel)]="selectedGenre" id="selected-genre">
-          <option *ngFor="let genre of genres" [ngValue]="genre">{{genre.name}}</option>
-        </select>
-      <!-- </div> -->
+      <select (change)="onChange($event.target.value)"  [(ngModel)]="selectedGenre" id="selected-genre">
+        <option *ngFor="let genre of genres" [ngValue]="genre">{{genre.name}}</option>
+      </select>
     </div>
 </div>
 

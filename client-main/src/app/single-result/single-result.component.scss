@@ -19,15 +19,6 @@
     }
   }
 
-  img.img-cover {
-    // width: 12em;
-  }
-
-  img.img-screenshot {
-    // width: 20em;
-  }
-
-
  .result-nav-container {
    margin: 1em 0;
    button {
@@ -69,8 +60,7 @@
   .result-container {
     .result-images-container {
       text-align: left;
-      img {
-        
+      img {   
         max-width: 40%;
       }
     }

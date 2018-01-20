@@ -8,21 +8,9 @@
       </span>
     </div>
   </div>
-  <!-- <div class="expanded-container platforms-expanded-container" *ngIf="platformsExpanded">
-    <div class="expanded-container-top">
-      <button (click)="togglePlatforms(false)"><i class="fa fa-times"></i></button>
-    </div>
-    <div *ngFor="let platform of platforms" class="platform-container">
-      <label for={{platform.id}}>{{platform.name}}</label>
-      <input type="checkbox" name="platform" value={{platform.id}} [checked]="platform.checked" (change)="updateState(platform)" />
-    </div>
-  </div> -->
 
   <modal id="platforms-modal" class="">
     <div class="modal platforms-modal-inner">
-      <!-- <div class="expanded-container-top">
-        <button (click)="closeModal('platforms-modal')"><i class="fa fa-times"></i></button>
-      </div> -->
       <div class="modal-body">
         <div class="modal-body-header">
           <button (click)="closeModal('platforms-modal')"><i class="fa fa-times"></i></button>

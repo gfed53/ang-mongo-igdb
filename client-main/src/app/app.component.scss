@@ -39,7 +39,6 @@ modal {
           padding: 20px;
           background: #fff;
           /* margin exposes part of the modal background */
-          // margin: 40px;
           margin: 5vh auto;
           max-width: 25em;
           
@@ -68,11 +67,5 @@ body.modal-open {
 }
 
 @media screen and ($tablet-768) {
-  modal {
-    .modal {
-      .modal-body {
-        // margin: 5vh 25vw;
-      }
-    }
-  }
+  
 }
