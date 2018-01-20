@@ -1,6 +1,5 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
-// import { SingleSearchService } from '../services/single-search.service';
 import { SingleGameService } from '../services/single-game.service';
 
 @Component({
@@ -14,8 +13,6 @@ export class SingleResultComponent implements OnInit {
 
   currentIndex: number = 0;
   currentResult: any;
-  // hasNext: boolean;
-  // hasPrev: boolean;
   
 
   constructor(private singleGameService: SingleGameService) { }
@@ -29,21 +26,6 @@ export class SingleResultComponent implements OnInit {
     this.currentIndex = 0;
     this.currentResult = this.results[this.currentIndex];
   }
-
-  // hasNext(): boolean {
-
-  // };
-
-  // goNext(): void {
-  //   this.currentIndex = (this.currentIndex + 1) % this.results.length;
-  //   this.currentResult = this.results[this.currentIndex];
-  // }
-
-  // goPrev(): void {
-  //   //TODO: fix, won't work w/o absolute values
-  //   this.currentIndex = (this.currentIndex - 1) % this.results.length;
-  //   this.currentResult = this.results[this.currentIndex];
-  // }
 
   toggleGame(dir) {
     if(dir === 'prev'){

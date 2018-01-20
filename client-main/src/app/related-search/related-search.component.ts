@@ -50,11 +50,11 @@ export class RelatedSearchComponent implements OnInit {
   }
 
   searchRelated(game, filters?): void {
-    console.log('game',game);
-    console.log('filters',filters);
+    console.log('game',game); // Keep this for now!
+    console.log('filters',filters); // Keep this for now!
     this.relatedSearchService.getRelated(game,filters)
     .subscribe(res => {
-      console.log('res',res);
+      console.log('res',res); // Keep this for now!
       this.relatedGamesService.updateResults(res);
     });
 

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable.js';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
-// Service used to store games related to our initially searched game.
+// Service used to manage modal state.
 @Injectable()
 export class ModalService {
   constructor(){}
@@ -37,16 +37,5 @@ export class ModalService {
       let modal = _.find(this.modals, { id: id });
       modal.close();
   }
-
-	// private modalStateSource = new Subject<any>();
-	// modalState$ = this.modalStateSource.asObservable();
-
-	// updateModalState(bool: boolean): void {
-	// 	console.log('bool',bool);
-	// 	this.modalStateSource.next(bool);
-  // }
-
-
-	
 
 }
