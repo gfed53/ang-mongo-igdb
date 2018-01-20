@@ -33,10 +33,15 @@ modal {
       /* enables scrolling for tall modals */
       overflow: auto;
       .modal-body {
+        .modal-body-header {
+          text-align: right;
+        }
           padding: 20px;
           background: #fff;
           /* margin exposes part of the modal background */
-          margin: 40px;
+          // margin: 40px;
+          margin: 5vh auto;
+          max-width: 25em;
           
       }
 	}
@@ -66,7 +71,7 @@ body.modal-open {
   modal {
     .modal {
       .modal-body {
-        margin: 5vh 25vw;
+        // margin: 5vh 25vw;
       }
     }
   }
