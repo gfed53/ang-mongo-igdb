@@ -5,7 +5,6 @@
       <h2>{{currentResult.name}}</h2>
       <div class="result-images-container">
         <img class="img-cover" *ngIf="currentResult.cover?.url" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{currentResult.cover.cloudinary_id}}.jpg">
-        <!-- <img class="img-screenshot" *ngIf="currentResult.screenshots" [src]="currentResult.screenshots[0].url"> -->
         <img class="img-screenshot" *ngIf="currentResult.screenshots" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{currentResult.screenshots[0].cloudinary_id}}.jpg">
       </div>
       <p>{{currentResult.first_release_date | date}}</p>
@@ -18,7 +17,6 @@
         <div class="col-7 col-lg-right">
           <button (click)="toggleGame('next')" *ngIf="currentIndex < results.length - 1" class="result-next">Next Closest Match <i class="fa fa-chevron-right"></i></button>
         </div>
-        
       </div>
     </div>
     <div *ngIf="!currentResult" class="zero-state-container">

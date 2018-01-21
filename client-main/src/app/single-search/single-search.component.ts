@@ -22,27 +22,20 @@ export class SingleSearchComponent implements OnInit {
   };
 
   searchGame(f?: NgForm, filters?): void {
-  	console.log('search from search component');
-  	console.log('f.value.search', f.value.search);
     let _input: any = f.value.search || 'placeholder';
   	this.singleSearchService.getGame(_input, filters)
   	.subscribe(res => {
-      console.log('res', res);
       // Reset to first game
-      // this.singleGameService.updateIndex(0);
       this.singleGameService.updateResults(res);
       this.singleGameService.updateGame(res[0]);
   	});
-    // return false;
 
   }
 
   ngOnInit() {
-    // console.log('single-search component onInit');
   }
 
   onFiltersChange(event){
-    // console.log('onFiltersChange',event);
     this.filters = event; 
   }
 
