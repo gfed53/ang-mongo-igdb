@@ -1,3 +1,5 @@
+@import '../../assets/external-styles/variables';
+
 input {
 	border: 1px solid lightgrey;
 }
@@ -25,7 +27,7 @@ input[name="search"] {
 	height: 37px;
 	line-height: 37px;
 	padding: 0 20px;
-	background-color: #03C9A9;
+	background-color: $my-green;
 	border: none;
 	border-radius: 0 5px 5px 0;
 	cursor: pointer;

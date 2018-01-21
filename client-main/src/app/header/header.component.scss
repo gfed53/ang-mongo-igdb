@@ -1,5 +1,7 @@
+@import '../../assets/external-styles/variables';
+
 header {
-	background-color: #03C9A9;
+	background-color: $my-green;
 	padding: 2em 1em 1em;
 
 	h1 {

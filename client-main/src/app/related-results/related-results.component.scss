@@ -5,30 +5,17 @@
 }
 
 .result-container {
-  // background-color: #8961bb; 
-  // margin: 1em 0;
   border-bottom: 2px solid black;
   padding: 1em;
 
   h2, p, a {
     margin: 1em 0;
-    // color: white;
   }
 
   img {
-    box-shadow: 1px 1px 10px black;
-    // margin: 0 1em;
+    box-shadow: $my-shadow-10;
     max-width: 75%;
   }
-
-  img.img-cover {
-    // width: 12em;
-  }
-
-  img.img-screenshot {
-    // width: 20em;
-  }
-
 
  .result-nav-container {
    margin: 1em 0;

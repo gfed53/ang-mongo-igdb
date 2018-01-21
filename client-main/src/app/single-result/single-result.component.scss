@@ -1,8 +1,8 @@
 @import '../../assets/external-styles/variables';
 
 .result-container {
-  background-color: #8961bb; 
-  box-shadow: $my-box-shadow;
+  background-color: $my-purple; 
+  box-shadow: $my-shadow-10;
   padding: 1em;
 
   h2, p, a {
@@ -13,7 +13,7 @@
   .result-images-container {
     text-align: center;
     img {
-      box-shadow: $my-image-shadow;
+      box-shadow: $my-shadow-10;
       margin: 1em 0;
       max-width: 100%;
     }
@@ -26,7 +26,7 @@
      -moz-appearance: none;
      background: white;
      border: none;
-     box-shadow: $my-button-shadow;
+     box-shadow: $my-shadow-3;
      padding: 0.5em;
    }
  }
