@@ -52,7 +52,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     open(): void {
         console.log('hello');
         // this.element.css('display','block');
-        this.element.show();
+        this.element.show(200);
         $('body').addClass('modal-open');
     }
  
@@ -61,7 +61,7 @@ export class ModalComponent implements OnInit, OnDestroy {
         // this.element.hide();
         console.log('bye');
         // this.element.css('display','none');
-        this.element.hide();
+        this.element.hide(200);
         $('body').removeClass('modal-open');
     }
 }
