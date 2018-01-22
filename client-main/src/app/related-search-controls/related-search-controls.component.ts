@@ -82,7 +82,7 @@ export class RelatedSearchControlsComponent implements OnInit {
     
     // this.selectedPlatformLabels = this.utilitiesService.getLabels(selectedPlatforms);
 
-    console.log('this.filters',this.filters);
+    // console.log('this.filters',this.filters);
     this.onFiltersChange.emit(this.filters);
     // console.log('genres now',this.genres);
   }
