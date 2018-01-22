@@ -18,7 +18,8 @@ export class RelatedSearchControlsComponent implements OnInit {
 
   platforms: any[] = [];
   filters: any;
-  selectedPlatformLabels: string[] = [];
+  selectedPlatforms = [];
+  // selectedPlatformLabels: string[] = [];
   platformsExpanded: boolean;
   genresExpanded: boolean;
 
@@ -68,12 +69,18 @@ export class RelatedSearchControlsComponent implements OnInit {
 
     // console.log('platforms now',this.platforms);
 
-    const selectedPlatforms = this.utilitiesService.getChecked(this.platforms);
+    // Update list of selected platforms
+    this.selectedPlatforms = this.utilitiesService.getChecked(this.platforms);
+
+    // We only want array of ids when we make API call, so convert.
+    const selectedIDs = this.utilitiesService.getIds(this.selectedPlatforms);
+
     this.filters = {
-      selectedPlatforms
+      selectedIDs
     };
 
-    this.selectedPlatformLabels = this.utilitiesService.getCheckedLabels(this.platforms);
+    
+    // this.selectedPlatformLabels = this.utilitiesService.getLabels(selectedPlatforms);
 
     console.log('this.filters',this.filters);
     this.onFiltersChange.emit(this.filters);

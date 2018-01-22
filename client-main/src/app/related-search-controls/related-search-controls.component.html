@@ -2,9 +2,11 @@
   <p class="search-controls-header">Filter By:</p>
   <div class="search-controls-btns-container">
     <button (click)="openModal('platforms-modal')" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
-    <div class="platform-labels-container" *ngIf="selectedPlatformLabels.length">
-      <span *ngFor="let label of selectedPlatformLabels" class="platform-label">
-        {{label}}
+    <div class="platform-labels-container" *ngIf="selectedPlatforms.length">
+      <span *ngFor="let selected of selectedPlatforms">
+        <span class="platform-label" (click)="console.log(label)">
+          {{selected.name}} <i class="fa fa-times selected-platform-remove"></i>
+        </span>
       </span>
     </div>
   </div>
