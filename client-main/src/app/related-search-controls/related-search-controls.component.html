@@ -3,9 +3,9 @@
   <div class="search-controls-btns-container">
     <button (click)="openModal('platforms-modal')" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
     <div class="platform-labels-container" *ngIf="selectedPlatforms.length">
-      <span *ngFor="let selected of selectedPlatforms">
-        <span class="platform-label" (click)="updateState(selected)">
-          {{selected.name}} <i class="fa fa-times selected-platform-remove"></i>
+      <span *ngFor="let platform of platforms">
+        <span [@fadeInOut]="platform.checked" *ngIf="platform.checked" class="platform-label" (click)="updateState(platform)">
+          {{platform.name}} <i class="fa fa-times selected-platform-remove"></i>
         </span>
       </span>
     </div>

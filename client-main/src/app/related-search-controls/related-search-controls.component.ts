@@ -1,5 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
+
 import { GetPlatformsService } from '../services/get-platforms.service';
 import { GetGenresService } from '../services/get-genres.service';
 import { UtilitiesService } from '../services/utilities.service';
@@ -8,13 +16,23 @@ import { ModalService } from '../services/modal.service';
 @Component({
   selector: 'app-related-search-controls',
   templateUrl: './related-search-controls.component.html',
-  styleUrls: ['./related-search-controls.component.scss']
+  styleUrls: ['./related-search-controls.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      // state('in', style({opacity: 0})),
+      transition('void => *', [
+        style({opacity: 1}),
+        animate(150)
+      ]),
+      transition('* => void', [
+        animate(150, style({opacity: 0}))
+      ])
+    ])
+  ]
 })
 export class RelatedSearchControlsComponent implements OnInit {
 
   @Output() onFiltersChange: EventEmitter<any> = new EventEmitter<any>();
-
-  // Originally copied over content from single-search component since most of this will be used.
 
   platforms: any[] = [];
   filters: any;
@@ -67,7 +85,8 @@ export class RelatedSearchControlsComponent implements OnInit {
     // Else, toggle it
     item.checked = item.checked ? !item.checked : true;
 
-    // console.log('platforms now',this.platforms);
+    // console.log('this.platforms now',this.platforms);
+    // console.log('this.selectedPlatforms',this.selectedPlatforms);
 
     // Update list of selected platforms
     this.selectedPlatforms = this.utilitiesService.getChecked(this.platforms);

@@ -35,7 +35,7 @@ export class SingleSearchControlsComponent implements OnInit {
     .subscribe(res => {
       let sorted = this.utilitiesService.sortedByName(res.data); 
       this.platforms = this.utilitiesService.postConfig(sorted);
-      console.log('this.platforms',this.platforms);
+      // console.log('this.platforms',this.platforms);
       this.selectedPlatform = this.platforms[0];
       this.onChange();
     });
