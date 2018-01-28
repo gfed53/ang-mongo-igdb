@@ -19,13 +19,13 @@ import { ModalService } from '../services/modal.service';
   styleUrls: ['./related-search-controls.component.scss'],
   animations: [
     trigger('fadeInOut', [
-      state('in', style({opacity: 1})),
+      // state('in', style({opacity: 1})),
       transition('void => *', [
         style({opacity: 0}),
-        animate(500)
+        animate(200, style({opacity: 1}))
       ]),
       transition('* => void', [
-        animate(500, style({opacity: 0}))
+        animate(200, style({opacity: 0}))
       ])
     ])
   ]
