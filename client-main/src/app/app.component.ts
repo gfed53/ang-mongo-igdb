@@ -23,13 +23,22 @@ export class AppComponent {
     @Inject(DOCUMENT) private document: any
   ) { 
     PageScrollConfig.defaultDuration = 750;
+    // PageScrollConfig.defaultEasingLogic = {
+    //   ease: (t: number, b: number, c: number, d: number): number => {
+    //     // easeInOutExpo easing
+    //     if (t === 0) return b;
+    //     if (t === d) return b + c;
+    //     if ((t /= d / 2) < 1) return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
+    //     return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
+    //   }
+    // };
     PageScrollConfig.defaultEasingLogic = {
       ease: (t: number, b: number, c: number, d: number): number => {
-        // easeInOutExpo easing
-        if (t === 0) return b;
-        if (t === d) return b + c;
-        if ((t /= d / 2) < 1) return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
-        return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
+        // quadratic ease in/out
+        t /= d/2;
+        if (t < 1) return c/2*t*t + b;
+        t--;
+        return -c/2 * (t*(t-2) - 1) + b;
       }
     };
   }
