@@ -40,6 +40,7 @@ export class RelatedSearchControlsComponent implements OnInit {
   // selectedPlatformLabels: string[] = [];
   platformsExpanded: boolean;
   genresExpanded: boolean;
+  modalIsOpen: boolean = false;
 
 
   constructor(
@@ -66,11 +67,18 @@ export class RelatedSearchControlsComponent implements OnInit {
   }
 
   openModal(id: string){
+    // this.modalIsOpen = true;
     this.modalService.open(id);
   }
 
   closeModal(id: string){
+    console.log('');
+    // this.modalIsOpen = false;
     this.modalService.close(id);
+  }
+
+  onModalChange(bool){
+    this.modalIsOpen = bool;
   }
 
   

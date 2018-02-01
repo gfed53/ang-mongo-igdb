@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, Input, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
 import * as $ from 'jquery';
  
 import { ModalService } from '../services/modal.service';
@@ -12,6 +12,7 @@ import { ModalService } from '../services/modal.service';
  
 export class ModalComponent implements OnInit, OnDestroy {
     @Input() id: string;
+    @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
     private element: JQuery;
  
     constructor(private modalService: ModalService, private el: ElementRef) {
@@ -53,6 +54,7 @@ export class ModalComponent implements OnInit, OnDestroy {
         console.log('hello');
         // this.element.css('display','block');
         this.element.show(200);
+        this.onChange.emit(true);
         $('body').addClass('modal-open');
     }
  
@@ -61,6 +63,7 @@ export class ModalComponent implements OnInit, OnDestroy {
         // this.element.hide();
         console.log('bye');
         // this.element.css('display','none');
+        this.onChange.emit(false);
         this.element.hide(200);
         $('body').removeClass('modal-open');
     }

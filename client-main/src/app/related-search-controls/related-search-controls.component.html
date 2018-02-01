@@ -2,7 +2,7 @@
   <p class="search-controls-header">Filter By:</p>
   <div class="search-controls-btns-container">
     <button (click)="openModal('platforms-modal')" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
-    <div class="platform-labels-container" [@fadeInOut]="selectedPlatforms.length" *ngIf="selectedPlatforms.length">
+    <div class="platform-labels-container" [@fadeInOut]="selectedPlatforms.length" *ngIf="selectedPlatforms.length && !modalIsOpen">
       <span *ngFor="let platform of platforms">
         <span [@fadeInOut]="platform.checked" *ngIf="platform.checked" class="platform-label" (click)="updateState(platform)">
           {{platform.name}} <i class="fa fa-times selected-platform-remove"></i>
@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <modal id="platforms-modal" class="">
+  <modal (onChange)="onModalChange($event)" id="platforms-modal" class="">
     <div class="modal platforms-modal-inner">
       <div class="modal-body">
         <div class="modal-body-header">
