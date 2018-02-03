@@ -10,6 +10,16 @@
       </span>
     </div>
   </div>
+  <div>
+    <div>
+      <label for="">From:</label>
+      <input type="text" [ngModel]="dateRange.after" (ngModelChange)="dateRange.after=$event">
+    </div>
+    <div>
+      <label for="">To:</label>
+      <input type="text" [ngModel]="dateRange.before" (ngModelChange)="dateRange.before=$event">
+    </div>
+  </div>
 
   <modal (onChange)="onModalChange($event)" id="platforms-modal" class="">
     <div class="modal platforms-modal-inner">
