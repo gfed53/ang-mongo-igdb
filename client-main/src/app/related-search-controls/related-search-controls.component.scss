@@ -34,4 +34,14 @@
       margin-left: 0.75em;
     }
   }
+
+  .date-filter-container {
+    margin: 1em 0;
+    label {
+      display: block;
+    }
+    input {
+      line-height: 25px;
+    }
+  }
 }

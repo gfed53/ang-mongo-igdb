@@ -108,10 +108,10 @@ export class RelatedSearchControlsComponent implements OnInit {
     this.selectedPlatforms = this.utilitiesService.getChecked(this.platforms);
 
     // We only want array of ids when we make API call, so convert.
-    const selectedIDs = this.utilitiesService.getIds(this.selectedPlatforms);
+    const selectedPlatformIDs = this.utilitiesService.getIds(this.selectedPlatforms);
 
     this.filters = {
-      selectedIDs
+      selectedPlatformIDs
     };
 
     
