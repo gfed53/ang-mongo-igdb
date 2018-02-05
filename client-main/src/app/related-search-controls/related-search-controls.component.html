@@ -4,20 +4,20 @@
     <button (click)="openModal('platforms-modal')" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
     <div class="platform-labels-container" [@fadeInOut]="selectedPlatforms.length" *ngIf="selectedPlatforms.length && !modalIsOpen">
       <span *ngFor="let platform of platforms">
-        <span [@fadeInOut]="platform.checked" *ngIf="platform.checked" class="platform-label" (click)="updateState(platform)">
+        <span [@fadeInOut]="platform.checked" *ngIf="platform.checked" class="platform-label" (click)="updateSelectedPlatforms(platform)">
           {{platform.name}} <i class="fa fa-times selected-platform-remove"></i>
         </span>
       </span>
     </div>
   </div>
   <div class="date-filter-container">
-    <div>
+    <div class="date-filter">
       <label for="">From:</label>
-      <input type="text" [ngModel]="dateRange.after" (ngModelChange)="dateRange.after=$event">
+      <input type="text" [ngModel]="filters.dateRange.after" (ngModelChange)="filters.dateRange.after=$event" (keyup)="onChange()">
     </div>
-    <div>
+    <div class="date-filter">
       <label for="">To:</label>
-      <input type="text" [ngModel]="dateRange.before" (ngModelChange)="dateRange.before=$event">
+      <input type="text" [ngModel]="filters.dateRange.before" (ngModelChange)="filters.dateRange.before=$event" (keyup)="onChange()">
     </div>
   </div>
 
@@ -29,7 +29,7 @@
         </div>
         <div *ngFor="let platform of platforms" class="platform-container">
           <label for={{platform.id}}>{{platform.name}}</label>
-          <input type="checkbox" name="platform" value={{platform.id}} [checked]="platform.checked" (change)="updateState(platform)" />
+          <input type="checkbox" name="platform" value={{platform.id}} [checked]="platform.checked" (change)="updateSelectedPlatforms(platform)" />
         </div>
       </div>
     </div>

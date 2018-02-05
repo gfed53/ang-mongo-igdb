@@ -35,7 +35,17 @@ export class RelatedSearchControlsComponent implements OnInit {
   @Output() onFiltersChange: EventEmitter<any> = new EventEmitter<any>();
 
   platforms: any[] = [];
-  filters: any;
+  filters: any = {
+    selectedPlatformIDs: [],
+    dateRange: {
+      // Default date, oldes timestamp we can use?
+      // after: '1971-01-01T04:00:00.000Z',
+      // We can just have the user input years (yyyy), or keywords (Now, N/A) and then use moment in the backend to convert where need be. Now will obviously just return Date.now(), N/A for 'after' will convert to '1971-01-01T04:00:00.000Z', and any other year inputs will convert to a date timestamp. dates for after will convert like: 1996 -> '1996-01-01T04:00:00.000Z', and before will be like: 1996 -> '1996-12-31T04:00:00.000Z' as to be as inclusive as possible.
+      // We can also guard against values that don't fit the criteria, but this should be done in the front end so we can give error notifications before the backend even comes into play.
+      after: 'N/A',
+      before: 'Now'
+    }
+  };
   selectedPlatforms = [];
   dateRange = {
     // Default date, oldes timestamp we can use?
@@ -96,38 +106,63 @@ export class RelatedSearchControlsComponent implements OnInit {
   //   this.genresExpanded = !this.genresExpanded;
   // }
 
+  updateSelectedPlatforms(item){
+    // If there's no checked property to begin with, set it to true automatically
+    // Else, toggle it
+    item.checked = item.checked ? !item.checked : true;
+
+    this.onChange();
+    
+    // console.log('this.platforms now',this.platforms);
+    // console.log('this.selectedPlatforms',this.selectedPlatforms);
+  }
+
+  // updateDateFilter(){
+  //   this.filters.dateRange = this.dateRange;
+  // }
+
   updateState(item){
     // If there's no checked property to begin with, set it to true automatically
     // Else, toggle it
     item.checked = item.checked ? !item.checked : true;
 
+    this.onChange();
+
     // console.log('this.platforms now',this.platforms);
     // console.log('this.selectedPlatforms',this.selectedPlatforms);
 
     // Update list of selected platforms
-    this.selectedPlatforms = this.utilitiesService.getChecked(this.platforms);
+    // this.selectedPlatforms = this.utilitiesService.getChecked(this.platforms);
 
     // We only want array of ids when we make API call, so convert.
-    const selectedPlatformIDs = this.utilitiesService.getIds(this.selectedPlatforms);
+    // const selectedPlatformIDs = this.utilitiesService.getIds(this.selectedPlatforms);
 
-    this.filters = {
-      selectedPlatformIDs
-    };
+    // this.filters.selectedPlatformIDs = {
+    //   selectedPlatformIDs
+    // };
 
     
     // this.selectedPlatformLabels = this.utilitiesService.getLabels(selectedPlatforms);
 
     // console.log('this.filters',this.filters);
-    this.onFiltersChange.emit(this.filters);
+    // this.onFiltersChange.emit(this.filters);
     // console.log('genres now',this.genres);
   }
 
   onChange() {
-    // console.log('onChange');
-    const selectedPlatforms = this.utilitiesService.getChecked(this.platforms);
-    this.filters = {
-      selectedPlatforms
-    }
+    console.log('onChange');
+
+    // Update list of selected platforms
+    this.selectedPlatforms = this.utilitiesService.getChecked(this.platforms);
+
+
+    // We only want array of ids when we make API call, so convert.
+    this.filters.selectedPlatformIDs = this.utilitiesService.getIds(this.selectedPlatforms);
+
+    
+    // this.selectedPlatformLabels = this.utilitiesService.getLabels(selectedPlatforms);
+
+    // console.log('this.filters',this.filters);
     this.onFiltersChange.emit(this.filters);
   }
 

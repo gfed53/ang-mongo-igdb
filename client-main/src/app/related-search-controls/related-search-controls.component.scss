@@ -37,9 +37,15 @@
 
   .date-filter-container {
     margin: 1em 0;
+
+    .date-filter {
+      margin-bottom: 0.5em;
+    }
+
     label {
       display: block;
     }
+    
     input {
       line-height: 25px;
     }
