@@ -1,9 +1,9 @@
 <div class="row">
 	<div class="col-5">
 		<app-single-search></app-single-search>
-		<app-related-search *ngIf="selectedResult" [selected]="selectedResult"></app-related-search>
+		<!-- <app-related-search *ngIf="selectedResult" [selected]="selectedResult"></app-related-search> -->
 		<!-- Toggle this when you want to just see the related search section in the view w/o having to make an API call -->
-		<!-- <app-related-search></app-related-search> -->
+		<app-related-search></app-related-search>
 	</div>
 	<div class="col-7">
 		<app-single-result *ngIf="singleSearchResults" [results]="singleSearchResults"></app-single-result>

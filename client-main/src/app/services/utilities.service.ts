@@ -46,4 +46,17 @@ export class UtilitiesService {
     return arr;
   }
 
+  checkDateValid(date){
+    // Empty inputs are valid 
+    if(date === ''){
+      return true;
+    }
+    // Returns true if date is, after converted to an int, somewhere between 1950 and 2019
+    let dateInt = parseInt(date);
+    let latest = new Date().getFullYear() + 1;
+
+    // 
+    return dateInt >= 1950 && dateInt <= latest;
+  }
+
 }

@@ -14,10 +14,12 @@
     <div class="date-filter">
       <label for="">From:</label>
       <input type="text" [ngModel]="filters.dateRange.after" (ngModelChange)="filters.dateRange.after=$event" (keyup)="onChange()" placeholder="e.g. 1990">
+      <span *ngIf="!checkDateValid(filters.dateRange.after)" class="validation-error">Invalid!</span>
     </div>
     <div class="date-filter">
       <label for="">To:</label>
       <input type="text" [ngModel]="filters.dateRange.before" (ngModelChange)="filters.dateRange.before=$event" (keyup)="onChange()" placeholder="e.g. 2001">
+      <span *ngIf="!checkDateValid(filters.dateRange.before)" class="validation-error">Invalid!</span>
     </div>
   </div>
 

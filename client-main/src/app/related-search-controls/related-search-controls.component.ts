@@ -54,6 +54,8 @@ export class RelatedSearchControlsComponent implements OnInit {
   platformsExpanded: boolean;
   genresExpanded: boolean;
   modalIsOpen: boolean = false;
+  checkDateValid: any = this.utilitiesService.checkDateValid;
+
 
 
   constructor(
@@ -93,6 +95,10 @@ export class RelatedSearchControlsComponent implements OnInit {
   onModalChange(bool){
     this.modalIsOpen = bool;
   }
+
+  // checkDateValid(date){
+  //   return this.utilitiesService.checkDateValid(date);
+  // }
 
   
 
