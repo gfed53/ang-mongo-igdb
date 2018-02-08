@@ -38,23 +38,18 @@ export class RelatedSearchControlsComponent implements OnInit {
   filters: any = {
     selectedPlatformIDs: [],
     dateRange: {
-      // Default date, oldes timestamp we can use?
       // after: '1971-01-01T04:00:00.000Z',
-      // We can just have the user input years (yyyy), or keywords (Now, N/A) and then use moment in the backend to convert where need be. Now will obviously just return Date.now(), N/A for 'after' will convert to '1971-01-01T04:00:00.000Z', and any other year inputs will convert to a date timestamp. dates for after will convert like: 1996 -> '1996-01-01T04:00:00.000Z', and before will be like: 1996 -> '1996-12-31T04:00:00.000Z' as to be as inclusive as possible.
+      // We can just have the user input years (yyyy), and then convert in the backend where need be. Null for before will obviously just return Date.now(), Null for 'after' will convert to '1971-01-01T04:00:00.000Z', and any other year inputs will convert to a date timestamp. dates for after will convert like: 1996 -> '1996-01-01T04:00:00.000Z', and before will be like: 1996 -> '1996-12-31T04:00:00.000Z' as to be as inclusive as possible.
       // We can also guard against values that don't fit the criteria, but this should be done in the front end so we can give error notifications before the backend even comes into play.
-      after: 'N/A',
-      before: 'Now'
+      after: '',
+      before: ''
     }
   };
   selectedPlatforms = [];
-  dateRange = {
-    // Default date, oldes timestamp we can use?
-    // after: '1971-01-01T04:00:00.000Z',
-    // We can just have the user input years (yyyy), or keywords (Now, N/A) and then use moment in the backend to convert where need be. Now will obviously just return Date.now(), N/A for 'after' will convert to '1971-01-01T04:00:00.000Z', and any other year inputs will convert to a date timestamp. dates for after will convert like: 1996 -> '1996-01-01T04:00:00.000Z', and before will be like: 1996 -> '1996-12-31T04:00:00.000Z' as to be as inclusive as possible.
-    // We can also guard against values that don't fit the criteria, but this should be done in the front end so we can give error notifications before the backend even comes into play.
-    after: 'N/A',
-    before: 'Now'
-  }
+  // dateRange = {
+  //   after: '',
+  //   before: ''
+  // }
   // selectedPlatformLabels: string[] = [];
   platformsExpanded: boolean;
   genresExpanded: boolean;
