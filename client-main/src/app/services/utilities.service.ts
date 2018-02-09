@@ -51,7 +51,7 @@ export class UtilitiesService {
     if(date === ''){
       return true;
     }
-    // Returns true if date is, after converted to an int, somewhere between 1950 and 2019
+    // Returns true if date is, after converted to an int, somewhere between 1950 and current year + 1
     let dateInt = parseInt(date);
     let latest = new Date().getFullYear() + 1;
 
