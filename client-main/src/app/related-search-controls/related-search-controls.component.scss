@@ -50,4 +50,11 @@
       line-height: 25px;
     }
   }
+
+  .validation-error {
+    background-color: #ff6666;
+    padding: 0.3em;
+    border-radius: 5px;
+    color: white;
+  }
 }

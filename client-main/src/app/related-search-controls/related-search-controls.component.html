@@ -13,16 +13,38 @@
   <div class="date-filter-container">
     <div class="date-filter">
       <label for="">From:</label>
-      <input type="text" [ngModel]="filters.dateRange.after" (ngModelChange)="filters.dateRange.after=$event" (keyup)="onChange()" placeholder="e.g. 1990">
-      <span *ngIf="!checkDateValid(filters.dateRange.after)" class="validation-error">Invalid!</span>
+      <input 
+      type="text" 
+      [(ngModel)]="filters.dateRange.after" 
+      [ngModelOptions]="{updateOn: 'blur'}" 
+      #after="ngModel" 
+      (keyup)="onChange()" 
+      placeholder="e.g. 1990">
+      <span 
+      *ngIf="(after.dirty && after.touched) && !checkDateValid(filters.dateRange.after)"
+      [@fadeInOut]="(after.dirty && after.touched) && !checkDateValid(filters.dateRange.after)"
+      class="validation-error">
+        Invalid!
+      </span>
     </div>
     <div class="date-filter">
       <label for="">To:</label>
-      <input type="text" [ngModel]="filters.dateRange.before" (ngModelChange)="filters.dateRange.before=$event" (keyup)="onChange()" placeholder="e.g. 2001">
-      <span *ngIf="!checkDateValid(filters.dateRange.before)" class="validation-error">Invalid!</span>
+      <input 
+      type="text" 
+      [(ngModel)]="filters.dateRange.before" 
+      [ngModelOptions]="{updateOn: 'blur'}" 
+      #before="ngModel" 
+      (keyup)="onChange()" 
+      placeholder="e.g. 2001">
+      <span 
+      *ngIf="(before.dirty && before.touched) && !checkDateValid(filters.dateRange.before)"
+      [@fadeInOut]="(before.dirty && before.touched) && !checkDateValid(filters.dateRange.before)"
+      class="validation-error">
+        Invalid!
+      </span>
     </div>
   </div>
-
+  <!-- (ngModelChange)="filters.dateRange.after=$event" -->
   <modal (onChange)="onModalChange($event)" id="platforms-modal" class="">
     <div class="modal platforms-modal-inner">
       <div class="modal-body">
