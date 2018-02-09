@@ -12,7 +12,13 @@ import { UtilitiesService } from '../services/utilities.service';
 })
 export class SingleSearchControlsComponent implements OnInit {
 
-  platforms: any[] = [];
+  platforms: any[];
+  //  = [
+  //   {
+  //     name: 'Any',
+  //     id: null
+  //   }
+  // ];
   genres: any[];
   selectedPlatform: any;
   selectedGenre: any;
