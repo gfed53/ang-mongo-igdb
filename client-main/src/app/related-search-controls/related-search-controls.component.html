@@ -12,11 +12,12 @@
   </div>
   <div class="date-filter-container">
     <div class="date-filter">
-      <label for="">From:</label>
+      <label for="after">From:</label>
       <input 
       type="text" 
       [(ngModel)]="filters.dateRange.after" 
       [ngModelOptions]="{updateOn: 'blur'}" 
+      name="after"
       #after="ngModel" 
       (keyup)="onChange()" 
       placeholder="e.g. 1990">
@@ -28,11 +29,12 @@
       </span>
     </div>
     <div class="date-filter">
-      <label for="">To:</label>
+      <label for="before">To:</label>
       <input 
       type="text" 
       [(ngModel)]="filters.dateRange.before" 
-      [ngModelOptions]="{updateOn: 'blur'}" 
+      [ngModelOptions]="{updateOn: 'blur'}"
+      name="before"
       #before="ngModel" 
       (keyup)="onChange()" 
       placeholder="e.g. 2001">
@@ -44,7 +46,6 @@
       </span>
     </div>
   </div>
-  <!-- (ngModelChange)="filters.dateRange.after=$event" -->
   <modal (onChange)="onModalChange($event)" id="platforms-modal" class="">
     <div class="modal platforms-modal-inner">
       <div class="modal-body">
@@ -59,9 +60,5 @@
     </div>
     <div class="modal-background"></div>
   </modal>
-
-
-  <!-- Inputs to specify a range -->
-
 </div>
 
