@@ -1,4 +1,5 @@
 @import '../../assets/external-styles/variables';
+@import '../../assets/external-styles/general';
 
 .result-container {
   background-color: $my-purple; 
@@ -11,6 +12,7 @@
   }
 
   .result-images-container {
+    transition: 250ms ease-in all;
     text-align: center;
     img {
       box-shadow: $my-shadow-10;

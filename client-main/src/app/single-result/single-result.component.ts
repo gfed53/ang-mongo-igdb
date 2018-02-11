@@ -13,6 +13,9 @@ export class SingleResultComponent implements OnInit {
 
   currentIndex: number = 0;
   currentResult: any;
+
+  // showImages: boolean = false;
+  imagesLoaded: number = 0;
   
 
   constructor(private singleGameService: SingleGameService) { }
@@ -35,11 +38,18 @@ export class SingleResultComponent implements OnInit {
     if(dir === 'next'){
       this.currentIndex = Math.abs(this.currentIndex + 1 + this.results.length) % this.results.length;
     }
+
+    this.imagesLoaded = 0;
     
     this.currentResult = this.results[this.currentIndex];
 
     // Update observable
     this.singleGameService.updateGame(this.currentResult);
+  }
+
+  onImageLoad() {
+    this.imagesLoaded += 1;
+    console.log('this.imagesLoaded',this.imagesLoaded);
   }
   
 

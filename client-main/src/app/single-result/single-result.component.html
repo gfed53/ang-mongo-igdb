@@ -3,9 +3,10 @@
     <div *ngIf="currentResult">
       <p>You've selected...</p>
       <h2>{{currentResult.name}}</h2>
-      <div class="result-images-container">
-        <img class="img-cover" *ngIf="currentResult.cover?.url" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{currentResult.cover.cloudinary_id}}.jpg">
-        <img class="img-screenshot" *ngIf="currentResult.screenshots" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{currentResult.screenshots[0].cloudinary_id}}.jpg">
+      <!-- *ngIf="imagesLoaded === 2" -->
+      <div [ngClass]="{'hidden' : imagesLoaded < 2}" class="result-images-container">
+        <img class="img-cover" *ngIf="currentResult.cover?.url" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{currentResult.cover.cloudinary_id}}.jpg" (load)="onImageLoad()">
+        <img class="img-screenshot" *ngIf="currentResult.screenshots" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{currentResult.screenshots[0].cloudinary_id}}.jpg" (load)="onImageLoad()">
       </div>
       <p>{{currentResult.first_release_date | date}}</p>
       <p>{{currentResult.summary}}</p>
