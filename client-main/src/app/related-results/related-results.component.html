@@ -3,7 +3,15 @@
     <div *ngFor="let result of relatedResults" class="row result-container"> 
       <h2>{{result.name}}</h2>
       <div class="col-12">
-        <img class="img-cover" *ngIf="result.cover?.url" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{result.cover.cloudinary_id}}.jpg">
+        <div [ngClass]="{'hidden' : !result.imageLoaded}" class="image-container">
+          
+          <img 
+          class="img-cover" 
+          *ngIf="result.cover?.url" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{result.cover.cloudinary_id}}.jpg"
+          (load)="onImageLoad(result)"
+          >
+
+        </div>
         <p>{{result.first_release_date | date}}</p>
         <p>{{result.summary}}</p>
         <a href={{result.url}} target="_blank">More Info</a>

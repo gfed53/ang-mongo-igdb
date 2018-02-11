@@ -17,4 +17,9 @@ export class RelatedResultsComponent implements OnInit {
   ngOnChanges() {
   }
 
+  // For game item, sets value on item object indicating that image has been loaded
+  onImageLoad(item) {
+    item.imageLoaded = true;
+  }
+
 }

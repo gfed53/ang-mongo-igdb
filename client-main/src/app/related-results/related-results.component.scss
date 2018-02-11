@@ -1,4 +1,5 @@
 @import '../../assets/external-styles/variables';
+@import '../../assets/external-styles/general';
 
 .related-results-container {
   margin-top: 2em;
@@ -23,6 +24,10 @@
      padding: 0.5em;
    }
  }
+}
+
+.image-container {
+  transition: 250ms ease-in all;
 }
 
 .zero-state-container {
