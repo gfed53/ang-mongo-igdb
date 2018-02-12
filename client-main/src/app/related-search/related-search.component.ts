@@ -9,10 +9,9 @@ import { RelatedGamesService } from '../services/related-games.service';
   templateUrl: './related-search.component.html',
   styleUrls: ['./related-search.component.scss']
 })
-export class RelatedSearchComponent implements OnInit {
+export class RelatedSearchComponent {
 
   @Input() selected: any;
-  // selectedResult: any;
   filters: any;
 
   constructor(
@@ -21,31 +20,12 @@ export class RelatedSearchComponent implements OnInit {
     private relatedGamesService: RelatedGamesService
   ) { }
 
-  ngOnInit() {
-
-    // this.singleGameService.singleSearchResults$
-    // .subscribe(results => {
-    //   console.log('results',results);
-    //   this.results = results;
-    //   this.selectedResult = this.results[0];
-    //   console.log('this.selectedResult, after new game',this.selectedResult);
-    // });
-
-    // Subscribe to game update
-    // this.singleGameService.currentGame$
-    // .subscribe(game => {
-    //   console.log('game now',game);
-    //   this.selectedResult = game;
-    //   console.log('this.selectedResult',this.selectedResult);
-    // });
-  }
-
   ngOnChanges() {
-    console.log('this.selected now', this.selected);
+    console.log('this.selected now', this.selected); // Keep this for now!
   }
 
   onFiltersChange(event){
-    console.log('onFiltersChange',event);
+    console.log('onFiltersChange',event); // Keep this for now!
     this.filters = event; 
   }
 

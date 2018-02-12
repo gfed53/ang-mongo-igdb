@@ -47,8 +47,6 @@ export class RelatedSearchControlsComponent implements OnInit {
   modalIsOpen: boolean = false;
   checkDateValid: any = this.utilitiesService.checkDateValid;
 
-
-
   constructor(
     private getPlatformsService: GetPlatformsService,
     private getGenresService: GetGenresService,
@@ -60,25 +58,15 @@ export class RelatedSearchControlsComponent implements OnInit {
     // Get our list of platforms
     this.getPlatformsService.getPlatforms()
     .subscribe(res => {
-      // console.log('res', res);
-      this.platforms = this.utilitiesService.sortedByName(res.data); 
-      // console.log('this.platforms', this.platforms);
+      this.platforms = this.utilitiesService.sortedByName(res.data);
     });
   }
 
-  // Passing true will expand. False will collapse.
-  togglePlatforms(bool){
-      this.platformsExpanded = bool;
-  }
-
   openModal(id: string){
-    // this.modalIsOpen = true;
     this.modalService.open(id);
   }
 
   closeModal(id: string){
-    console.log('');
-    // this.modalIsOpen = false;
     this.modalService.close(id);
   }
 
@@ -86,26 +74,10 @@ export class RelatedSearchControlsComponent implements OnInit {
     this.modalIsOpen = bool;
   }
 
-  // checkDateValid(date){
-  //   return this.utilitiesService.checkDateValid(date);
-  // }
-
   updateSelectedPlatforms(item){
     // If there's no checked property to begin with, set it to true automatically
     // Else, toggle it
     item.checked = item.checked ? !item.checked : true;
-
-    this.onChange();
-    
-    // console.log('this.platforms now',this.platforms);
-    // console.log('this.selectedPlatforms',this.selectedPlatforms);
-  }
-
-  updateState(item){
-    // If there's no checked property to begin with, set it to true automatically
-    // Else, toggle it
-    item.checked = item.checked ? !item.checked : true;
-
     this.onChange();
   }
 
