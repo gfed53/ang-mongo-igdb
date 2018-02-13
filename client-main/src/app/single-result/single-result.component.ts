@@ -27,6 +27,8 @@ export class SingleResultComponent implements OnInit {
   ngOnChanges() {
     // Reset
     this.currentIndex = 0;
+    this.imagesLoaded = 0;
+    
     this.currentResult = this.results[this.currentIndex];
   }
 

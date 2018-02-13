@@ -27,10 +27,11 @@ export class RelatedResultsComponent implements OnInit {
     item.imageLoaded = true;
   }
 
-  // Use a related search result as the basis 
+  // Use a related search result as the new basis 
   updateSingleResult(item){
     let a = [item];
     this.singleGameService.updateResults(a);
+    this.singleGameService.updateGame(item);
   }
 
 }
