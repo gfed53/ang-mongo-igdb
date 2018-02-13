@@ -24,11 +24,19 @@
      padding: 0.5em;
    }
  }
+ .image-container {
+    transition: 250ms ease-in all;
+  }
+
+  .btn {
+    -webkit-appearance: none;
+    padding: 0.5em;
+    border: 1px solid lightgrey;
+  }
+  
 }
 
-.image-container {
-  transition: 250ms ease-in all;
-}
+
 
 .zero-state-container {
   margin: 4em 0;
