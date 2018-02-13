@@ -18,22 +18,12 @@ export class UtilitiesService {
     
     return list
             .filter((item) => item.checked);
-            // .map((item) => item.id);
-                  
-    // console.log(result);
   }
 
   // This utility method will take a list (genres, platforms) and convert array to just array of id's.
   getIds(list){
     return list
             .map((item) => item.id);
-  }
-
-  // Similar to getChecked, but instead of grabbing id's, we want to map the name property.
-  // Possible TODO: instead of using two different methods, maybe just use one to return whole platform object.
-  getLabels(list){
-    return list
-            .map((item) => item.name);
   }
 
   // Adds an ANY default option with null value

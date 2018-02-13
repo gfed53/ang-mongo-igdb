@@ -13,21 +13,12 @@ import { UtilitiesService } from '../services/utilities.service';
 export class SingleSearchControlsComponent implements OnInit {
 
   platforms: any[];
-  //  = [
-  //   {
-  //     name: 'Any',
-  //     id: null
-  //   }
-  // ];
   genres: any[];
   selectedPlatform: any;
   selectedGenre: any;
   filters: Object;
 
   @Output() onFiltersChange: EventEmitter<any> = new EventEmitter<any>();
-  
-  
-
 
   constructor(
     private getPlatformsService: GetPlatformsService,
@@ -42,7 +33,6 @@ export class SingleSearchControlsComponent implements OnInit {
       console.log('res',res);
       let sorted = this.utilitiesService.sortedByName(res.data); 
       this.platforms = this.utilitiesService.postConfig(sorted);
-      // console.log('this.platforms',this.platforms);
       this.selectedPlatform = this.platforms[0];
       this.onChange();
     });
@@ -57,12 +47,6 @@ export class SingleSearchControlsComponent implements OnInit {
     });
   }
 
-  updateState(item){
-    // If there's no checked property to begin with, set it to true automatically
-    // Else, toggle it
-    item.checked = item.checked ? true : !item.checked;
-  }
-
   onChange() {
     this.filters = {
       selectedPlatform: this.selectedPlatform,
@@ -70,7 +54,5 @@ export class SingleSearchControlsComponent implements OnInit {
     }
     this.onFiltersChange.emit(this.filters);
   }
-
-  
 
 }

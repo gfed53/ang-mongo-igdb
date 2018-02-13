@@ -45,7 +45,7 @@ export class RelatedSearchControlsComponent implements OnInit {
   platformsExpanded: boolean;
   genresExpanded: boolean;
   modalIsOpen: boolean = false;
-  checkDateValid: any = this.utilitiesService.checkDateValid;
+  checkDateValid = this.utilitiesService.checkDateValid;
 
   constructor(
     private getPlatformsService: GetPlatformsService,
