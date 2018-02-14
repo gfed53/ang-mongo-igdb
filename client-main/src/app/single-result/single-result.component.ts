@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
 import { SingleGameService } from '../services/single-game.service';
+import { UtilitiesService } from '../services/utilities.service';
 
 @Component({
   selector: 'app-single-result',
@@ -14,11 +15,13 @@ export class SingleResultComponent implements OnInit {
   currentIndex: number = 0;
   currentResult: any;
 
-  // showImages: boolean = false;
-  imagesLoaded: boolean = false;
+  onImageLoad = this.utilitiesService.onImageLoad;
   
 
-  constructor(private singleGameService: SingleGameService) { }
+  constructor(
+    private singleGameService: SingleGameService,
+    private utilitiesService: UtilitiesService
+  ) { }
 
   ngOnInit() {
     this.currentResult = this.results[this.currentIndex];
@@ -27,7 +30,6 @@ export class SingleResultComponent implements OnInit {
   ngOnChanges() {
     // Reset
     this.currentIndex = 0;
-    this.imagesLoaded = false;
     
     this.currentResult = this.results[this.currentIndex];
   }
@@ -40,32 +42,11 @@ export class SingleResultComponent implements OnInit {
     if(dir === 'next'){
       this.currentIndex = Math.abs(this.currentIndex + 1 + this.results.length) % this.results.length;
     }
-
-    this.imagesLoaded = false;
     
     this.currentResult = this.results[this.currentIndex];
 
     // Update observable
     this.singleGameService.updateGame(this.currentResult);
-  }
-
-  onCoverImageLoad(item) {
-    item = true;
-    console.log('this.imagesLoaded',this.imagesLoaded);
-  }
-
-  onScreenImageLoad(item){
-
-  }
-
-  onImageLoad(item, type){
-    if(type === 'screenshot'){
-      item.screenshots.loaded = true;
-    } else if(type === 'cover'){
-      item.cover.loaded = true;
-    }
-
-    console.log('changed item:',item);
   }
   
 

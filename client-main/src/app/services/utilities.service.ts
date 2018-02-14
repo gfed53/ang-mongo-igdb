@@ -49,4 +49,15 @@ export class UtilitiesService {
     return dateInt >= 1950 && dateInt <= latest;
   }
 
+  // Single Result: change properties of result object on load event, which ngClass checks for in order to fade in image at appropriate time
+  onImageLoad(item, type){
+    if(type === 'screenshot'){
+      item.screenshots.loaded = true;
+    } else if(type === 'cover'){
+      item.cover.loaded = true;
+    }
+
+    console.log('changed item:',item);
+  }
+
 }
