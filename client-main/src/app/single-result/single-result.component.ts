@@ -15,7 +15,7 @@ export class SingleResultComponent implements OnInit {
   currentResult: any;
 
   // showImages: boolean = false;
-  imagesLoaded: number = 0;
+  imagesLoaded: boolean = false;
   
 
   constructor(private singleGameService: SingleGameService) { }
@@ -27,7 +27,7 @@ export class SingleResultComponent implements OnInit {
   ngOnChanges() {
     // Reset
     this.currentIndex = 0;
-    this.imagesLoaded = 0;
+    this.imagesLoaded = false;
     
     this.currentResult = this.results[this.currentIndex];
   }
@@ -41,7 +41,7 @@ export class SingleResultComponent implements OnInit {
       this.currentIndex = Math.abs(this.currentIndex + 1 + this.results.length) % this.results.length;
     }
 
-    this.imagesLoaded = 0;
+    this.imagesLoaded = false;
     
     this.currentResult = this.results[this.currentIndex];
 
@@ -49,9 +49,23 @@ export class SingleResultComponent implements OnInit {
     this.singleGameService.updateGame(this.currentResult);
   }
 
-  onImageLoad() {
-    this.imagesLoaded += 1;
+  onCoverImageLoad(item) {
+    item = true;
     console.log('this.imagesLoaded',this.imagesLoaded);
+  }
+
+  onScreenImageLoad(item){
+
+  }
+
+  onImageLoad(item, type){
+    if(type === 'screenshot'){
+      item.screenshots.loaded = true;
+    } else if(type === 'cover'){
+      item.cover.loaded = true;
+    }
+
+    console.log('changed item:',item);
   }
   
 
