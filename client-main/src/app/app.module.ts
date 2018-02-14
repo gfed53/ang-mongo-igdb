@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 // Services
 import { SingleSearchService } from './services/single-search.service';
@@ -51,7 +52,8 @@ import { ModalComponent } from './modal/modal.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    Ng2PageScrollModule
+    Ng2PageScrollModule,
+    LazyLoadImageModule
   ],
   providers: [ 
     SingleSearchService,
