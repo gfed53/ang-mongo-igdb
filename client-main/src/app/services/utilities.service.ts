@@ -36,7 +36,7 @@ export class UtilitiesService {
     return arr;
   }
 
-  checkDateValid(date){
+  checkDateValid(date): boolean{
     // Empty inputs are valid 
     if(date === ''){
       return true;
@@ -50,7 +50,7 @@ export class UtilitiesService {
   }
 
   // Single Result: change properties of result object on load event, which ngClass checks for in order to fade in image at appropriate time
-  onImageLoad(item, type){
+  onImageLoad(item: any, type: string){
     if(type === 'screenshot'){
       item.screenshots.loaded = true;
     } else if(type === 'cover'){
@@ -58,6 +58,17 @@ export class UtilitiesService {
     }
 
     console.log('changed item:',item);
+  }
+
+  // Related Results: dynamically create image links and attach them to item object
+  setImageLinks(a: any[]){
+    return a.map((item)=> {
+      if(item.cover){
+        item.cover.realUrl = `https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/${item.cover.cloudinary_id}.jpg`;
+      }
+
+      return item;
+    })
   }
 
 }

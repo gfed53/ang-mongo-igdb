@@ -4,10 +4,15 @@
       <h2>{{result.name}}</h2>
       <div class="col-12">
         <div [ngClass]="{'hidden' : !result.imageLoaded}" class="image-container">
-          
+          <!-- [defaultImage]="https://pbs.twimg.com/profile_images/469017630796296193/R-bEN4UP.png" -->
+          <!-- [defaultImage]="'../../assets/images/white-box.png'" -->
+          <!-- [lazyLoad]="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{result.cover.cloudinary_id}}.jpg" -->
+          <!-- [lazyLoad]="'https://img-aws.ehowcdn.com/750x428p/cpi.studiod.com/www_ehow_com/i.ehow.com/images/a06/3a/be/study-compass-math-placement-test-800x800.jpg'" -->
           <img 
           class="img-cover" 
-          *ngIf="result.cover?.url" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{result.cover.cloudinary_id}}.jpg"
+          *ngIf="result.cover?.url"
+          [lazyLoad]="result.cover.realUrl"
+          [useSrcset]="true"
           (load)="onImageLoad(result)"
           >
 

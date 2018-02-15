@@ -3,6 +3,7 @@ import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { SingleGameService } from '../services/single-game.service';
 import { RelatedSearchService } from '../services/related-search.service';
 import { RelatedGamesService } from '../services/related-games.service';
+import { UtilitiesService } from '../services/utilities.service';
 
 @Component({
   selector: 'app-related-search',
@@ -17,7 +18,8 @@ export class RelatedSearchComponent {
   constructor(
     private singleGameService: SingleGameService,
     private relatedSearchService: RelatedSearchService,
-    private relatedGamesService: RelatedGamesService
+    private relatedGamesService: RelatedGamesService,
+    private utilitiesService: UtilitiesService,
   ) { }
 
   ngOnChanges() {
@@ -34,6 +36,7 @@ export class RelatedSearchComponent {
     console.log('filters',filters); // Keep this for now!
     this.relatedSearchService.getRelated(game,filters)
     .subscribe(res => {
+      res = this.utilitiesService.setImageLinks(res);
       console.log('res',res); // Keep this for now!
       this.relatedGamesService.updateResults(res);
     });
