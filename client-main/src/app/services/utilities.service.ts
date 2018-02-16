@@ -36,7 +36,7 @@ export class UtilitiesService {
     return arr;
   }
 
-  checkDateValid(date): boolean{
+  checkDateValid(date): boolean {
     // Empty inputs are valid 
     if(date === ''){
       return true;

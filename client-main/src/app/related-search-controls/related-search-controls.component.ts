@@ -82,7 +82,7 @@ export class RelatedSearchControlsComponent implements OnInit {
   }
 
   onChange() {
-    console.log('onChange');
+    // console.log('onChange');
 
     // Update list of selected platforms
     this.selectedPlatforms = this.utilitiesService.getChecked(this.platforms);

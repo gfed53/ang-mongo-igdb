@@ -28,7 +28,9 @@ export class RelatedSearchComponent {
 
   onFiltersChange(event){
     console.log('onFiltersChange',event); // Keep this for now!
-    this.filters = event; 
+    this.filters = event;
+
+    // console.log('this.filters now',this.filters);
   }
 
   searchRelated(game, filters?): void {
