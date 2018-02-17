@@ -2,7 +2,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule, FormControl, NgModel, Validators } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
@@ -51,6 +52,7 @@ import { ModalComponent } from './modal/modal.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    CustomFormsModule,
     HttpClientModule,
     Ng2PageScrollModule,
     LazyLoadImageModule

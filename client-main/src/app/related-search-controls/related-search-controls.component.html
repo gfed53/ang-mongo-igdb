@@ -1,51 +1,58 @@
 <div class="search-controls-container">
-  <p class="search-controls-header">Filter By:</p>
-  <div class="search-controls-btns-container">
-    <button (click)="openModal('platforms-modal')" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
-    <div class="platform-labels-container" [@fadeInOut]="selectedPlatforms.length" *ngIf="selectedPlatforms.length && !modalIsOpen">
-      <span *ngFor="let platform of platforms">
-        <span [@fadeInOut]="platform.checked" *ngIf="platform.checked" class="platform-label" (click)="updateSelectedPlatforms(platform)">
-          {{platform.name}} <i class="fa fa-times selected-platform-remove"></i>
+  <form #relatedControls="ngForm" novalidate>
+    <p class="search-controls-header">Filter By:</p>
+    <div class="search-controls-btns-container">
+      <button (click)="openModal('platforms-modal')" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
+      <div class="platform-labels-container" [@fadeInOut]="selectedPlatforms.length" *ngIf="selectedPlatforms.length && !modalIsOpen">
+        <span *ngFor="let platform of platforms">
+          <span [@fadeInOut]="platform.checked" *ngIf="platform.checked" class="platform-label" (click)="updateSelectedPlatforms(platform)">
+            {{platform.name}} <i class="fa fa-times selected-platform-remove"></i>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
-  </div>
-  <div class="date-filter-container">
-    <div class="date-filter">
-      <label for="after">From:</label>
-      <input 
-      type="text" 
-      [(ngModel)]="filters.dateRange.after" 
-      [ngModelOptions]="{updateOn: 'blur'}" 
-      name="after"
-      #after="ngModel" 
-      (keyup)="onChange()" 
-      placeholder="e.g. 1990">
-      <span 
-      *ngIf="(after.dirty && after.touched) && !checkDateValid(filters.dateRange.after)"
-      [@fadeInOut]="(after.dirty && after.touched) && !checkDateValid(filters.dateRange.after)"
-      class="validation-error">
-        Invalid!
-      </span>
+    <div class="date-filter-container">
+      <div class="date-filter">
+        <label for="after">From:</label>
+        <input 
+        type="number" 
+        [(ngModel)]="filters.dateRange.after" 
+        [ngModelOptions]="{updateOn: 'blur'}"
+        required
+        name="after"
+        [min]="1950"
+        [max]="2019"
+        #after="ngModel" 
+        (keyup)="onChange()" 
+        placeholder="e.g. 1990">
+        <span 
+        *ngIf="(after.dirty && after.touched && after.invalid)"
+        [@fadeInOut]="(after.dirty && after.touched && after.invalid)"
+        class="validation-error">
+          Invalid!
+        </span>
+      </div>
+      <div class="date-filter">
+        <label for="before">To:</label>
+        <input 
+        type="number" 
+        [(ngModel)]="filters.dateRange.before" 
+        [ngModelOptions]="{updateOn: 'blur'}"
+        name="before"
+        [min]="1950"
+        [max]="2019"
+        #before="ngModel" 
+        (keyup)="onChange()" 
+        placeholder="e.g. 2001">
+        <span 
+        *ngIf="(before.dirty && before.touched && (before.errors?.min || before.errors?.max))"
+        [@fadeInOut]="(before.dirty && before.touched && (before.errors?.min || before.errors?.max))"
+        class="validation-error">
+          Invalid!
+        </span>
+      </div>
     </div>
-    <div class="date-filter">
-      <label for="before">To:</label>
-      <input 
-      type="text" 
-      [(ngModel)]="filters.dateRange.before" 
-      [ngModelOptions]="{updateOn: 'blur'}"
-      name="before"
-      #before="ngModel" 
-      (keyup)="onChange()" 
-      placeholder="e.g. 2001">
-      <span 
-      *ngIf="(before.dirty && before.touched) && !checkDateValid(filters.dateRange.before)"
-      [@fadeInOut]="(before.dirty && before.touched) && !checkDateValid(filters.dateRange.before)"
-      class="validation-error">
-        Invalid!
-      </span>
-    </div>
-  </div>
+  </form>
   <modal (onChange)="onModalChange($event)" id="platforms-modal" class="">
     <div class="modal platforms-modal-inner">
       <div class="modal-body">

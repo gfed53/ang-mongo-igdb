@@ -47,6 +47,8 @@ export class RelatedSearchControlsComponent implements OnInit {
   modalIsOpen: boolean = false;
   checkDateValid = this.utilitiesService.checkDateValid;
 
+  currentYear: number = new Date().getFullYear() + 1;
+
   constructor(
     private getPlatformsService: GetPlatformsService,
     private getGenresService: GetGenresService,
