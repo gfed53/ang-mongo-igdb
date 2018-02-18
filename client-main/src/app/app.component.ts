@@ -13,7 +13,7 @@ import { RelatedGamesService } from './services/related-games.service';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  title = 'app';
+  // title = 'app';
   relatedResults: any[];
   inModalState: boolean = false;
 
@@ -36,7 +36,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.relatedGamesService.relatedSearchResults$
-    .subscribe((list) => {
+    .subscribe((list: any[]) => {
       this.relatedResults = list;
       // Wait a tick
       setTimeout(this.scrollDown.bind(this), 0);

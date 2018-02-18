@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
-import { SingleGameService } from '../services/single-game.service';
+// import { SingleGameService } from '../services/single-game.service';
 import { RelatedSearchService } from '../services/related-search.service';
 import { RelatedGamesService } from '../services/related-games.service';
 import { UtilitiesService } from '../services/utilities.service';
@@ -16,7 +16,7 @@ export class RelatedSearchComponent {
   filters: any;
 
   constructor(
-    private singleGameService: SingleGameService,
+    // private singleGameService: SingleGameService,
     private relatedSearchService: RelatedSearchService,
     private relatedGamesService: RelatedGamesService,
     private utilitiesService: UtilitiesService,

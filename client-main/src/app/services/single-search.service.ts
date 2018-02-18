@@ -17,9 +17,9 @@ export class SingleSearchService {
 
 	singleSearchResults: any[];
 
-	get latest() {
-		return this.singleSearchResults;
-	}
+	// get latest() {
+	// 	return this.singleSearchResults;
+	// }
 
 	// Will use backend to make API requests
 	getGame(q, filters?): Observable<any> {

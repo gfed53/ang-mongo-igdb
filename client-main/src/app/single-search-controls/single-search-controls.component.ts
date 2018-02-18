@@ -5,6 +5,8 @@ import { GetPlatformsService } from '../services/get-platforms.service';
 import { GetGenresService } from '../services/get-genres.service';
 import { UtilitiesService } from '../services/utilities.service';
 
+import { MyCollection } from '../types/my-collection';
+
 @Component({
   selector: 'app-single-search-controls',
   templateUrl: './single-search-controls.component.html',
@@ -29,9 +31,9 @@ export class SingleSearchControlsComponent implements OnInit {
   ngOnInit() {
     // Get our list of platforms
     this.getPlatformsService.getPlatforms()
-    .subscribe(res => {
+    .subscribe((res: MyCollection) => {
       console.log('res',res);
-      let sorted = this.utilitiesService.sortedByName(res.data); 
+      let sorted: any[] = this.utilitiesService.sortedByName(res.data); 
       this.platforms = this.utilitiesService.postConfig(sorted);
       this.selectedPlatform = this.platforms[0];
       this.onChange();
@@ -39,7 +41,7 @@ export class SingleSearchControlsComponent implements OnInit {
     
     // Get our list of genres
     this.getGenresService.getGenres()
-    .subscribe(res => {
+    .subscribe((res: MyCollection) => {
       let sorted = this.utilitiesService.sortedByName(res.data);
       this.genres = this.utilitiesService.postConfig(sorted);
       this.selectedGenre = this.genres[0];
