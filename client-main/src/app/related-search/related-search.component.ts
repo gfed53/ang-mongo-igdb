@@ -5,6 +5,8 @@ import { RelatedSearchService } from '../services/related-search.service';
 import { RelatedGamesService } from '../services/related-games.service';
 import { UtilitiesService } from '../services/utilities.service';
 
+import { MyFilters } from '../types/my-filters';
+
 @Component({
   selector: 'app-related-search',
   templateUrl: './related-search.component.html',
@@ -13,27 +15,26 @@ import { UtilitiesService } from '../services/utilities.service';
 export class RelatedSearchComponent {
 
   @Input() selected: any;
-  filters: any;
+  filters: MyFilters;
 
   constructor(
-    // private singleGameService: SingleGameService,
     private relatedSearchService: RelatedSearchService,
     private relatedGamesService: RelatedGamesService,
     private utilitiesService: UtilitiesService,
   ) { }
 
   ngOnChanges() {
-    console.log('this.selected now', this.selected); // Keep this for now!
+    // console.log('this.selected now', this.selected); // Keep this for now!
   }
 
-  onFiltersChange(event){
+  onFiltersChange(event: MyFilters): void {
     console.log('onFiltersChange',event); // Keep this for now!
     this.filters = event;
 
     // console.log('this.filters now',this.filters);
   }
 
-  searchRelated(game, filters?): void {
+  searchRelated(game: any, filters?: MyFilters): void {
     console.log('game',game); // Keep this for now!
     console.log('filters',filters); // Keep this for now!
     this.relatedSearchService.getRelated(game,filters)

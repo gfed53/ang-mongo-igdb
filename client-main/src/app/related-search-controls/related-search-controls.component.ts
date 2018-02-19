@@ -13,6 +13,8 @@ import { GetGenresService } from '../services/get-genres.service';
 import { UtilitiesService } from '../services/utilities.service';
 import { ModalService } from '../services/modal.service';
 
+import { MyFilters } from '../types/my-filters';
+
 @Component({
   selector: 'app-related-search-controls',
   templateUrl: './related-search-controls.component.html',
@@ -34,7 +36,7 @@ export class RelatedSearchControlsComponent implements OnInit {
   @Output() onFiltersChange: EventEmitter<any> = new EventEmitter<any>();
 
   platforms: any[] = [];
-  filters: any = {
+  filters: MyFilters = {
     selectedPlatformIDs: [],
     dateRange: {
       after: '',

@@ -57,7 +57,7 @@ export class UtilitiesService {
       item.cover.loaded = true;
     }
 
-    console.log('changed item:',item);
+    // console.log('changed item:',item);
   }
 
   // Related Results: dynamically create image links and attach them to item object
