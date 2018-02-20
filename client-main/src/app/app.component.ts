@@ -5,6 +5,7 @@ import { PageScrollConfig, PageScrollService, PageScrollInstance } from 'ng2-pag
 
 
 import { RelatedGamesService } from './services/related-games.service';
+import { SmoothScrollService } from './services/smooth-scroll.service';
 
 @Component({
   selector: 'app-root',
@@ -13,25 +14,17 @@ import { RelatedGamesService } from './services/related-games.service';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  // title = 'app';
   relatedResults: any[];
   inModalState: boolean = false;
 
   constructor(
     private relatedGamesService: RelatedGamesService,
+    private smoothScrollService: SmoothScrollService,
     private pageScrollService: PageScrollService, 
     @Inject(DOCUMENT) private document: any
   ) { 
-    PageScrollConfig.defaultDuration = 750;
-    PageScrollConfig.defaultEasingLogic = {
-      ease: (t: number, b: number, c: number, d: number): number => {
-        // quadratic ease in/out
-        t /= d/2;
-        if (t < 1) return c/2*t*t + b;
-        t--;
-        return -c/2 * (t*(t-2) - 1) + b;
-      }
-    };
+    PageScrollConfig.defaultDuration = this.smoothScrollService.duration;
+    PageScrollConfig.defaultEasingLogic = this.smoothScrollService.easingLogic;
   }
 
   ngOnInit() {
@@ -39,14 +32,16 @@ export class AppComponent {
     .subscribe((list: any[]) => {
       this.relatedResults = list;
       // Wait a tick
-      setTimeout(this.scrollDown.bind(this), 0);
+      setTimeout(this.scrollDown.bind(this, '#related-results'), 0);
     });
   }
 
-  public scrollDown(): void {
-    let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, '#related-results');
-    this.pageScrollService.start(pageScrollInstance);
-  }
+  public scrollDown = this.smoothScrollService.scrollDown;
+
+  // public scrollDown(): void {
+  //   let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, '#related-results');
+  //   this.pageScrollService.start(pageScrollInstance);
+  // }
 
 
 }

@@ -17,6 +17,7 @@ import { UtilitiesService } from './services/utilities.service';
 import { SingleGameService } from './services/single-game.service';
 import { RelatedGamesService } from './services/related-games.service';
 import { ModalService } from './services/modal.service';
+import { SmoothScrollService } from './services/smooth-scroll.service';
 
 // Directives
 
@@ -65,7 +66,8 @@ import { ModalComponent } from './modal/modal.component';
     GetPlatformsService,
     GetGenresService,
     UtilitiesService,
-    ModalService
+    ModalService,
+    SmoothScrollService
   ],
   bootstrap: [AppComponent]
 })
