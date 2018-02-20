@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { PageScrollConfig, PageScrollService, PageScrollInstance } from 'ng2-page-scroll';
+import { PageScrollConfig, PageScrollService } from 'ng2-page-scroll';
 
 
 import { RelatedGamesService } from './services/related-games.service';
@@ -20,8 +20,7 @@ export class AppComponent {
   constructor(
     private relatedGamesService: RelatedGamesService,
     private smoothScrollService: SmoothScrollService,
-    private pageScrollService: PageScrollService, 
-    @Inject(DOCUMENT) private document: any
+    private pageScrollService: PageScrollService
   ) { 
     PageScrollConfig.defaultDuration = this.smoothScrollService.duration;
     PageScrollConfig.defaultEasingLogic = this.smoothScrollService.easingLogic;
@@ -37,11 +36,6 @@ export class AppComponent {
   }
 
   public scrollDown = this.smoothScrollService.scrollDown;
-
-  // public scrollDown(): void {
-  //   let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, '#related-results');
-  //   this.pageScrollService.start(pageScrollInstance);
-  // }
 
 
 }

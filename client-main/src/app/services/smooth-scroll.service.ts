@@ -25,6 +25,7 @@ export class SmoothScrollService {
 
   scrollDown(id: string): void {
     let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, id);
+    // let pageScrollService = this.pageScrollService.bind(this);
     this.pageScrollService.start(pageScrollInstance);
   }
 

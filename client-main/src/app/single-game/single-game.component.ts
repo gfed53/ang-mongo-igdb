@@ -1,9 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { PageScrollConfig, PageScrollService, PageScrollInstance } from 'ng2-page-scroll';
+import { PageScrollConfig, PageScrollService } from 'ng2-page-scroll';
 
 import { SingleSearchService } from '../services/single-search.service';
 import { SingleGameService } from '../services/single-game.service';
+import { SmoothScrollService } from '../services/smooth-scroll.service';
 
 
 @Component({
@@ -16,19 +17,11 @@ export class SingleGameComponent implements OnInit {
 
   constructor(
     private singleGameService: SingleGameService,
-    private pageScrollService: PageScrollService,
-    @Inject(DOCUMENT) private document: any
+    private smoothScrollService: SmoothScrollService,
+    private pageScrollService: PageScrollService
   ) { 
-    PageScrollConfig.defaultDuration = 750;
-    PageScrollConfig.defaultEasingLogic = {
-      ease: (t: number, b: number, c: number, d: number): number => {
-        // quadratic ease in/out
-        t /= d/2;
-        if (t < 1) return c/2*t*t + b;
-        t--;
-        return -c/2 * (t*(t-2) - 1) + b;
-      }
-    };
+    PageScrollConfig.defaultDuration = this.smoothScrollService.duration;
+    PageScrollConfig.defaultEasingLogic = this.smoothScrollService.easingLogic;
   }
 
   singleSearchResults: any[];
@@ -40,7 +33,7 @@ export class SingleGameComponent implements OnInit {
     .subscribe(list => {
       this.singleSearchResults = list;
       // Wait a tick
-      setTimeout(this.scrollDown.bind(this), 0);
+      setTimeout(this.scrollDown.bind(this, '#single-result'), 0);
     });
 
     this.singleGameService.currentGame$
@@ -49,9 +42,6 @@ export class SingleGameComponent implements OnInit {
     });
   }
 
-  public scrollDown(): void {
-    let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, '#single-result');
-    this.pageScrollService.start(pageScrollInstance);
-  }
+  public scrollDown = this.smoothScrollService.scrollDown;
 
 }
