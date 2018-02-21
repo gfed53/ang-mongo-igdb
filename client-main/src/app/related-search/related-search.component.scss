@@ -1,6 +1,7 @@
 @import '../../assets/external-styles/variables';
 
 .related-search-container {
+  text-align: center;
   margin: 3em 0;
 
   .btn-get-related {
@@ -12,6 +13,12 @@
     border: none;
     box-shadow: 1px 1px 5px black;
     width: 6em;
+  }
+}
+
+@media screen and ($breakpoint-442){
+  .related-search-container {
+    text-align: left;
   }
 }
 

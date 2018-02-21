@@ -1,0 +1,21 @@
+@import '../../assets/external-styles/variables';
+@import '../../assets/external-styles/general';
+
+.desktop-related-search {
+  display: none;
+}
+
+// .mobile-related-search-container {
+
+// }
+
+@media screen and ($breakpoint-719){
+  .desktop-related-search {
+    display: block;
+  }
+
+  .mobile-related-search-container {
+    display: none;
+  }
+
+}
