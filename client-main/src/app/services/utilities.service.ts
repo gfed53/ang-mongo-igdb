@@ -56,8 +56,6 @@ export class UtilitiesService {
     } else if(type === 'cover'){
       item.cover.loaded = true;
     }
-
-    // console.log('changed item:',item);
   }
 
   // Related Results: dynamically create image links and attach them to item object

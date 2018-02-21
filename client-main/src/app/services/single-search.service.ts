@@ -17,10 +17,6 @@ export class SingleSearchService {
 
 	singleSearchResults: any[];
 
-	// get latest() {
-	// 	return this.singleSearchResults;
-	// }
-
 	// Will use backend to make API requests
 	getGame(q, filters?): Observable<any> {
 		return this._httpClient.post('/igdb-api/search-game', {
@@ -36,7 +32,7 @@ export class SingleSearchService {
 
 	updateSingleResults(list: any[]): void {
 		this.singleSearchResults = list;
-		console.log('this.singleSearchResults',this.singleSearchResults);
+		console.log('this.singleSearchResults',this.singleSearchResults); // keep for now
 	}
 
 }

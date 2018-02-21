@@ -86,8 +86,6 @@ export class RelatedSearchControlsComponent implements OnInit {
   }
 
   onChange() {
-    // console.log('onChange');
-
     // Update list of selected platforms
     this.selectedPlatforms = this.utilitiesService.getChecked(this.platforms);
 
@@ -95,7 +93,6 @@ export class RelatedSearchControlsComponent implements OnInit {
     // We only want array of ids when we make API call, so convert.
     this.filters.selectedPlatformIDs = this.utilitiesService.getIds(this.selectedPlatforms);
 
-    // console.log('this.filters',this.filters);
     this.onFiltersChange.emit(this.filters);
   }
 
