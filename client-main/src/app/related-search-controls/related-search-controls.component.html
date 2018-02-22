@@ -1,6 +1,6 @@
 <div class="search-controls-container">
   <form #relatedControls="ngForm" novalidate>
-    <p class="search-controls-header">Filter By:</p>
+    <h4 class="search-controls-header">Filter By:</h4>
     <div class="search-controls-btns-container">
       <button (click)="openModal('platforms-modal')" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
       <div class="platform-labels-container" [@fadeInOut]="selectedPlatforms.length" *ngIf="selectedPlatforms.length && !modalIsOpen">
@@ -12,6 +12,7 @@
       </div>
     </div>
     <div class="date-filter-container">
+      <p class="date-filter-header">Date</p>
       <div class="date-filter">
         <label for="after">From:</label>
         <input 
