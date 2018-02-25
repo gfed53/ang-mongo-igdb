@@ -2,13 +2,13 @@
     <p class="search-controls-header">Filter By:</p>
     <div *ngIf="platforms" class="search-control-container">
       <label for="selected-platform">Platform</label>
-      <select (change)="onChange($event.target.value)" [(ngModel)]="selectedPlatform" id="selected-platform">
+      <select class="classic" (change)="onChange($event.target.value)" [(ngModel)]="selectedPlatform" id="selected-platform">
         <option *ngFor="let platform of platforms" [ngValue]="platform">{{platform.name}}</option>
       </select>
     </div>
     <div *ngIf="genres" class="search-control-container">
       <label for="selected-genre">Genre</label>
-      <select (change)="onChange($event.target.value)"  [(ngModel)]="selectedGenre" id="selected-genre">
+      <select class="classic" (change)="onChange($event.target.value)"  [(ngModel)]="selectedGenre" id="selected-genre">
         <option *ngFor="let genre of genres" [ngValue]="genre">{{genre.name}}</option>
       </select>
     </div>
