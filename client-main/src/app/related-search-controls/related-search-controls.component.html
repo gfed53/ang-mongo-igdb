@@ -52,6 +52,22 @@
         </span>
       </div>
     </div>
+    <div class="order-by-container">
+      <h4>Give Me:</h4>
+      <div class="radio-container">
+        <input type="radio" [(ngModel)]="filters.order" name="order" value="popularity" (change)="onChange()">
+        <label for="">The Most Popular</label>
+      </div>
+      <div class="radio-container">
+        <input type="radio" [(ngModel)]="filters.order" name="order" value="rating" (change)="onChange()">
+        <label for="">The Highest Rated</label>
+      </div>
+      <div class="radio-container">
+        <input type="radio" [(ngModel)]="filters.order" name="order" value="" (change)="onChange()">
+        <label for="">I Don't Care</label>
+      </div>
+      
+    </div>
   </form>
   <modal (onChange)="onModalChange($event)" id="platforms-modal" class="">
     <div class="modal platforms-modal-inner">

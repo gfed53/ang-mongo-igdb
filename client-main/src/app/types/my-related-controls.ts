@@ -1,8 +1,9 @@
 // Class used to store our filter settings, specifically used to refine a related search.
-export class MyFilters {
+export class MyRelatedControls {
   selectedPlatformIDs?: number[];
   dateRange?: {
     after?: any,
     before?: any 
   };
+  order?: string;
 }
