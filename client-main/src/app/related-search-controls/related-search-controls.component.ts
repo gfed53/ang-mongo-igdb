@@ -42,7 +42,7 @@ export class RelatedSearchControlsComponent implements OnInit {
       after: '',
       before: ''
     },
-    order: ''
+    order: 'popularity'
   };
   selectedPlatforms = [];
   platformsExpanded: boolean;
