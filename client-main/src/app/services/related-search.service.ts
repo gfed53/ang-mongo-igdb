@@ -13,11 +13,11 @@ import 'rxjs/add/operator/map';
 export class RelatedSearchService {
 	constructor(private _httpClient: HttpClient){}
 
-	getRelated(game, filters?): Observable<any> {
+	getRelated(game, controls?): Observable<any> {
 
 		return this._httpClient.post('/igdb-api/search-related', {
 			_game: game,
-			_filters: filters
+			_controls: controls
 		});
 	}
 

@@ -17,7 +17,7 @@
         <label for="after">From:</label>
         <input 
         type="number" 
-        [(ngModel)]="filters.dateRange.after" 
+        [(ngModel)]="controls.dateRange.after" 
         [ngModelOptions]="{updateOn: 'blur'}"
         name="after"
         [min]="1950"
@@ -36,7 +36,7 @@
         <label for="before">To:</label>
         <input 
         type="number" 
-        [(ngModel)]="filters.dateRange.before" 
+        [(ngModel)]="controls.dateRange.before" 
         [ngModelOptions]="{updateOn: 'blur'}"
         name="before"
         [min]="1950"
@@ -55,15 +55,15 @@
     <div class="order-by-container">
       <h4>Give Me:</h4>
       <div class="radio-container">
-        <input type="radio" [(ngModel)]="filters.order" name="order" value="popularity" (change)="onChange()">
+        <input type="radio" [(ngModel)]="controls.order" name="order" value="popularity" (change)="onChange()">
         <label for="">The Most Popular</label>
       </div>
       <div class="radio-container">
-        <input type="radio" [(ngModel)]="filters.order" name="order" value="rating" (change)="onChange()">
+        <input type="radio" [(ngModel)]="controls.order" name="order" value="rating" (change)="onChange()">
         <label for="">The Highest Rated</label>
       </div>
       <div class="radio-container">
-        <input type="radio" [(ngModel)]="filters.order" name="order" value="" (change)="onChange()">
+        <input type="radio" [(ngModel)]="controls.order" name="order" value="" (change)="onChange()">
         <label for="">I Don't Care</label>
       </div>
       

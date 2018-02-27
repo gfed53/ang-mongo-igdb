@@ -33,10 +33,10 @@ import { MyRelatedControls } from '../types/my-related-controls';
 })
 export class RelatedSearchControlsComponent implements OnInit {
 
-  @Output() onFiltersChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onControlsChange: EventEmitter<any> = new EventEmitter<any>();
 
   platforms: any[] = [];
-  filters: MyRelatedControls = {
+  controls: MyRelatedControls = {
     selectedPlatformIDs: [],
     dateRange: {
       after: '',
@@ -92,9 +92,9 @@ export class RelatedSearchControlsComponent implements OnInit {
 
 
     // We only want array of ids when we make API call, so convert.
-    this.filters.selectedPlatformIDs = this.utilitiesService.getIds(this.selectedPlatforms);
+    this.controls.selectedPlatformIDs = this.utilitiesService.getIds(this.selectedPlatforms);
 
-    this.onFiltersChange.emit(this.filters);
+    this.onControlsChange.emit(this.controls);
   }
 
 

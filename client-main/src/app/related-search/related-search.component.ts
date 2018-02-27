@@ -14,7 +14,7 @@ import { MyRelatedControls } from '../types/my-related-controls';
 export class RelatedSearchComponent {
 
   @Input() selected: any;
-  filters: MyRelatedControls;
+  controls: MyRelatedControls;
 
   constructor(
     private relatedSearchService: RelatedSearchService,
@@ -26,17 +26,17 @@ export class RelatedSearchComponent {
     // console.log('this.selected now', this.selected); // Keep this for now!
   }
 
-  onFiltersChange(event: MyRelatedControls): void {
-    console.log('onFiltersChange',event); // Keep this for now!
-    this.filters = event;
+  onControlsChange(event: MyRelatedControls): void {
+    console.log('onControlsChange',event); // Keep this for now!
+    this.controls = event;
 
-    // console.log('this.filters now',this.filters);
+    // console.log('this.controls now',this.controls);
   }
 
-  searchRelated(game: any, filters?: MyRelatedControls): void {
+  searchRelated(game: any, controls?: MyRelatedControls): void {
     console.log('game',game); // Keep this for now!
-    console.log('filters',filters); // Keep this for now!
-    this.relatedSearchService.getRelated(game,filters)
+    console.log('controls',controls); // Keep this for now!
+    this.relatedSearchService.getRelated(game,controls)
     .subscribe(res => {
       res = this.utilitiesService.setImageLinks(res);
       console.log('res',res); // Keep this for now!
