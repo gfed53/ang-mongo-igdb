@@ -13,7 +13,7 @@
     </div>
     <div class="date-filter-container">
       <p class="date-filter-header">Date</p>
-      <div class="date-filter">
+      <!-- <div class="date-filter">
         <label for="after">From:</label>
         <input 
         type="number" 
@@ -31,7 +31,9 @@
         class="validation-error">
           Invalid!
         </span>
-      </div>
+      </div> -->
+      <app-date-filter [(date)]="controls.dateRange.after" direction="From" (dateChange)="dateChange($event)"></app-date-filter>
+
       <div class="date-filter">
         <label for="before">To:</label>
         <input 
@@ -56,20 +58,19 @@
       <h4 class="search-controls-header">Give Me:</h4>
       <div class="radio-container">
         <input type="radio" [(ngModel)]="controls.order" name="order" value="popularity" (change)="onChange()">
-        <label for="">The Most Popular</label>
+        <label>The Most Popular</label>
       </div>
       <div class="radio-container">
         <input type="radio" [(ngModel)]="controls.order" name="order" value="rating" (change)="onChange()">
-        <label for="">The Highest Rated</label>
+        <label>The Highest Rated</label>
       </div>
       <div class="radio-container">
         <input type="radio" [(ngModel)]="controls.order" name="order" value="" (change)="onChange()">
-        <label for="">I Don't Care</label>
-      </div>
-      
+        <label>I Don't Care</label>
+      </div>   
     </div>
   </form>
-  <modal (onChange)="onModalChange($event)" id="platforms-modal" class="">
+  <modal (onChange)="onModalChange($event)" id="platforms-modal">
     <div class="modal platforms-modal-inner">
       <div class="modal-body">
         <div class="modal-body-header">

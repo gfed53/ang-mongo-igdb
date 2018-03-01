@@ -1,0 +1,29 @@
+@import '../../assets/external-styles/variables';
+
+.date-filter {
+  margin: 0.5em 0;
+}
+
+label {
+  display: block;
+}
+
+input {
+  // width: 7em;
+  width: 75%;
+  line-height: 25px;
+  padding: 0 3px;
+  border: 1px solid lightgrey;
+}
+
+@media screen and ($breakpoint-442) {
+  input {
+    width: 7em;
+  }
+}
+
+@media screen and ($tablet-768){
+  .date-filter {
+    display: inline-block;
+  }
+}
