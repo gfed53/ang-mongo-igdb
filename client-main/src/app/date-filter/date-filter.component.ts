@@ -12,7 +12,18 @@ import {
 @Component({
   selector: 'app-date-filter',
   templateUrl: './date-filter.component.html',
-  styleUrls: ['./date-filter.component.scss']
+  styleUrls: ['./date-filter.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      transition('void => *', [
+        style({opacity: 0}),
+        animate(200, style({opacity: 1}))
+      ]),
+      transition('* => void', [
+        animate(200, style({opacity: 0}))
+      ])
+    ])
+  ]
 })
 export class DateFilterComponent implements OnInit {
 

@@ -16,6 +16,13 @@ input {
   border: 1px solid lightgrey;
 }
 
+.validation-error {
+  background-color: #ff6666;
+  padding: 0.3em;
+  border-radius: 5px;
+  color: white;
+}
+
 @media screen and ($breakpoint-442) {
   input {
     width: 7em;

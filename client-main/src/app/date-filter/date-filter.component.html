@@ -5,15 +5,15 @@
   [ngModel]="date" 
   (ngModelChange)="onChange($event)"
   [ngModelOptions]="{updateOn: 'blur'}"
-  name="date"
+  [name]="date"
   [min]="1950"
   [max]="2019"
-  #after="ngModel"
-  placeholder="e.g. ">
-  <!-- <span 
-  *ngIf="(after.dirty && after.touched && after.invalid)"
-  [@fadeInOut]="(after.dirty && after.touched && after.invalid)"
+  #date="ngModel"
+  placeholder="yyyy">
+  <span 
+  *ngIf="(date.dirty && date.touched && date.invalid)"
+  [@fadeInOut]="(date.dirty && date.touched && date.invalid)"
   class="validation-error">
     Invalid!
-  </span> -->
+  </span>
 </div>

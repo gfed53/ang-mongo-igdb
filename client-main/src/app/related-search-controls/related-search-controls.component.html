@@ -33,8 +33,9 @@
         </span>
       </div> -->
       <app-date-filter [(date)]="controls.dateRange.after" direction="From" (dateChange)="dateChange($event)"></app-date-filter>
+      <app-date-filter [(date)]="controls.dateRange.before" direction="To" (dateChange)="dateChange($event)"></app-date-filter>
 
-      <div class="date-filter">
+      <!-- <div class="date-filter">
         <label for="before">To:</label>
         <input 
         type="number" 
@@ -52,7 +53,7 @@
         class="validation-error">
           Invalid!
         </span>
-      </div>
+      </div> -->
     </div>
     <div class="order-by-container">
       <h4 class="search-controls-header">Give Me:</h4>
