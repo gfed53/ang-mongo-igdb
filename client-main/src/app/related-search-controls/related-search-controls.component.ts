@@ -44,6 +44,20 @@ export class RelatedSearchControlsComponent implements OnInit {
     },
     order: 'popularity'
   };
+  orderChoices = [
+    {
+      value: 'popularity',
+      label: 'The Most Popular'
+    },
+    {
+      value: 'rating',
+      label: 'The Highest Rated'
+    },
+    {
+      value: '', // null
+      label: 'I Don\'t Care'
+    }
+  ];
   selectedPlatforms = [];
   platformsExpanded: boolean;
   genresExpanded: boolean;
@@ -99,15 +113,6 @@ export class RelatedSearchControlsComponent implements OnInit {
 
   dateChange(event: any): void {
     console.log('dateChange',event); // Keep this for now!
-    // this.controls.dateRange[type] = event;
-    this.onControlsChange.emit(this.controls);
-
-    // console.log('this.controls now',this.controls);
-  }
-
-  dateChangeFrom(event: any): void {
-    console.log('dateChange',event); // Keep this for now!
-    this.controls.dateRange.after = event;
     this.onControlsChange.emit(this.controls);
 
     // console.log('this.controls now',this.controls);

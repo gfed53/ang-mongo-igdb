@@ -3,6 +3,7 @@
     <h4 class="search-controls-header">Filter By:</h4>
     <div class="search-controls-btns-container">
       <button (click)="openModal('platforms-modal')" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
+      <!-- Platforms that are selected as filters will be displayed here -->
       <div class="platform-labels-container" [@fadeInOut]="selectedPlatforms.length" *ngIf="selectedPlatforms.length && !modalIsOpen">
         <span *ngFor="let platform of platforms">
           <span [@fadeInOut]="platform.checked" *ngIf="platform.checked" class="platform-label" (click)="updateSelectedPlatforms(platform)">
@@ -13,62 +14,15 @@
     </div>
     <div class="date-filter-container">
       <p class="date-filter-header">Date</p>
-      <!-- <div class="date-filter">
-        <label for="after">From:</label>
-        <input 
-        type="number" 
-        [(ngModel)]="controls.dateRange.after" 
-        [ngModelOptions]="{updateOn: 'blur'}"
-        name="after"
-        [min]="1950"
-        [max]="2019"
-        #after="ngModel" 
-        (keyup)="onChange()" 
-        placeholder="e.g. 1990">
-        <span 
-        *ngIf="(after.dirty && after.touched && after.invalid)"
-        [@fadeInOut]="(after.dirty && after.touched && after.invalid)"
-        class="validation-error">
-          Invalid!
-        </span>
-      </div> -->
       <app-date-filter [(date)]="controls.dateRange.after" direction="From" (dateChange)="dateChange($event)"></app-date-filter>
       <app-date-filter [(date)]="controls.dateRange.before" direction="To" (dateChange)="dateChange($event)"></app-date-filter>
-
-      <!-- <div class="date-filter">
-        <label for="before">To:</label>
-        <input 
-        type="number" 
-        [(ngModel)]="controls.dateRange.before" 
-        [ngModelOptions]="{updateOn: 'blur'}"
-        name="before"
-        [min]="1950"
-        [max]="2019"
-        #before="ngModel" 
-        (keyup)="onChange()" 
-        placeholder="e.g. 2001">
-        <span 
-        *ngIf="(before.dirty && before.touched && (before.errors?.min || before.errors?.max))"
-        [@fadeInOut]="(before.dirty && before.touched && (before.errors?.min || before.errors?.max))"
-        class="validation-error">
-          Invalid!
-        </span>
-      </div> -->
     </div>
     <div class="order-by-container">
       <h4 class="search-controls-header">Give Me:</h4>
-      <div class="radio-container">
-        <input type="radio" [(ngModel)]="controls.order" name="order" value="popularity" (change)="onChange()">
-        <label>The Most Popular</label>
+      <div *ngFor="let choice of orderChoices" class="radio-container">
+        <input type="radio" [(ngModel)]="controls.order" name="order" [value]="choice.value" (change)="onChange()">
+        <label>{{choice.label}}</label>
       </div>
-      <div class="radio-container">
-        <input type="radio" [(ngModel)]="controls.order" name="order" value="rating" (change)="onChange()">
-        <label>The Highest Rated</label>
-      </div>
-      <div class="radio-container">
-        <input type="radio" [(ngModel)]="controls.order" name="order" value="" (change)="onChange()">
-        <label>I Don't Care</label>
-      </div>   
     </div>
   </form>
   <modal (onChange)="onModalChange($event)" id="platforms-modal">
