@@ -36,19 +36,6 @@ export class UtilitiesService {
     return arr;
   }
 
-  checkDateValid(date): boolean {
-    // Empty inputs are valid 
-    if(date === ''){
-      return true;
-    }
-    // Returns true if date is, after converted to an int, somewhere between 1950 and current year + 1
-    let dateInt = parseInt(date);
-    let latest = new Date().getFullYear() + 1;
-
-    // 
-    return dateInt >= 1950 && dateInt <= latest;
-  }
-
   // Single Result: change properties of result object on load event, which ngClass checks for in order to fade in image at appropriate time
   onImageLoad(item: any, type: string): void {
     if(type === 'screenshot'){
