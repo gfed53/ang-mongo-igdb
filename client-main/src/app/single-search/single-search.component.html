@@ -1,9 +1,10 @@
 <section class="single-search-container">
 	<p class="p-lg">Search for a game.</p>
 	<div class="input-container">
-		<form #f="ngForm" (ngSubmit)="searchGame(f, filters)">
+		<form #f="ngForm" (ngSubmit)="searchGame(q, filters)">
 			<div class="form-inline">
-				<input name="search" ngModel #search="ngModel">
+				<!-- <input name="search" ngModel #search="ngModel"> -->
+				<input name="search" [(ngModel)]="q">
 				<button type="submit" class="btn-submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 			</div>
 			<app-single-search-controls (onFiltersChange)="onFiltersChange($event)">

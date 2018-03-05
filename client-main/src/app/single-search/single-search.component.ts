@@ -16,19 +16,36 @@ export class SingleSearchComponent implements OnInit {
     private singleGameService: SingleGameService
   ) { }
 
+  q: string;
+
   filters: Object = {
     selectedPlatform: null,
     selectedGenre: null
   };
 
-  searchGame(f?: NgForm, filters?): void {
-    let _input: any = f.value.search || 'placeholder';
+  // searchGame(f?: NgForm, filters?): void {
+  //   let _input: any = f.value.search || 'placeholder';
+  // 	this.singleSearchService.getGame(_input, filters)
+  // 	.subscribe(res => {
+  //     // Reset to first game
+  //     this.singleGameService.updateResults(res);
+  //     this.singleGameService.updateGame(res[0]);
+  //   });
+    
+  //   f.value.search = '';
+
+  // }
+
+  searchGame(q?: string, filters?): void {
+    let _input: any = q || 'placeholder';
   	this.singleSearchService.getGame(_input, filters)
   	.subscribe(res => {
       // Reset to first game
       this.singleGameService.updateResults(res);
       this.singleGameService.updateGame(res[0]);
-  	});
+
+      this.q = '';
+    });
 
   }
 
