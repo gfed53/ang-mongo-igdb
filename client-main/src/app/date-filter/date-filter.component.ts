@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import {
   trigger,
@@ -25,34 +25,17 @@ import {
     ])
   ]
 })
-export class DateFilterComponent implements OnInit {
+export class DateFilterComponent {
 
   @Input() date: any;
   @Input() direction: string;
   @Output() dateChange: EventEmitter<any> = new EventEmitter<any>();
 
-  // dateValue: any = '';
-
-  // @Input() 
-  // set date(val) {
-  //   this.dateValue = val;
-  //   this.dateChange.emit(val);
-  // }
-  // get date() {
-  //   return this.dateValue;
-  // }
-
-  
-
-  // boundDate: any;
-
   constructor() { }
 
-  ngOnInit() {
-  }
 
   onChange(newValue) {
-    console.log('newValue',newValue);
+    // console.log('newValue',newValue);
     this.date = newValue;
     this.dateChange.emit(newValue);
   }

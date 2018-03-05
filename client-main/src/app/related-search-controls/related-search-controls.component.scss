@@ -44,22 +44,6 @@
     margin: 1em 0;
     padding: 0.5em;
     border: 1px solid lightgrey;
-
-    .date-filter {
-      margin: 0.5em 0;
-    }
-
-    label {
-      display: block;
-    }
-    
-    input {
-      // width: 7em;
-      width: 75%;
-      line-height: 25px;
-      padding: 0 3px;
-      border: 1px solid lightgrey;
-    }
   }
 
   .radio-container {
@@ -71,25 +55,5 @@
     padding: 0.3em;
     border-radius: 5px;
     color: white;
-  }
-}
-
-@media screen and ($breakpoint-442) {
-  .search-controls-container {
-    .date-filter-container {
-      input {
-        width: 7em;
-      }
-    }
-  }
-}
-
-@media screen and ($tablet-768){
-  .search-controls-container {
-    .date-filter-container {
-      .date-filter {
-        display: inline-block;
-      }
-    }
   }
 }

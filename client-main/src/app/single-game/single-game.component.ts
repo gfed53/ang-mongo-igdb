@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { PageScrollConfig, PageScrollService } from 'ng2-page-scroll';
+import { PageScrollConfig } from 'ng2-page-scroll';
 
 import { SingleSearchService } from '../services/single-search.service';
 import { SingleGameService } from '../services/single-game.service';
@@ -17,8 +17,7 @@ export class SingleGameComponent implements OnInit {
 
   constructor(
     private singleGameService: SingleGameService,
-    private smoothScrollService: SmoothScrollService,
-    private pageScrollService: PageScrollService
+    private smoothScrollService: SmoothScrollService
   ) { 
     PageScrollConfig.defaultDuration = this.smoothScrollService.duration;
     PageScrollConfig.defaultEasingLogic = this.smoothScrollService.easingLogic;
@@ -33,7 +32,7 @@ export class SingleGameComponent implements OnInit {
     .subscribe(list => {
       this.singleSearchResults = list;
       // Wait a tick
-      setTimeout(this.scrollDown.bind(this, '#single-result'), 0);
+      setTimeout(() => {this.smoothScrollService.scrollDown('#single-result')}, 0);
     });
 
     this.singleGameService.currentGame$
@@ -42,6 +41,6 @@ export class SingleGameComponent implements OnInit {
     });
   }
 
-  public scrollDown = this.smoothScrollService.scrollDown;
+  // public scrollDown = this.smoothScrollService.scrollDown;
 
 }

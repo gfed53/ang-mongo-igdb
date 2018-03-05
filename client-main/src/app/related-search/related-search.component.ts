@@ -27,7 +27,7 @@ export class RelatedSearchComponent {
   }
 
   onControlsChange(event: MyRelatedControls): void {
-    console.log('onControlsChange',event); // Keep this for now!
+    // console.log('onControlsChange',event); // Keep this for now!
     this.controls = event;
 
     // console.log('this.controls now',this.controls);

@@ -111,10 +111,7 @@ export class RelatedSearchControlsComponent implements OnInit {
   }
 
   dateChange(event: any): void {
-    console.log('dateChange',event); // Keep this for now!
     this.onControlsChange.emit(this.controls);
-
-    // console.log('this.controls now',this.controls);
   }
 
 
