@@ -1,5 +1,9 @@
 @import '../../assets/external-styles/variables';
 
+.single-search-container {
+	transition: 250ms ease-in all;
+}
+
 input {
 	border: 1px solid lightgrey;
 }

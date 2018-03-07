@@ -21,6 +21,8 @@ export class SingleSearchControlsComponent implements OnInit {
   filters: Object;
 
   @Output() onFiltersChange: EventEmitter<any> = new EventEmitter<any>();
+  // @Output() onGenresLoaded: EventEmitter<any> = new EventEmitter<any>();
+  // @Output() onPlatformsLoaded: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private getPlatformsService: GetPlatformsService,

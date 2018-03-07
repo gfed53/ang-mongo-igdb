@@ -1,4 +1,7 @@
-<section class="single-search-container">
+<section *ngIf="!filters.selectedPlatform || !filters.selectedGenre" class="single-search-loading-container">
+	Loading...
+</section>
+<section [ngClass]="{'hidden': !filters.selectedPlatform || !filters.selectedGenre}" class="single-search-container">
 	<p class="p-lg">Search for a game.</p>
 	<div class="input-container">
 		<form #f="ngForm" (ngSubmit)="searchGame(q, filters)">

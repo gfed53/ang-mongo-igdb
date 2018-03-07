@@ -53,6 +53,7 @@ export class SingleSearchComponent implements OnInit {
   }
 
   onFiltersChange(event){
+    console.log('onFiltersChange');
     this.filters = event; 
   }
 
