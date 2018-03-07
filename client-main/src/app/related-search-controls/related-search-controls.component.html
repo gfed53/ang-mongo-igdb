@@ -14,8 +14,10 @@
     </div>
     <div class="date-filter-container">
       <p class="date-filter-header">Date</p>
-      <app-date-filter [(date)]="controls.dateRange.after" direction="From" (dateChange)="dateChange($event)"></app-date-filter>
-      <app-date-filter [(date)]="controls.dateRange.before" direction="To" (dateChange)="dateChange($event)"></app-date-filter>
+      <!-- <app-date-filter [(date)]="controls.dateRange.after" direction="From" (dateChange)="dateChange($event)"></app-date-filter>
+      <app-date-filter [(date)]="controls.dateRange.before" direction="To" (dateChange)="dateChange($event)"></app-date-filter> -->
+      From {{ controls.dateRange[0] }} to {{ controls.dateRange[1] }}
+      <nouislider name="dateRange" [connect]="true" [min]="1950" [max]="2020" [step]="1" [(ngModel)]="controls.dateRange" (ngModelChange)="dateChange($event)"></nouislider>
     </div>
     <div class="order-by-container">
       <h4 class="search-controls-header">Give Me:</h4>

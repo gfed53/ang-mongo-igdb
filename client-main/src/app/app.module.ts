@@ -7,6 +7,7 @@ import { CustomFormsModule } from 'ng2-validation';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { NouisliderModule } from 'ng2-nouislider';
 
 // Services
 import { SingleSearchService } from './services/single-search.service';
@@ -58,7 +59,8 @@ import { DateFilterComponent } from './date-filter/date-filter.component';
     CustomFormsModule,
     HttpClientModule,
     Ng2PageScrollModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    NouisliderModule
   ],
   providers: [ 
     SingleSearchService,

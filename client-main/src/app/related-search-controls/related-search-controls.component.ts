@@ -38,10 +38,11 @@ export class RelatedSearchControlsComponent implements OnInit {
   platforms: any[] = [];
   controls: MyRelatedControls = {
     selectedPlatformIDs: [],
-    dateRange: {
-      after: '',
-      before: ''
-    },
+    // dateRange: {
+    //   after: '',
+    //   before: ''
+    // },
+    dateRange: [1950,2020],
     order: 'popularity'
   };
   orderChoices = [
@@ -111,6 +112,7 @@ export class RelatedSearchControlsComponent implements OnInit {
   }
 
   dateChange(event: any): void {
+    console.log('dateChange');
     this.onControlsChange.emit(this.controls);
   }
 
