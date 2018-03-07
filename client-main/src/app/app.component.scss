@@ -66,6 +66,25 @@ body.modal-open {
   overflow: hidden;
 }
 
+/*-------------------------------*/
+
+
+/* Overriding third party range slider (ng2-nouislider) styles
+-------------------------------*/
+
+.noUi-connect {
+  background: $my-green;
+}
+
+.noUi-horizontal .noUi-handle {
+  width: 20px;
+  height: 27px;
+}
+
+/*-------------------------------*/
+
+
+
 @media screen and ($tablet-768) {
   
 }

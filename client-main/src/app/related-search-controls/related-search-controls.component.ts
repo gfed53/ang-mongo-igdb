@@ -42,6 +42,7 @@ export class RelatedSearchControlsComponent implements OnInit {
     //   after: '',
     //   before: ''
     // },
+    // TODO: 2020 hardcoded for now while testing, dynamically generate year two years from now.
     dateRange: [1950,2020],
     order: 'popularity'
   };
