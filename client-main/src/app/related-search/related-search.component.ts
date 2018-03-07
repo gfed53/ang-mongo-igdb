@@ -14,7 +14,11 @@ import { MyRelatedControls } from '../types/my-related-controls';
 export class RelatedSearchComponent {
 
   @Input() selected: any;
-  controls: MyRelatedControls;
+  controls: MyRelatedControls = {
+    selectedPlatformIDs: [],
+    order: 'popularity',
+    dateRange: []
+  };
 
   constructor(
     private relatedSearchService: RelatedSearchService,
@@ -23,7 +27,7 @@ export class RelatedSearchComponent {
   ) { }
 
   ngOnChanges() {
-    // console.log('this.selected now', this.selected); // Keep this for now!
+    console.log('this.selected now', this.selected); // Keep this for now!
   }
 
   onControlsChange(event: MyRelatedControls): void {
