@@ -15,6 +15,7 @@
 
     .search-controls-btn {
       -webkit-appearance: none;
+      cursor: pointer;
       background-color: $my-green;
       border: none;
       box-shadow: 1px 1px 2px grey;
@@ -48,6 +49,10 @@
 
   .radio-container {
     margin: 0.5em 0;
+
+    input {
+      cursor: pointer;
+    }
   }
 
   .validation-error {
