@@ -1,0 +1,43 @@
+
+/* Keyframe Animation
+-------------------------------*/
+
+@keyframes slidepulse {
+  0% {
+    opacity: 0;
+    transform: translateX(-75%);
+  }
+  
+  50% {
+    transform: translateX(-25%) scale(1.5);
+    opacity: 1;
+  }
+  
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+}
+
+/*-------------------------------*/
+
+
+.loader {
+  position: relative;
+  top: 5em;
+  font-size: 1.2em;
+
+  .loader-span {
+    display: inline-block;
+  }
+  
+  .loader-span:nth-child(1) {
+    animation: slidepulse 1.5s 0.75s infinite;
+  }
+  
+  .loader-span:nth-child(2) {
+    animation: slidepulse 1.5s infinite;
+  }
+
+}
+

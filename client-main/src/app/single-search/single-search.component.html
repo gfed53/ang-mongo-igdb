@@ -1,6 +1,9 @@
-<section *ngIf="!filters.selectedPlatform || !filters.selectedGenre" class="single-search-loading-container">
+<!-- <section class="single-search-loading-container">
 	Loading...
-</section>
+	for .single-search-container: [ngClass]="{'hidden': !filters.selectedPlatform || !filters.selectedGenre}"
+	 for app-loader:  *ngIf="!filters.selectedPlatform || !filters.selectedGenre"
+</section> -->
+<app-loader *ngIf="!filters.selectedPlatform || !filters.selectedGenre"></app-loader>
 <section [ngClass]="{'hidden': !filters.selectedPlatform || !filters.selectedGenre}" class="single-search-container">
 	<p class="p-lg">Search for a game.</p>
 	<div class="input-container">

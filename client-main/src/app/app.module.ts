@@ -34,6 +34,7 @@ import { RelatedSearchComponent } from './related-search/related-search.componen
 import { RelatedResultsComponent } from './related-results/related-results.component';
 import { ModalComponent } from './modal/modal.component';
 import { DateFilterComponent } from './date-filter/date-filter.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 
@@ -50,7 +51,8 @@ import { DateFilterComponent } from './date-filter/date-filter.component';
     RelatedSearchComponent,
     RelatedResultsComponent,
     ModalComponent,
-    DateFilterComponent
+    DateFilterComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
