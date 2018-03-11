@@ -26,6 +26,9 @@ export class SingleGameComponent implements OnInit {
   singleSearchResults: any[];
   selectedResult: any;
 
+  // Single Search section will be obscured 
+  relatedInFocus: boolean = false;
+
   ngOnInit() {
     
     this.singleGameService.singleSearchResults$
@@ -33,6 +36,7 @@ export class SingleGameComponent implements OnInit {
       this.singleSearchResults = list;
       // Wait a tick
       setTimeout(() => {this.smoothScrollService.scrollDown('#single-result')}, 0);
+      this.relatedInFocus = true;
     });
 
     this.singleGameService.currentGame$

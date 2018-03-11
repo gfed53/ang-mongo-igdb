@@ -5,7 +5,7 @@
 </section> -->
 <app-loader *ngIf="!filters.selectedPlatform || !filters.selectedGenre"></app-loader>
 <section [ngClass]="{'hidden': !filters.selectedPlatform || !filters.selectedGenre}" class="single-search-container">
-	<p class="p-lg">Search for a game.</p>
+	<p class="p-lg">Find a game that you'd like to see more of.</p>
 	<div class="input-container">
 		<form #f="ngForm" (ngSubmit)="searchGame(q, filters)">
 			<div class="form-inline">

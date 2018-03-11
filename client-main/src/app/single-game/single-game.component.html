@@ -1,6 +1,9 @@
 <div class="row">
 	<div class="col-5">
-		<app-single-search></app-single-search>
+		<div class="single-search-outer-container" [ngClass]="{ 'faded': relatedInFocus }">
+			<app-single-search></app-single-search>
+			<div class="my-overlay-clear" *ngIf="relatedInFocus"></div>
+		</div>
 		<app-related-search class="desktop-related-search" *ngIf="selectedResult" [selected]="selectedResult"></app-related-search>
 
 		<!-- Toggle this when you want to just see the related search section in the view w/o having to make an API call (App will not fully work though!) -->
