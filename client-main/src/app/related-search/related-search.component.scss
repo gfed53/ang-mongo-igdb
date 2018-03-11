@@ -4,6 +4,19 @@
   text-align: center;
   margin: 3em 0;
 
+  .my-btn {
+    -webkit-appearance: none;
+    cursor: pointer;
+    margin: 0.5em;
+    // font-size: 1.25em;
+    color: white;
+    padding: 0.5em;
+    background-color: $my-green;
+    border: none;
+    box-shadow: 1px 1px 5px black;
+    // width: 6em;
+  }
+
   .btn-get-related {
     -webkit-appearance: none;
     cursor: pointer;

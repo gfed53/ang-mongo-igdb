@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
 import { RelatedSearchService } from '../services/related-search.service';
 import { RelatedGamesService } from '../services/related-games.service';
@@ -14,6 +14,10 @@ import { MyRelatedControls } from '../types/my-related-controls';
 export class RelatedSearchComponent {
 
   @Input() selected: any;
+  @Input() inFocus: boolean;
+
+  @Output() inFocusChange: EventEmitter<any> = new EventEmitter<any>();
+
   controls: MyRelatedControls = {
     selectedPlatformIDs: [],
     order: 'popularity',
@@ -35,6 +39,11 @@ export class RelatedSearchComponent {
     this.controls = event;
 
     // console.log('this.controls now',this.controls);
+  }
+
+  onSwitchGame(){
+    console.log('onSwitchGame');
+    this.inFocusChange.emit(false);
   }
 
   searchRelated(game: any, controls?: MyRelatedControls): void {
