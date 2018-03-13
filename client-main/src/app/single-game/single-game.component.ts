@@ -26,7 +26,7 @@ export class SingleGameComponent implements OnInit {
   singleSearchResults: any[];
   selectedResult: any;
 
-  // Single Search section will be obscured 
+  //---------- Single Search section will be obscured 
   relatedInFocus: boolean = false;
 
   ngOnInit() {
@@ -34,7 +34,7 @@ export class SingleGameComponent implements OnInit {
     this.singleGameService.singleSearchResults$
     .subscribe(list => {
       this.singleSearchResults = list;
-      // Wait a tick
+      //---------- Auto scroll(wait a tick)
       setTimeout(() => {this.smoothScrollService.scrollDown('#single-result')}, 0);
       this.relatedInFocus = true;
     });
@@ -48,12 +48,10 @@ export class SingleGameComponent implements OnInit {
   handleFocusChange(event) {
     console.log('handleFocusChange');
     this.relatedInFocus = event;
-    // Auto scroll
+    //---------- Auto scroll(wait a tick)
     setTimeout(() => {this.smoothScrollService.scrollDown('.single-search-outer-container')}, 0);
     
 
   }
-
-  // public scrollDown = this.smoothScrollService.scrollDown;
 
 }

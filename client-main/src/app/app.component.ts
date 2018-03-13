@@ -29,12 +29,9 @@ export class AppComponent {
     this.relatedGamesService.relatedSearchResults$
     .subscribe((list: any[]) => {
       this.relatedResults = list;
-      // Wait a tick
+      //---------- Auto scroll(wait a tick)
       setTimeout(() => {this.smoothScrollService.scrollDown('#related-results')}, 0);
     });
   }
-
-  // public scrollDown = this.smoothScrollService.scrollDown;
-
 
 }
