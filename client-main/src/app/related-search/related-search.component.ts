@@ -16,7 +16,7 @@ export class RelatedSearchComponent {
   @Input() selected: any;
   @Input() inFocus: boolean;
 
-  @Output() inFocusChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onFocusChange: EventEmitter<any> = new EventEmitter<any>();
 
   controls: MyRelatedControls = {
     selectedPlatformIDs: [],
@@ -43,7 +43,7 @@ export class RelatedSearchComponent {
 
   onSwitchGame(){
     console.log('onSwitchGame');
-    this.inFocusChange.emit(false);
+    this.onFocusChange.emit(false);
   }
 
   searchRelated(game: any, controls?: MyRelatedControls): void {

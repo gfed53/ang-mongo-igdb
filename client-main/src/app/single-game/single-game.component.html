@@ -5,7 +5,7 @@
 			<div class="my-overlay-clear" *ngIf="relatedInFocus"></div>
 		</div>
 		<div class="related-search-outer-container" [ngClass]="{ 'faded': !relatedInFocus }">
-			<app-related-search [inFocus]="relatedInFocus" (inFocusChange)="relatedInFocus = $event" class="desktop-related-search" *ngIf="selectedResult" [selected]="selectedResult"></app-related-search>
+			<app-related-search [inFocus]="relatedInFocus" (onFocusChange)="handleFocusChange($event)" class="desktop-related-search" *ngIf="selectedResult" [selected]="selectedResult"></app-related-search>
 			<div class="my-overlay-clear" *ngIf="!relatedInFocus"></div>
 		</div>
 		
@@ -22,6 +22,8 @@
 <!-- Mobile related search -->
 <div class="row mobile-related-search-container">
 	<div class="col-12">
-		<app-related-search *ngIf="selectedResult" [selected]="selectedResult"></app-related-search>
+		<div class="related-search-outer-container" [ngClass]="{ 'faded': !relatedInFocus }">
+			<app-related-search [inFocus]="relatedInFocus" (onFocusChange)="handleFocusChange($event)" *ngIf="selectedResult" [selected]="selectedResult"></app-related-search>
+		</div>
 	</div>
 </div>

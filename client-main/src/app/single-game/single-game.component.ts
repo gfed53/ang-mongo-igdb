@@ -45,6 +45,15 @@ export class SingleGameComponent implements OnInit {
     });
   }
 
+  handleFocusChange(event) {
+    console.log('handleFocusChange');
+    this.relatedInFocus = event;
+    // Auto scroll
+    setTimeout(() => {this.smoothScrollService.scrollDown('.single-search-outer-container')}, 0);
+    
+
+  }
+
   // public scrollDown = this.smoothScrollService.scrollDown;
 
 }
