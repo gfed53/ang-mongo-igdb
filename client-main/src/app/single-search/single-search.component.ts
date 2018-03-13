@@ -45,6 +45,7 @@ export class SingleSearchComponent implements OnInit {
       this.singleGameService.updateGame(res[0]);
 
       this.q = '';
+      document.getElementById('single-search-input').blur();
     });
 
   }
