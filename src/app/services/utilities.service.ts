@@ -11,23 +11,25 @@ export class UtilitiesService {
   }
 
   getChecked(list: any[]){
-    // API uses array of ID's to accept multiple params for filters
-    // eg. 'filter[release_dates.platform][any]': [48,26]
-    // This utility method will take a list (genres, platforms) and filter out all but checked items.
-    // This method will most likely just be used for getting related results after a search for a single game.
-    
+    /*-------------------------------
+    Takes a list (genres, platforms) and filters out all but checked items.
+    */
     return list
             .filter((item) => item.checked);
   }
 
-  // This utility method will take a list (genres, platforms) and convert array to just array of id's.
   getIds(list: any[]){
+    /*-------------------------------
+    Takes a list (genres, platforms) and converts array to just array of id's.
+    */
     return list
             .map((item) => item.id);
   }
 
-  // Adds an ANY default option with null value
   postConfig(arr: any[]): any[] {
+    /*-------------------------------
+    Adds an ANY default option with null value
+    */
     arr.unshift({
       name: 'Any',
       id: null
@@ -35,18 +37,22 @@ export class UtilitiesService {
 
     return arr;
   }
-
-  // Single Result: change properties of result object on load event, which ngClass checks for in order to fade in image at appropriate time
+  
   onImageLoad(item: any, type: string): void {
+    /*-------------------------------
+    For Single Result component: changes properties of result object on load event, which ngClass checks for in order to fade in image at appropriate time
+    */
     if(type === 'screenshot'){
       item.screenshots.loaded = true;
     } else if(type === 'cover'){
       item.cover.loaded = true;
     }
   }
-
-  // Related Results: dynamically create image links and attach them to item object
+  
   setImageLinks(a: any[]): any {
+    /*-------------------------------
+    For Related Results component: dynamically creates image links and attach them to item object
+    */
     return a.map((item)=> {
       if(item.cover){
         item.cover.realUrl = `https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/${item.cover.cloudinary_id}.jpg`;

@@ -38,10 +38,6 @@ export class RelatedSearchControlsComponent implements OnInit {
   platforms: any[] = [];
   controls: MyRelatedControls = {
     selectedPlatformIDs: [],
-    // dateRange: {
-    //   after: '',
-    //   before: ''
-    // },
     // TODO: 2020 hardcoded for now while testing, dynamically generate year two years from now.
     dateRange: [1950,2020],
     order: 'popularity'
@@ -113,7 +109,6 @@ export class RelatedSearchControlsComponent implements OnInit {
   }
 
   dateChange(event: any): void {
-    console.log('dateChange');
     this.onControlsChange.emit(this.controls);
   }
 

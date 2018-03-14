@@ -51,7 +51,6 @@ import { LoaderComponent } from './loader/loader.component';
     RelatedSearchComponent,
     RelatedResultsComponent,
     ModalComponent,
-    DateFilterComponent,
     LoaderComponent
   ],
   imports: [
