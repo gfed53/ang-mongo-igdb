@@ -28,7 +28,7 @@ export class SingleResultComponent implements OnInit {
   }
 
   ngOnChanges() {
-    // Reset
+    //---------- Reset
     this.currentIndex = 0;
     
     this.currentResult = this.results[this.currentIndex];
@@ -45,7 +45,7 @@ export class SingleResultComponent implements OnInit {
     
     this.currentResult = this.results[this.currentIndex];
 
-    // Update observable
+    //---------- Update observable
     this.singleGameService.updateGame(this.currentResult);
   }
   

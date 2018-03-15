@@ -12,12 +12,9 @@
       -moz-appearance: none;
       display: block;
       cursor: pointer;
-      // color: white;
       max-width: 100%;
       height: 1.75em;
       padding: 0 5px;
-      // background: url(../../assets/images/arrow-2.png) no-repeat right center;
-      // background: url(../../assets/images/arrow-2.png) no-repeat right 0.75em center;
       background-color: white;
     }
   }
@@ -31,14 +28,13 @@
   }
 }
 
-/* arrows */
+/* ARROWS
+-------------------------------*/
 
 select.classic {
   background-image:
-    // linear-gradient(45deg, transparent 50%, $my-green 50%),
     linear-gradient(45deg, transparent 54%, white 50%),
     linear-gradient(135deg, white 50%, transparent 50%),
-    // linear-gradient(to right, white, white);
     linear-gradient(to right, $my-green, $my-green);
   background-position:
     calc(100% - 20px) calc(1em + -4px),
@@ -49,8 +45,4 @@ select.classic {
     5px 5px,
     2.4em 2.5em;
   background-repeat: no-repeat;
-}
-
-@media screen and ($desktop-1024) {
-
 }

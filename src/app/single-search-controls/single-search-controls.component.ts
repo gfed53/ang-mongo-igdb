@@ -21,8 +21,6 @@ export class SingleSearchControlsComponent implements OnInit {
   filters: Object;
 
   @Output() onFiltersChange: EventEmitter<any> = new EventEmitter<any>();
-  // @Output() onGenresLoaded: EventEmitter<any> = new EventEmitter<any>();
-  // @Output() onPlatformsLoaded: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private getPlatformsService: GetPlatformsService,
@@ -31,17 +29,16 @@ export class SingleSearchControlsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // Get our list of platforms
+    //---------- Get our list of platforms
     this.getPlatformsService.getPlatforms()
     .subscribe((res: MyCollection) => {
-      // console.log('res',res);
       let sorted: any[] = this.utilitiesService.sortedByName(res.data); 
       this.platforms = this.utilitiesService.postConfig(sorted);
       this.selectedPlatform = this.platforms[0];
       this.onChange();
     });
     
-    // Get our list of genres
+    //---------- Get our list of genres
     this.getGenresService.getGenres()
     .subscribe((res: MyCollection) => {
       let sorted = this.utilitiesService.sortedByName(res.data);

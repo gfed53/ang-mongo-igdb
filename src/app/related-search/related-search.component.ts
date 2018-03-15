@@ -31,11 +31,11 @@ export class RelatedSearchComponent {
   ) { }
 
   ngOnChanges() {
-    console.log('this.selected now', this.selected); // Keep this for now!
+    // console.log('this.selected now', this.selected); // Keep this for now!
   }
 
   onControlsChange(event: MyRelatedControls): void {
-    console.log('onControlsChange',event); // Keep this for now!
+    // console.log('onControlsChange',event); // Keep this for now!
     this.controls = event;
   }
 
@@ -44,12 +44,12 @@ export class RelatedSearchComponent {
   }
 
   searchRelated(game: any, controls?: MyRelatedControls): void {
-    console.log('game',game); // Keep this for now!
-    console.log('controls',controls); // Keep this for now!
+    // console.log('game',game); // Keep this for now!
+    // console.log('controls',controls); // Keep this for now!
     this.relatedSearchService.getRelated(game,controls)
     .subscribe(res => {
       res = this.utilitiesService.setImageLinks(res);
-      console.log('res',res); // Keep this for now!
+      // console.log('res',res); // Keep this for now!
       this.relatedGamesService.updateResults(res);
     });
 
