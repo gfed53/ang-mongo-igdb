@@ -6,8 +6,14 @@ header {
 	box-shadow: $my-shadow-2;
 	margin-bottom: 2em;
 
-	h1 {
+	
+
+	h1, p {
 		margin: 0;
 		color: #fff;
+	}
+
+	p {
+		text-align: right;
 	}
 }

@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-	title = 'Angular Mongo IGDB';
+  title = 'GameHunter';
+  sub = 'Gregory Federico';
+  year = '2017-2018';
 
   constructor() { }
 

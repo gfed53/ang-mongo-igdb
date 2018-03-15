@@ -8,6 +8,7 @@
           class="img-cover" 
           *ngIf="result.cover?.url"
           [lazyLoad]="result.cover.realUrl"
+          [offset]="200"
           [useSrcset]="true"
           (load)="onImageLoad(result)"
           >
