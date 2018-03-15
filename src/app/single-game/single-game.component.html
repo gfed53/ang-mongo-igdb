@@ -6,12 +6,14 @@
 		</div>
 		<div class="related-search-outer-container" [ngClass]="{ 'faded': !relatedInFocus }">
 			<app-related-search [inFocus]="relatedInFocus" (onFocusChange)="handleFocusChange($event)" class="desktop-related-search" *ngIf="selectedResult" [selected]="selectedResult"></app-related-search>
+
+			<!-- Toggle this when you want to just see the related search section in the view w/o having to make an API call (App will not fully work though!) -->
+			<!-- <app-related-search [inFocus]="true"></app-related-search> -->
 			<div class="my-overlay-clear" *ngIf="!relatedInFocus"></div>
 		</div>
 		
 
-		<!-- Toggle this when you want to just see the related search section in the view w/o having to make an API call (App will not fully work though!) -->
-		<!-- <app-related-search></app-related-search> -->
+		
 		
 	</div>
 	<div class="col-7">

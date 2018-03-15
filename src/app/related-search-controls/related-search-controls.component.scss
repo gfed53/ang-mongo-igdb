@@ -52,6 +52,7 @@
 
     input {
       cursor: pointer;
+      margin-right: 0.25em;
     }
   }
 
@@ -60,5 +61,42 @@
     padding: 0.3em;
     border-radius: 5px;
     color: white;
+  }
+}
+
+/* MODAL STYLES
+-------------------------------*/
+
+.platforms-modal-inner {
+  .modal-body {
+    background-color: #8961bb;
+    box-shadow: $my-shadow-2;
+
+    .modal-body-header {
+      margin-bottom: 0.5em;
+      padding-bottom: 0.5em;
+      border-bottom: 1px solid white;
+      button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        i {
+          color: white;
+        }
+        
+      }
+    }
+  }
+  
+  
+  div label {
+      color: white;
+  }
+
+  div input {
+    cursor: pointer;
+    margin-left: 0.25em;
   }
 }
