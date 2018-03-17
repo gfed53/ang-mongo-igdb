@@ -52,8 +52,8 @@
   .result-container {
     .result-images-container {
       img {
-        margin: 0 1em;
-        max-width: 40%;
+        // margin: 0 1em;
+        // max-width: 60%;
       }
     }
   }
@@ -63,6 +63,11 @@
   .result-container {
     .result-images-container {
       text-align: left;
+
+      img {
+        margin: 0 1em;
+        max-width: 40%;
+      }
     }
   }
 }

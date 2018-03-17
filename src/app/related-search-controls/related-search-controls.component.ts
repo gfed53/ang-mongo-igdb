@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 import {
   trigger,
@@ -29,7 +29,8 @@ import { MyRelatedControls } from '../types/my-related-controls';
         animate(200, style({opacity: 0}))
       ])
     ])
-  ]
+  ],
+  encapsulation: ViewEncapsulation.None
 })
 export class RelatedSearchControlsComponent implements OnInit {
 
