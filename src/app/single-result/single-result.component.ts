@@ -1,7 +1,9 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { PageScrollConfig } from 'ng2-page-scroll';
 
 import { SingleGameService } from '../services/single-game.service';
 import { UtilitiesService } from '../services/utilities.service';
+import { SmoothScrollService } from '../services/smooth-scroll.service';
 
 @Component({
   selector: 'app-single-result',
@@ -20,8 +22,12 @@ export class SingleResultComponent implements OnInit {
 
   constructor(
     private singleGameService: SingleGameService,
-    private utilitiesService: UtilitiesService
-  ) { }
+    private utilitiesService: UtilitiesService,
+    private smoothScrollService: SmoothScrollService
+  ) { 
+    PageScrollConfig.defaultDuration = this.smoothScrollService.duration;
+    PageScrollConfig.defaultEasingLogic = this.smoothScrollService.easingLogic;
+  }
 
   ngOnInit() {
     this.currentResult = this.results[this.currentIndex];
@@ -47,6 +53,8 @@ export class SingleResultComponent implements OnInit {
 
     //---------- Update observable
     this.singleGameService.updateGame(this.currentResult);
+
+    setTimeout(() => {this.smoothScrollService.scrollDown('.result-container')}, 0);
   }
   
 
