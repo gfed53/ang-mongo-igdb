@@ -28,11 +28,16 @@
     transition: 250ms ease-in all;
   }
 
+  .link-more-info {
+    font-size: 1.2em;
+  }
+
   .btn {
     -webkit-appearance: none;
     cursor: pointer;
     padding: 0.5em;
     border: 1px solid lightgrey;
+    background: white;
     font-weight: bold;
   }
   

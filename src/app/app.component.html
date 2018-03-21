@@ -9,6 +9,7 @@
   (inview)="resultsInView = $event.status"
   [throttle]="200"
   ></app-related-results>
+  <!--  -->
   <div *ngIf="relatedResults && resultsInView" class="fixed-auto-scroll-container">
     <button (click)="scrollToTopResult()"><i class="fa fa-angle-up"></i></button>
   </div>
