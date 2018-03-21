@@ -53,5 +53,4 @@ export class SingleGameComponent implements OnInit {
     
 
   }
-
 }

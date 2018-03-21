@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { NouisliderModule } from 'ng2-nouislider';
+import { NgInviewModule } from 'angular-inport';
 
 // Services
 import { SingleSearchService } from './services/single-search.service';
@@ -61,7 +62,8 @@ import { LoaderComponent } from './loader/loader.component';
     HttpClientModule,
     Ng2PageScrollModule,
     LazyLoadImageModule,
-    NouisliderModule
+    NouisliderModule,
+    NgInviewModule
   ],
   providers: [ 
     SingleSearchService,

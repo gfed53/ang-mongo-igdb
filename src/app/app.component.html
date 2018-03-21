@@ -1,8 +1,15 @@
 <app-header></app-header>
 <div class="container">
-  <app-single-game></app-single-game>
-  <app-related-results id="related-results" [relatedResults]="relatedResults" *ngIf="relatedResults"></app-related-results>
-  <div *ngIf="relatedResults" class="fixed-auto-scroll-container">
+  <app-single-game id="single-game"></app-single-game>
+  <app-related-results 
+  id="related-results" 
+  [relatedResults]="relatedResults" 
+  *ngIf="relatedResults"
+  in-view 
+  (inview)="resultsInView = $event.status"
+  [throttle]="200"
+  ></app-related-results>
+  <div *ngIf="relatedResults && resultsInView" class="fixed-auto-scroll-container">
     <button (click)="scrollToTopResult()"><i class="fa fa-angle-up"></i></button>
   </div>
 </div>

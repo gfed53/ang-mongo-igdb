@@ -5,6 +5,7 @@ import { PageScrollConfig } from 'ng2-page-scroll';
 
 
 import { RelatedGamesService } from './services/related-games.service';
+import { UtilitiesService } from './services/utilities.service';
 import { SmoothScrollService } from './services/smooth-scroll.service';
 
 @Component({
@@ -16,9 +17,11 @@ import { SmoothScrollService } from './services/smooth-scroll.service';
 export class AppComponent {
   relatedResults: any[];
   inModalState: boolean = false;
+  resultsInView: boolean;
 
   constructor(
     private relatedGamesService: RelatedGamesService,
+    private utilitiesService: UtilitiesService,
     private smoothScrollService: SmoothScrollService
   ) { 
     PageScrollConfig.defaultDuration = this.smoothScrollService.duration;
@@ -32,10 +35,19 @@ export class AppComponent {
       //---------- Auto scroll(wait a tick)
       setTimeout(() => {this.smoothScrollService.scrollTo('#related-results')}, 0);
     });
+
+    // testing
+    // this.utilitiesService.isElementBelowWindowTop('#single-game');
   }
 
   scrollToTopResult() {
     this.smoothScrollService.scrollTo('#related-results');
+  }
+
+  areResultsBelowWindowTop(){
+    // window.addEventListener('scroll', () => {
+    //   this.utilitiesService.isElementBelowWindowTop('#related-results');
+    // });
   }
 
 }
