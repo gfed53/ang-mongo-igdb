@@ -54,7 +54,7 @@ export class SingleResultComponent implements OnInit {
     //---------- Update observable
     this.singleGameService.updateGame(this.currentResult);
 
-    setTimeout(() => {this.smoothScrollService.scrollDown('.result-container')}, 0);
+    setTimeout(() => {this.smoothScrollService.scrollTo('.result-container')}, 0);
   }
   
 

@@ -35,7 +35,7 @@ export class SingleGameComponent implements OnInit {
     .subscribe(list => {
       this.singleSearchResults = list;
       //---------- Auto scroll(wait a tick)
-      setTimeout(() => {this.smoothScrollService.scrollDown('#single-result')}, 0);
+      setTimeout(() => {this.smoothScrollService.scrollTo('#single-result')}, 0);
       this.relatedInFocus = true;
     });
 
@@ -49,7 +49,7 @@ export class SingleGameComponent implements OnInit {
     console.log('handleFocusChange');
     this.relatedInFocus = event;
     //---------- Auto scroll(wait a tick)
-    setTimeout(() => {this.smoothScrollService.scrollDown('.single-search-outer-container')}, 0);
+    setTimeout(() => {this.smoothScrollService.scrollTo('.single-search-outer-container')}, 0);
     
 
   }

@@ -30,8 +30,12 @@ export class AppComponent {
     .subscribe((list: any[]) => {
       this.relatedResults = list;
       //---------- Auto scroll(wait a tick)
-      setTimeout(() => {this.smoothScrollService.scrollDown('#related-results')}, 0);
+      setTimeout(() => {this.smoothScrollService.scrollTo('#related-results')}, 0);
     });
+  }
+
+  scrollToTopResult() {
+    this.smoothScrollService.scrollTo('#related-results');
   }
 
 }
