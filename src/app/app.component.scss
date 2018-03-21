@@ -19,6 +19,25 @@
   opacity: 0;
 }
 
+/* AUTOSCROLL BUTTON 
+-------------------------------*/
+
+.fixed-auto-scroll-container {
+  z-index: 9999;
+  position: fixed;
+  bottom: 1em;
+  right: 5%;
+  button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-size: 2em;
+  }
+}
+
+
 /* MODAL STYLES
 -------------------------------*/
 modal {
@@ -68,16 +87,7 @@ body.modal-open {
   overflow: hidden;
 }
 
-@media screen and ($breakpoint-442){
-  modal {
-    .modal {
-      .modal-body {
-        margin: 5vh auto;
-        max-width: 25em;
-      }
-    }
-  }
-}
+
 
 /*-------------------------------*/
 
@@ -95,3 +105,21 @@ body.modal-open {
 }
 
 /*-------------------------------*/
+
+
+@media screen and ($breakpoint-442){
+  modal {
+    .modal {
+      .modal-body {
+        margin: 5vh auto;
+        max-width: 25em;
+      }
+    }
+  }
+}
+
+@media screen and ($tablet-768){
+  .fixed-auto-scroll-container {
+    right: 20%;
+  }
+}
