@@ -18,6 +18,10 @@
 .single-result-outer-container {
   // New layout
   max-width: 50em;
+
+  app-single-result {
+    position: relative;
+  }
 }
 
 @media screen and ($breakpoint-719){
