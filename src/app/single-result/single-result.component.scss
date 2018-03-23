@@ -22,11 +22,16 @@
     }
   }
 
+  .link-more-info {
+    font-size: 1.2em;
+  }
+
  .result-nav-container {
    margin: 1em 0;
    button {
      -webkit-appearance: none;
      -moz-appearance: none;
+     cursor: pointer;
      background: white;
      border: none;
      box-shadow: $my-shadow-3;
