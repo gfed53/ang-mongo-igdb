@@ -1,8 +1,8 @@
 <div class="container related-results-container">
   <div *ngIf="relatedResults.length">
-    <div *ngFor="let result of relatedResults" class="row result-container"> 
+    <div *ngFor="let result of relatedResults" class="result-container"> 
       <h2>{{result.name}}</h2>
-      <div class="col-12">
+      <div>
         <div [ngClass]="{'hidden' : !result.imageLoaded}" class="image-container">
           <img 
           class="img-cover" 

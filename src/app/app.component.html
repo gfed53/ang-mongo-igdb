@@ -11,7 +11,7 @@
   ></app-related-results>
   <!--  -->
   <div *ngIf="relatedResults && resultsInView" class="fixed-auto-scroll-container">
-    <button (click)="scrollToTopResult()"><i class="fa fa-angle-up"></i></button>
+    <span (click)="scrollToTopResult()"><i class="fa fa-angle-up"></i></span>
   </div>
 </div>
 <div *ngIf="inModalState" class="overlay"></div>

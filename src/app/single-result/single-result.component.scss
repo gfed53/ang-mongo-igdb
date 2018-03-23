@@ -40,41 +40,12 @@
    }
  }
 
-//  .col-lg-left, .col-lg-right {
-//    text-align: center;
-//  }
-
   .col-lg-left {
     text-align: left;
   }
   .col-lg-right {
     text-align: right;
   }
-}
-
-@media screen and ($breakpoint-719) {
-  // .col-lg-left {
-  //   text-align: left;
-  // }
-  // .col-lg-right {
-  //   text-align: right;
-  // }
-}
-
-@media screen and ($tablet-768) {
-  .result-container {
-    .result-images-container {
-      img {
-        // margin: 0 1em;
-        // max-width: 60%;
-      }
-    }
-    .result-nav-container {
-      
-    } 
-  }
-
-
 }
 
 @media screen and ($desktop-1024){
