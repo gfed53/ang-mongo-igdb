@@ -37,10 +37,13 @@ export class RelatedSearchControlsComponent implements OnInit {
   @Output() onControlsChange: EventEmitter<any> = new EventEmitter<any>();
 
   platforms: any[] = [];
+
+  minYear: number = 1950;
+  maxYear: number = new Date().getFullYear() + 2;
+
   controls: MyRelatedControls = {
     selectedPlatformIDs: [],
-    // TODO: 2020 hardcoded for now while testing, dynamically generate year two years from now.
-    dateRange: [1950,2020],
+    dateRange: [this.minYear,this.maxYear],
     order: 'popularity'
   };
   orderChoices = [
@@ -61,8 +64,6 @@ export class RelatedSearchControlsComponent implements OnInit {
   platformsExpanded: boolean;
   genresExpanded: boolean;
   modalIsOpen: boolean = false;
-
-  currentYear: number = new Date().getFullYear() + 1;
 
   constructor(
     private getPlatformsService: GetPlatformsService,

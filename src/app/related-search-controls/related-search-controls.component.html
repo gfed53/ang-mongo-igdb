@@ -15,8 +15,7 @@
     <div class="date-filter-container">
       <p class="date-filter-header">Date</p>
       From {{ controls.dateRange[0] }} to {{ controls.dateRange[1] }}
-      <!-- TODO: 2020 hardcoded for now while testing, dynamically generate year two years from now. -->
-      <nouislider name="dateRange" [connect]="true" [min]="1950" [max]="2020" [step]="1" [(ngModel)]="controls.dateRange" (ngModelChange)="dateChange($event)"></nouislider>
+      <nouislider name="dateRange" [connect]="true" [min]="minYear" [max]="maxYear" [step]="1" [(ngModel)]="controls.dateRange" (ngModelChange)="dateChange($event)"></nouislider>
     </div>
     <div class="order-by-container">
       <h4 class="search-controls-header">Give Me:</h4>
