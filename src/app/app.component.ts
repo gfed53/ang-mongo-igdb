@@ -34,19 +34,10 @@ export class AppComponent {
       //---------- Auto scroll(wait a tick)
       setTimeout(() => {this.smoothScrollService.scrollTo('#related-results')}, 0);
     });
-
-    // testing
-    // this.utilitiesService.isElementBelowWindowTop('#single-game');
   }
 
   scrollToTopResult() {
     this.smoothScrollService.scrollTo('#related-results');
-  }
-
-  areResultsBelowWindowTop(){
-    // window.addEventListener('scroll', () => {
-    //   this.utilitiesService.isElementBelowWindowTop('#related-results');
-    // });
   }
 
 }

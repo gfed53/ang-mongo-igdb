@@ -9,14 +9,11 @@
 .related-search-outer-container {
   transition: 250ms ease-in-out all;
   position: relative;
-
-  // New layout
   max-width: 50em;
   margin: auto;
 }
 
 .single-result-outer-container {
-  // New layout
   max-width: 50em;
 
   app-single-result {

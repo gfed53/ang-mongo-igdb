@@ -10,7 +10,6 @@ import {
   transition
 } from '@angular/animations';
 
-
 import { SingleSearchService } from '../services/single-search.service';
 import { SingleGameService } from '../services/single-game.service';
 import { SmoothScrollService } from '../services/smooth-scroll.service';
@@ -20,7 +19,6 @@ import { SmoothScrollService } from '../services/smooth-scroll.service';
   selector: 'app-single-game',
   templateUrl: './single-game.component.html',
   styleUrls: ['./single-game.component.scss'],
-  // TODO: with all animations, store animations array in service and reference ones we need so we don't repeat so much? Maybe call it animationsCollection in service.
   animations: [
     trigger('fadeSlideInOut', [
       transition('void => *', [
@@ -30,11 +28,10 @@ import { SmoothScrollService } from '../services/smooth-scroll.service';
       transition('* => void', [
         animate('250ms 250ms ease-in-out', style({transform: 'translateX(-2em)', opacity: 0}))
       ])
-    ])
+    ]),
   ],
 })
 export class SingleGameComponent implements OnInit {
-  
 
   constructor(
     private singleGameService: SingleGameService,
@@ -47,7 +44,7 @@ export class SingleGameComponent implements OnInit {
   singleSearchResults: any[];
   selectedResult: any;
 
-  //---------- Single Search section will be obscured 
+  //---------- Single Search section will be visually obscured 
   relatedInFocus: boolean = false;
 
   ngOnInit() {
@@ -67,11 +64,8 @@ export class SingleGameComponent implements OnInit {
   }
 
   handleFocusChange(event) {
-    console.log('handleFocusChange');
     this.relatedInFocus = event;
     //---------- Auto scroll(wait a tick)
     setTimeout(() => {this.smoothScrollService.scrollTo('.single-search-outer-container')}, 0);
-    
-
   }
 }

@@ -4,11 +4,8 @@ import * as $ from 'jquery';
 
 @Injectable()
 export class UtilitiesService {
+
   constructor(){}
-  
-  // Cached related results DOM values
-
-
 
   sortedByName(list: any[]): any[] {
     return list.sort((a,b) => {
@@ -57,7 +54,7 @@ export class UtilitiesService {
   
   setImageLinks(a: any[]): any {
     /*-------------------------------
-    For Related Results component: dynamically creates image links and attach them to item object
+    For Related Results component
     */
     return a.map((item)=> {
       if(item.cover){
@@ -66,25 +63,6 @@ export class UtilitiesService {
 
       return item;
     })
-  }
-
-  isElementBelowWindowTop(element){
-    // let windowTop = window.scrollY;
-    // console.log('windowTop',windowTop);
-    // let $element = $(element);
-    // console.log('element',$element);
-    // console.log('window top',$(window).scrollTop());
-    // console.log('element top',$element.scrollTop());
-
-    // return true;
-    // let rect = element.getBoundingClientRect();
-    // console.log('rect',rect);
-
-    // let elementTop = rect.top;
-
-    // // return windowTop > elementTop;
-    // return elementTop < 0;
-
   }
 
 }
