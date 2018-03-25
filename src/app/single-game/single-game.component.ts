@@ -25,10 +25,10 @@ import { SmoothScrollService } from '../services/smooth-scroll.service';
     trigger('fadeSlideInOut', [
       transition('void => *', [
         style({transform: 'translateX(-2em)', opacity: 0}),
-        animate(200, style({transform: 'translateX(0)', opacity: 1}))
+        animate('250ms 250ms ease-in-out', style({transform: 'translateX(0)', opacity: 1}))
       ]),
       transition('* => void', [
-        animate(200, style({transform: 'translateX(-2em)', opacity: 0}))
+        animate('250ms 250ms ease-in-out', style({transform: 'translateX(-2em)', opacity: 0}))
       ])
     ])
   ],

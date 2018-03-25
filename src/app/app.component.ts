@@ -3,7 +3,6 @@ import { ViewEncapsulation } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { PageScrollConfig } from 'ng2-page-scroll';
 
-
 import { RelatedGamesService } from './services/related-games.service';
 import { UtilitiesService } from './services/utilities.service';
 import { SmoothScrollService } from './services/smooth-scroll.service';

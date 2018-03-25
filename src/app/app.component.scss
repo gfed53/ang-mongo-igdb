@@ -2,6 +2,9 @@
 @import '../assets/external-styles/normalize.css'; 
 @import '../assets/external-styles/simple-grid.css';
 
+/* GENERAL STYLES 
+-------------------------------*/
+
 * {
 	margin: 0;
 	padding: 0;
@@ -17,6 +20,13 @@
 
 .hidden {
   opacity: 0;
+}
+
+/* APP COMPONENT STYLES 
+-------------------------------*/
+
+app-related-results {
+  position: relative;
 }
 
 /* AUTOSCROLL BUTTON 
