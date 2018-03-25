@@ -107,7 +107,7 @@ export class RelatedSearchControlsComponent implements OnInit {
 
 
     // We only want array of ids when we make API call, so convert.
-    this.controls.selectedPlatformIDs = this.utilitiesService.getIds(this.selectedPlatforms);
+    this.controls.selectedPlatformIDs = this.utilitiesService.getArrayOfIds(this.selectedPlatforms);
 
     this.onControlsChange.emit(this.controls);
   }

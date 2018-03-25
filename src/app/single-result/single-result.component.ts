@@ -16,9 +16,7 @@ export class SingleResultComponent implements OnInit {
 
   currentIndex: number = 0;
   currentResult: any;
-
-  onImageLoad = this.utilitiesService.onImageLoad;
-  
+  addImageLoadedProp = this.utilitiesService.addImageLoadedProp;  
 
   constructor(
     private singleGameService: SingleGameService,

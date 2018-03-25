@@ -16,7 +16,7 @@ export class RelatedResultsComponent {
   ) { }
 
   //---------- For game item, sets value on item object indicating that image has been loaded
-  onImageLoad(item) {
+  addImageLoadedProp(item) {
     item.imageLoaded = true;
   }
 

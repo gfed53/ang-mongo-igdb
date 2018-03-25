@@ -21,18 +21,12 @@ export class UtilitiesService {
             .filter((item) => item.checked);
   }
 
-  getIds(list: any[]){
-    /*-------------------------------
-    Takes a list (genres, platforms) and converts array to just array of id's.
-    */
+  getArrayOfIds(list: any[]){
     return list
             .map((item) => item.id);
   }
 
-  postConfig(arr: any[]): any[] {
-    /*-------------------------------
-    Adds an ANY default option with null value
-    */
+  addAnyOption(arr: any[]): any[] {
     arr.unshift({
       name: 'Any',
       id: null
@@ -41,7 +35,7 @@ export class UtilitiesService {
     return arr;
   }
   
-  onImageLoad(item: any, type: string): void {
+  addImageLoadedProp(item: any, type: string): void {
     /*-------------------------------
     For Single Result component: changes properties of result object on load event, which ngClass checks for in order to fade in image at appropriate time
     */

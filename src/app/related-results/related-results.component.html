@@ -10,7 +10,7 @@
           [lazyLoad]="result.cover.realUrl"
           [offset]="200"
           [useSrcset]="true"
-          (load)="onImageLoad(result)"
+          (load)="addImageLoadedProp(result)"
           >
         </div>
         <p>{{result.first_release_date | date}}</p>
