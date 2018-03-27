@@ -6,11 +6,11 @@ A video game-themed MEAN stack app powered by the [IGDB API](https://www.igdb.co
 
 ## What It Does
 
-This app allows the user to search for a particular game of interest, then be able to grab similar games based on user-specified criteria (restricting game platform, time period, etc.) as well as an internal algorithm I've created.
+This app allows the user to search for a particular game of interest, then grab similar games based on user-specified criteria (restricting game platform, time period, etc.) as well as an internal algorithm I've created.
 
 ## Project Structure
 
-I have the front and back end isolated in their own directories. This particular repo solely contains the front end portion of the app. As of now, the backend is in a completely different private repo, so note that `server-main` is not being utilized at all at this time. I plan to move the actual backend into server-main in the future when deploying.
+I have the front and back end isolated in their own directories. This particular repo solely contains the front end portion of the app. The back end is in a completely different [repo](https://github.com/gfed53/ang-mongo-igdb-be).
 
 ## Setup (Local)
 
