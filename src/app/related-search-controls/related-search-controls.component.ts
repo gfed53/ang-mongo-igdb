@@ -103,9 +103,6 @@ export class RelatedSearchControlsComponent implements OnInit {
     // Update list of selected platforms
     this.selectedPlatforms = this.utilitiesService.getChecked(this.platforms);
 
-    console.log('this.selectedPlatforms',this.selectedPlatforms);
-
-
     // We only want array of ids when we make API call, so convert.
     this.controls.selectedPlatformIDs = this.utilitiesService.getArrayOfIds(this.selectedPlatforms);
 
