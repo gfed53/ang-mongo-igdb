@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Output, EventEmitter, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { PageScrollConfig } from 'ng2-page-scroll';
 
@@ -41,6 +41,8 @@ export class SingleGameComponent implements OnInit {
     PageScrollConfig.defaultEasingLogic = this.smoothScrollService.easingLogic;
   }
 
+  @Output() onAppViewChange: EventEmitter<any> = new EventEmitter<any>();
+
   singleSearchResults: any[];
   selectedResult: any;
 
@@ -66,6 +68,7 @@ export class SingleGameComponent implements OnInit {
 
   handleFocusChange(event) {
     this.relatedInFocus = event;
+    this.onAppViewChange.emit(event);
     //---------- Auto scroll(wait a tick)
     setTimeout(() => {this.smoothScrollService.scrollTo('.single-search-outer-container')}, 0);
   }

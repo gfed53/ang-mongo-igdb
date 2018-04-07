@@ -17,6 +17,7 @@ export class AppComponent {
   relatedResults: any[];
   inModalState: boolean = false;
   resultsInView: boolean;
+  showRelatedResults: boolean;
 
   constructor(
     private relatedGamesService: RelatedGamesService,
@@ -31,6 +32,7 @@ export class AppComponent {
     this.relatedGamesService.relatedSearchResults$
     .subscribe((list: any[]) => {
       this.relatedResults = list;
+      this.showRelatedResults = true;
       //---------- Auto scroll(wait a tick)
       setTimeout(() => {this.smoothScrollService.scrollTo('#related-results')}, 0);
     });
@@ -38,6 +40,12 @@ export class AppComponent {
 
   scrollToTopResult() {
     this.smoothScrollService.scrollTo('#related-results');
+  }
+
+  handleAppViewChange(event) {
+    console.log('handleAppViewChange');
+    console.log('event',event);
+    
   }
 
 }
