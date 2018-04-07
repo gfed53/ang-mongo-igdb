@@ -52,9 +52,10 @@ export class SingleGameComponent implements OnInit {
     this.singleGameService.singleSearchResults$
     .subscribe(list => {
       this.singleSearchResults = list;
+      this.relatedInFocus = true;
       //---------- Auto scroll(wait a tick)
       setTimeout(() => {this.smoothScrollService.scrollTo('#single-result')}, 0);
-      this.relatedInFocus = true;
+      
     });
 
     this.singleGameService.currentGame$
