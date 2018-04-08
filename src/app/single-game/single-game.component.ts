@@ -29,6 +29,15 @@ import { SmoothScrollService } from '../services/smooth-scroll.service';
         animate('250ms 250ms ease-in-out', style({transform: 'translateX(-2em)', opacity: 0}))
       ])
     ]),
+    trigger('fadeInOut', [
+      transition('void => *', [
+        style({opacity: 0}),
+        animate(200, style({opacity: 1}))
+      ]),
+      transition('* => void', [
+        animate(200, style({opacity: 0}))
+      ])
+    ])
   ],
 })
 export class SingleGameComponent implements OnInit {
@@ -67,9 +76,16 @@ export class SingleGameComponent implements OnInit {
   }
 
   handleFocusChange(event) {
-    this.relatedInFocus = event;
-    this.onAppViewChange.emit(event);
+    
+    
     //---------- Auto scroll(wait a tick)
-    setTimeout(() => {this.smoothScrollService.scrollTo('.single-search-outer-container')}, 0);
+    setTimeout(() => {
+      this.smoothScrollService.scrollTo('.header-main'); 
+      this.onAppViewChange.emit(event);
+    }, 0);
+
+    setTimeout(() => {
+      this.relatedInFocus = event;
+    }, 500);
   }
 }

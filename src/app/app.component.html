@@ -2,17 +2,18 @@
 <div class="container">
   <app-single-game 
   id="single-game"
-  (onAppViewChange)="showRelatedResults = $event"></app-single-game>
+  (onAppViewChange)="handleAppViewChange($event)"></app-single-game>
   <app-related-results 
   id="related-results" 
   [relatedResults]="relatedResults" 
   *ngIf="relatedResults && showRelatedResults"
+  [@fadeInOut]="relatedResults && showRelatedResults"
   in-view 
   (inview)="resultsInView = $event.status"
   [throttle]="200"
   ></app-related-results>
   <!--  -->
-  <div *ngIf="relatedResults && resultsInView" class="fixed-auto-scroll-container">
+  <div *ngIf="relatedResults && showRelatedResults && resultsInView" class="fixed-auto-scroll-container">
     <span (click)="scrollToTopResult()"><i class="fa fa-angle-up"></i></span>
   </div>
 </div>

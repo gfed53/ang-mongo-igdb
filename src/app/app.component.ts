@@ -3,6 +3,14 @@ import { ViewEncapsulation } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { PageScrollConfig } from 'ng2-page-scroll';
 
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
+
 import { RelatedGamesService } from './services/related-games.service';
 import { UtilitiesService } from './services/utilities.service';
 import { SmoothScrollService } from './services/smooth-scroll.service';
@@ -11,6 +19,17 @@ import { SmoothScrollService } from './services/smooth-scroll.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      transition('void => *', [
+        style({opacity: 0}),
+        animate(200, style({opacity: 1}))
+      ]),
+      transition('* => void', [
+        animate(200, style({opacity: 0}))
+      ])
+    ])
+  ],
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
@@ -43,9 +62,7 @@ export class AppComponent {
   }
 
   handleAppViewChange(event) {
-    console.log('handleAppViewChange');
-    console.log('event',event);
-    
+    setTimeout(() => {this.showRelatedResults = event}, 0);
   }
 
 }
