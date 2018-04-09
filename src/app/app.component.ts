@@ -61,6 +61,10 @@ export class AppComponent {
     this.smoothScrollService.scrollTo('#related-results');
   }
 
+  scrollToSearchSection() {
+    this.smoothScrollService.scrollTo('#single-result');
+  }
+
   handleAppViewChange(event) {
     setTimeout(() => {this.showRelatedResults = event}, 0);
   }
