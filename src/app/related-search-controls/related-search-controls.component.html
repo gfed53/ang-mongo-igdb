@@ -26,12 +26,15 @@
     </div>
   </form>
   <modal (onChange)="onModalChange($event)" id="platforms-modal">
-    <div class="modal platforms-modal-inner">
+    <div class="modal platforms-modal-inner" role="dialog" aria-labelledby="Platform Selection" aria-describedby="Select platforms to filter by.">
       <div class="modal-body">
         <div class="modal-body-header">
-          <button (click)="closeModal('platforms-modal')"><i class="fa fa-times"></i></button>
+          <button (click)="closeModal('platforms-modal')" aria-label="Close Navigation"><i class="fa fa-times"></i></button>
         </div>
-        <div *ngFor="let platform of platforms" class="platform-container">
+        <div class="modal-filter-bar">
+          <input type="text" [(ngModel)]="platformText" placeholder="Narrow down list.." aria-label="Search">
+        </div>
+        <div *ngFor="let platform of platforms | filter : platformText" class="platform-container">
           <label for={{platform.id}}>{{platform.name}}</label>
           <input type="checkbox" name="platform" value={{platform.id}} [checked]="platform.checked" (change)="updateSelectedPlatforms(platform)" />
         </div>

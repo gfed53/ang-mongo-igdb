@@ -23,6 +23,9 @@ import { SmoothScrollService } from './services/smooth-scroll.service';
 
 // Directives
 
+// Pipes
+import { FilterPipe} from './pipes/filter.pipe';
+
 // Components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -52,7 +55,8 @@ import { LoaderComponent } from './loader/loader.component';
     RelatedSearchComponent,
     RelatedResultsComponent,
     ModalComponent,
-    LoaderComponent
+    LoaderComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

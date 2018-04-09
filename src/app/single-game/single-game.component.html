@@ -6,6 +6,7 @@
 		</div>
 	</div>
 </div>
+<!--  -->
 <div *ngIf="relatedInFocus" [@fadeInOut]="relatedInFocus" class="row">
 	<div class="col-6">
 		<div class="single-result-outer-container" *ngIf="singleSearchResults" [@fadeSlideInOut]="singleSearchResults">
@@ -15,9 +16,13 @@
 	<div class="col-6">
 		<div class="related-search-outer-container" [ngClass]="{ 'faded': !relatedInFocus }">
 			<app-related-search [inFocus]="relatedInFocus" (onFocusChange)="handleFocusChange($event)" *ngIf="selectedResult" [selected]="selectedResult"></app-related-search>
-			<!-- Toggle this when you want to just see the related search section in the view w/o having to make an API call (App will not fully work though!) -->
-			<!-- <app-related-search [inFocus]="true"></app-related-search> -->
 			<div class="my-overlay-clear" *ngIf="!relatedInFocus"></div>
 		</div>
 	</div>
 </div>
+
+<!-- Toggle this when you want to just see the related search section in the view w/o having to make an API call (App will not fully work though!) -->
+<!-- <div class="col-6">
+	<app-related-search [inFocus]="true"></app-related-search>
+</div> -->
+
