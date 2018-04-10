@@ -6,9 +6,13 @@
       <!-- Platforms that are selected as filters will be displayed here -->
       <div class="platform-labels-container" [@fadeInOut]="selectedPlatforms.length" *ngIf="selectedPlatforms.length && !modalIsOpen">
         <span *ngFor="let platform of platforms">
-          <span [@fadeInOut]="platform.checked" *ngIf="platform.checked" class="platform-label" (click)="updateSelectedPlatforms(platform)">
+          <button 
+          [@fadeInOut]="platform.checked" 
+          *ngIf="platform.checked" 
+          class="platform-label"
+          (click)="updateSelectedPlatforms(platform)">
             {{platform.name}} <i class="fa fa-times selected-platform-remove"></i>
-          </span>
+          </button>
         </span>
       </div>
     </div>
