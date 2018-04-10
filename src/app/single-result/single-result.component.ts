@@ -29,6 +29,10 @@ export class SingleResultComponent implements OnInit {
 
   ngOnInit() {
     this.currentResult = this.results[this.currentIndex];
+
+    setTimeout(() => {
+      document.getElementById('link-single-more-info').focus();
+     }, 0);
   }
 
   ngOnChanges() {

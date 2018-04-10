@@ -66,7 +66,12 @@ export class AppComponent {
   }
 
   handleAppViewChange(event) {
-    setTimeout(() => {this.showRelatedResults = event}, 0);
+    setTimeout(() => {
+      this.showRelatedResults = event;
+      document.getElementById('single-search-input').focus();
+    }, 0);
+
+    // setTimeout(() => {  }, 250);
   }
 
 }

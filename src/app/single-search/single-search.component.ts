@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { SingleSearchService } from '../services/single-search.service';
@@ -22,6 +22,10 @@ export class SingleSearchComponent {
     selectedPlatform: null,
     selectedGenre: null
   };
+  
+  ngOnInit() {
+    setTimeout(() => { document.getElementById('single-search-input').focus(); } , 0);
+  }
 
   searchGame(q?: string, filters?): void {
     let _input: any = q || 'placeholder';
