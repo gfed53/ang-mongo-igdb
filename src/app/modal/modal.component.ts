@@ -59,6 +59,8 @@ export class ModalComponent implements OnInit, OnDestroy {
     // open modal
     open(): void {
         const tabAccessService = this.tabAccessService;
+        const self = this;
+            // close = this.close;
         this.element.show(200);
         this.onChange.emit(true);
         $('body').addClass('modal-open');
@@ -66,12 +68,20 @@ export class ModalComponent implements OnInit, OnDestroy {
         // console.log('focusable',this.tabAccessService.getFocusableElements(this.element));
         let focusableEls = tabAccessService.getFocusableElements(this.element);
 
-        this.element.on('keydown', function(e){
+        // this.element.on('keydown', function(e){
+        //     // e.preventDefault();
+        //     // console.log('keydownnn');
+        //     tabAccessService.handleKeyDown(focusableEls, e, this.close.bind(this));
+        // });
+
+        this.element.on('keydown', (e) => {
             // e.preventDefault();
-            console.log('keydownnn');
-            tabAccessService.handleKeyDown(focusableEls,e);
-            
-        })
+            console.log('this',this);
+            console.log('self',self);
+            tabAccessService.handleKeyDown(focusableEls, e, () => {
+                this.close();
+            });
+        });
     }
  
     // close modal

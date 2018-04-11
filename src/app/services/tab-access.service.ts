@@ -24,22 +24,24 @@ export class TabAccessService {
     // let focusableEls = $parentEl.children('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
     // let focusableEls = $parentEl.children('input:not([disabled])');
 
-    console.log('focusableEls',focusableEls);
+    // console.log('focusableEls',focusableEls);
 
     return Array.prototype.slice.call(focusableEls);
   }
 
-  handleKeyDown(focusableEls, e) {
+  handleKeyDown(focusableEls, e, closeCB) {
+    console.log('this in handleKeyDown',this);
     // var Dialog = this;
 
-    console.log('focusableEls',focusableEls);
+    // console.log('focusableEls',focusableEls);
 
     let KEY_TAB = 9,
+        KEY_ESC = 27,
         firstFocusableEl = focusableEls[0],
         lastFocusableEl = focusableEls[focusableEls.length - 1];
 
-        console.log('firstFocusableEl',firstFocusableEl);
-        console.log('lastFocusableEl',lastFocusableEl);
+        // console.log('firstFocusableEl',firstFocusableEl);
+        // console.log('lastFocusableEl',lastFocusableEl);
   
     function handleBackwardTab() {
       if ( document.activeElement === firstFocusableEl ) {
@@ -68,6 +70,11 @@ export class TabAccessService {
         }
       
         break;
+
+      case KEY_ESC:
+        closeCB();
+        break;
+        
       default:
         break;
     } // end switch
