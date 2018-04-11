@@ -2,7 +2,7 @@
   <form #relatedControls="ngForm" novalidate>
     <h4 class="search-controls-header">Filter By:</h4>
     <div class="search-controls-btns-container">
-      <button (click)="openModal('platforms-modal')" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
+      <button (click)="openModal('platforms-modal')" id="platform-btn" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
       <!-- Platforms that are selected as filters will be displayed here -->
       <div class="platform-labels-container" [@fadeInOut]="selectedPlatforms.length" *ngIf="selectedPlatforms.length && !modalIsOpen">
         <span *ngFor="let platform of platforms">
@@ -36,7 +36,7 @@
           <button (click)="closeModal('platforms-modal')" aria-label="Close Navigation"><i class="fa fa-times"></i></button>
         </div>
         <div class="modal-filter-bar">
-          <input type="text" [(ngModel)]="platformText" placeholder="Narrow down list.." aria-label="Search">
+          <input type="text" id="text-platform-search" [(ngModel)]="platformText" placeholder="Narrow down list.." aria-label="Search">
         </div>
         <div *ngFor="let platform of platforms | filter : platformText" class="platform-container">
           <label for={{platform.id}}>{{platform.name}}</label>
@@ -44,7 +44,7 @@
         </div>
       </div>
     </div>
-    <div class="modal-background"></div>
+    <div class="modal-background" tabindex="-1"></div>
   </modal>
 </div>
 

@@ -82,10 +82,15 @@ export class RelatedSearchControlsComponent implements OnInit {
 
   openModal(id: string){
     this.modalService.open(id);
+    // Set focus
+    document.getElementById('text-platform-search').focus();
+
   }
 
   closeModal(id: string){
     this.modalService.close(id);
+    // Reset focus
+    document.getElementById('platform-btn').focus();
   }
 
   onModalChange(bool){
