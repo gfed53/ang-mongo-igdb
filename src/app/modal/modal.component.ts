@@ -2,6 +2,7 @@ import { Component, ElementRef, Input, Output, EventEmitter, OnInit, OnDestroy }
 import * as $ from 'jquery';
  
 import { ModalService } from '../services/modal.service';
+import { TabAccessService } from '../services/tab-access.service';
  
 @Component({
     moduleId: module.id.toString(),
@@ -15,9 +16,15 @@ export class ModalComponent implements OnInit, OnDestroy {
     @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
     private element: JQuery;
  
-    constructor(private modalService: ModalService, private el: ElementRef) {
+    constructor(
+        private modalService: ModalService, 
+        private el: ElementRef,
+        private tabAccessService: TabAccessService
+    ) {
         this.element = $(el.nativeElement);
     }
+
+    // focusableEls: any;
  
     ngOnInit(): void {
         let modal = this;
@@ -51,9 +58,20 @@ export class ModalComponent implements OnInit, OnDestroy {
  
     // open modal
     open(): void {
+        const tabAccessService = this.tabAccessService;
         this.element.show(200);
         this.onChange.emit(true);
         $('body').addClass('modal-open');
+        // console.log('this.element',this.element);
+        // console.log('focusable',this.tabAccessService.getFocusableElements(this.element));
+        let focusableEls = tabAccessService.getFocusableElements(this.element);
+
+        this.element.on('keydown', function(e){
+            // e.preventDefault();
+            console.log('keydownnn');
+            tabAccessService.handleKeyDown(focusableEls,e);
+            
+        })
     }
  
     // close modal
