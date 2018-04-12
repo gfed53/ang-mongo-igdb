@@ -20,6 +20,7 @@ export class SingleSearchControlsComponent implements OnInit {
   selectedGenre: any;
   filters: Object;
 
+  @Input() inputsDisabled;
   @Output() onFiltersChange: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(

@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 
 import { SingleSearchService } from '../services/single-search.service';
 import { SingleGameService } from '../services/single-game.service';
+import { TabAccessService } from '../services/tab-access.service';
 
 @Component({
   selector: 'app-single-search',
@@ -13,7 +14,8 @@ export class SingleSearchComponent {
 
   constructor(
     private singleSearchService: SingleSearchService,
-    private singleGameService: SingleGameService
+    private singleGameService: SingleGameService,
+    private tabAccessService: TabAccessService
   ) { }
 
   q: string;
@@ -22,6 +24,8 @@ export class SingleSearchComponent {
     selectedPlatform: null,
     selectedGenre: null
   };
+
+  singleSearchDisabled = this.tabAccessService.singleSearchDisabled;
   
   ngOnInit() {
     setTimeout(() => { document.getElementById('single-search-input').focus(); } , 0);
@@ -37,6 +41,9 @@ export class SingleSearchComponent {
 
       this.q = '';
       document.getElementById('single-search-input').blur();
+      
+      // Right around here we'd want to manage what user can and can't tab through (Preventing tab through single search).
+      this.tabAccessService.setSingleSearchDisabled(true);
     });
 
   }

@@ -4,10 +4,10 @@
 	<div class="input-container">
 		<form #f="ngForm" (ngSubmit)="searchGame(q, filters)">
 			<div class="form-inline">
-				<input id="single-search-input" name="search" [(ngModel)]="q">
-				<button type="submit" class="btn-submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+				<input [disabled]="singleSearchDisabled.value" id="single-search-input" name="search" [(ngModel)]="q">
+				<button [disabled]="singleSearchDisabled.value" type="submit" class="btn-submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 			</div>
-			<app-single-search-controls (onFiltersChange)="onFiltersChange($event)">
+			<app-single-search-controls [inputsDisabled]="singleSearchDisabled" (onFiltersChange)="onFiltersChange($event)">
 			</app-single-search-controls>
 		</form>
 	</div>

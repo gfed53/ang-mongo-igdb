@@ -68,10 +68,9 @@ export class AppComponent {
   handleAppViewChange(event) {
     setTimeout(() => {
       this.showRelatedResults = event;
+      // Right around here we'd want to manage what user can and can't tab through (Allowing tab through single search).
       document.getElementById('single-search-input').focus();
     }, 0);
-
-    // setTimeout(() => {  }, 250);
   }
 
 }
