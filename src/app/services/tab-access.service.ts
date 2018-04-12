@@ -4,30 +4,35 @@ import { Injectable } from '@angular/core';
 export class TabAccessService {
   constructor(){}
 
-  // getFocusableElements(parentEl){
+
+  setFocusBoundary(parentEl, onRevert) {
+    let element = parentEl[0],
+    focusableEls = element.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
+
+    parentEl.on('keydown', (e) => {
+      // e.preventDefault();
+      console.log('this',this);
+      console.log('self',self);
+      this.handleKeyDown(focusableEls, e, onRevert);
+    });
+  }
+
+  // getFocusableElements(parentEl) {
+
+
+  //   console.log('parentEl[0]',parentEl[0]);
+
+  //   let element = parentEl[0];
+
+  //   let focusableEls = element.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
     
-  //   let focusableEls = parentEl.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
+  //   // let focusableEls = $parentEl.children('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
+  //   // let focusableEls = $parentEl.children('input:not([disabled])');
+
+  //   // console.log('focusableEls',focusableEls);
 
   //   return Array.prototype.slice.call(focusableEls);
   // }
-
-  getFocusableElements(parentEl){
-
-    // console.log
-
-    console.log('parentEl[0]',parentEl[0]);
-
-    let element = parentEl[0];
-
-    let focusableEls = element.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
-    
-    // let focusableEls = $parentEl.children('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
-    // let focusableEls = $parentEl.children('input:not([disabled])');
-
-    // console.log('focusableEls',focusableEls);
-
-    return Array.prototype.slice.call(focusableEls);
-  }
 
   handleKeyDown(focusableEls, e, closeCB) {
     console.log('this in handleKeyDown',this);

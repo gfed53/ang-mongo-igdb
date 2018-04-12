@@ -64,23 +64,9 @@ export class ModalComponent implements OnInit, OnDestroy {
         this.element.show(200);
         this.onChange.emit(true);
         $('body').addClass('modal-open');
-        // console.log('this.element',this.element);
-        // console.log('focusable',this.tabAccessService.getFocusableElements(this.element));
-        let focusableEls = tabAccessService.getFocusableElements(this.element);
 
-        // this.element.on('keydown', function(e){
-        //     // e.preventDefault();
-        //     // console.log('keydownnn');
-        //     tabAccessService.handleKeyDown(focusableEls, e, this.close.bind(this));
-        // });
-
-        this.element.on('keydown', (e) => {
-            // e.preventDefault();
-            console.log('this',this);
-            console.log('self',self);
-            tabAccessService.handleKeyDown(focusableEls, e, () => {
-                this.close();
-            });
+        tabAccessService.setFocusBoundary(this.element, () => {
+            this.close();
         });
     }
  
