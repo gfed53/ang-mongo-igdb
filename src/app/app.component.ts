@@ -14,6 +14,7 @@ import {
 import { RelatedGamesService } from './services/related-games.service';
 import { UtilitiesService } from './services/utilities.service';
 import { SmoothScrollService } from './services/smooth-scroll.service';
+import { TabAccessService } from './services/tab-access.service';
 
 @Component({
   selector: 'app-root',
@@ -41,7 +42,8 @@ export class AppComponent {
   constructor(
     private relatedGamesService: RelatedGamesService,
     private utilitiesService: UtilitiesService,
-    private smoothScrollService: SmoothScrollService
+    private smoothScrollService: SmoothScrollService,
+    private tabAccessService: TabAccessService
   ) { 
     PageScrollConfig.defaultDuration = this.smoothScrollService.duration;
     PageScrollConfig.defaultEasingLogic = this.smoothScrollService.easingLogic;
@@ -68,9 +70,9 @@ export class AppComponent {
   handleAppViewChange(event) {
     setTimeout(() => {
       this.showRelatedResults = event;
-      // Right around here we'd want to manage what user can and can't tab through (Allowing tab through single search).
-      document.getElementById('single-search-input').focus();
+      this.tabAccessService.setSingleSearchDisabled(false);
     }, 0);
+    setTimeout(() => { document.getElementById('single-search-input').focus(); }, 1000);
   }
 
 }
