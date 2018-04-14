@@ -35,24 +35,18 @@ export class SingleSearchComponent {
     let _input: any = q || 'placeholder';
   	this.singleSearchService.getGame(_input, filters)
   	.subscribe(res => {
-
-      console.log('res',res);
-
-      
       //---------- Reset to first game
       this.singleGameService.updateResults(res);
       this.singleGameService.updateGame(res[0]);
 
+      // Only if we actually get results do we make view updates
       if(res.length){
         this.q = '';
         document.getElementById('single-search-input').blur();
-        
-        // Right around here we'd want to manage what user can and can't tab through (Preventing tab through single search).
         this.tabAccessService.setSingleSearchDisabled(true);
       }
-    });
-  
 
+    });
   }
 
   onFiltersChange(event){

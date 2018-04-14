@@ -55,8 +55,7 @@ export class SingleGameComponent implements OnInit {
   singleSearchResults: any[];
   selectedResult: any;
 
-  //---------- Single Search section will be visually obscured 
-  // relatedInFocus: boolean = false;
+  //---------- Single Search section will be visually obscured, assuming no zero state.
   relatedInFocus = {
     status: false,
     zeroState: false
@@ -70,7 +69,7 @@ export class SingleGameComponent implements OnInit {
       if(!this.singleSearchResults.length) { this.relatedInFocus.zeroState = true; }
       this.relatedInFocus.status = true;
       //---------- Auto scroll(wait a tick)
-      setTimeout(() => {this.smoothScrollService.scrollTo('#single-result')}, 0);
+      setTimeout(() => { this.smoothScrollService.scrollTo('#single-result'); }, 0);
       
     });
 
