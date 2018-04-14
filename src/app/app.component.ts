@@ -69,7 +69,7 @@ export class AppComponent {
 
   handleAppViewChange(event) {
     setTimeout(() => {
-      this.showRelatedResults = event;
+      this.showRelatedResults = event.status;
       this.tabAccessService.setSingleSearchDisabled(false);
     }, 0);
     setTimeout(() => { document.getElementById('single-search-input').focus(); }, 1000);

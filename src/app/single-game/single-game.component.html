@@ -1,21 +1,21 @@
 <div class="row">
 	<div class="col-12">
-		<div class="single-search-outer-container" [ngClass]="{ 'faded': relatedInFocus }">
+		<div class="single-search-outer-container" [ngClass]="{ 'faded': relatedInFocus.status && !relatedInFocus.zeroState }">
 			<app-single-search></app-single-search>
-			<div class="my-overlay-clear" *ngIf="relatedInFocus"></div>
+			<div class="my-overlay-clear" *ngIf="relatedInFocus.status && !relatedInFocus.zeroState"></div>
 		</div>
 	</div>
 </div>
-<div *ngIf="relatedInFocus" [@fadeInOut]="relatedInFocus" class="row">
+<div *ngIf="relatedInFocus.status" [@fadeInOut]="relatedInFocus.status" class="row">
 	<div class="col-6">
 		<div class="single-result-outer-container" *ngIf="singleSearchResults" [@fadeSlideInOut]="singleSearchResults">
 			<app-single-result id="single-result" [results]="singleSearchResults"></app-single-result>
 		</div>
 	</div>
 	<div class="col-6">
-		<div class="related-search-outer-container" [ngClass]="{ 'faded': !relatedInFocus }">
-			<app-related-search [inFocus]="relatedInFocus" (onFocusChange)="handleFocusChange($event)" *ngIf="selectedResult" [selected]="selectedResult"></app-related-search>
-			<div class="my-overlay-clear" *ngIf="!relatedInFocus"></div>
+		<div class="related-search-outer-container" [ngClass]="{ 'faded': !relatedInFocus.status }">
+			<app-related-search [inFocus]="relatedInFocus.status" (onFocusChange)="handleFocusChange($event)" *ngIf="selectedResult" [selected]="selectedResult"></app-related-search>
+			<div class="my-overlay-clear" *ngIf="!relatedInFocus.status"></div>
 		</div>
 	</div>
 </div>
