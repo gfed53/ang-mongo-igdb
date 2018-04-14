@@ -66,7 +66,13 @@ export class SingleGameComponent implements OnInit {
     this.singleGameService.singleSearchResults$
     .subscribe(list => {
       this.singleSearchResults = list;
-      if(!this.singleSearchResults.length) { this.relatedInFocus.zeroState = true; }
+
+      if(!this.singleSearchResults.length) {
+        this.relatedInFocus.zeroState = true;
+      } else {
+        this.relatedInFocus.zeroState = false;
+      }
+
       this.relatedInFocus.status = true;
       //---------- Auto scroll(wait a tick)
       setTimeout(() => { this.smoothScrollService.scrollTo('#single-result'); }, 0);
@@ -87,7 +93,7 @@ export class SingleGameComponent implements OnInit {
     }, 0);
 
     setTimeout(() => {
-      this.relatedInFocus = event;
+      this.relatedInFocus.status = event;
     }, 500);
   }
 }

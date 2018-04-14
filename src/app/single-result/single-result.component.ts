@@ -30,9 +30,10 @@ export class SingleResultComponent implements OnInit {
   ngOnInit() {
     this.currentResult = this.results[this.currentIndex];
 
-    setTimeout(() => {
-      document.getElementById('link-single-more-info').focus();
-     }, 0);
+    if(this.currentResult){
+      setTimeout(() => { document.getElementById('link-single-more-info').focus(); }, 0);
+    }
+    
   }
 
   ngOnChanges() {
@@ -56,7 +57,9 @@ export class SingleResultComponent implements OnInit {
     //---------- Update observable
     this.singleGameService.updateGame(this.currentResult);
 
-    setTimeout(() => {this.smoothScrollService.scrollTo('.result-container')}, 0);
+    if(this.currentResult){
+      setTimeout(() => {this.smoothScrollService.scrollTo('.result-container')}, 0);
+    }
   }
   
 

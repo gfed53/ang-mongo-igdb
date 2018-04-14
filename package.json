@@ -2,7 +2,7 @@
   "name": "ang-mongo-igdb",
   "version": "0.0.0",
   "author": "Gregory Federico",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
