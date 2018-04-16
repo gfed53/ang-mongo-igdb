@@ -39,15 +39,19 @@ export class RelatedSearchControlsComponent implements OnInit {
   platforms: any[] = [];
 
   minYear: number = 1950;
-  maxYear: number = new Date().getFullYear() + 2;
 
-  // Can't bind, else min/max will dynamically change!
-  startYear: number = this.minYear;
-  endYear: number = this.maxYear;
+  // Can't bind, else max will dynamically change!
+  retrievedMaxYear: number = new Date().getFullYear() + 2;
+  maxYear: number = this.retrievedMaxYear;
+
+  
+  // startYear: number = this.minYear;
+  // // Can't bind, else max will dynamically change!
+  // endYear: number = this.maxYear;
 
   controls: MyRelatedControls = {
     selectedPlatformIDs: [],
-    dateRange: [this.startYear,this.endYear],
+    dateRange: [this.minYear,this.maxYear],
     order: 'popularity'
   };
   orderChoices = [
@@ -82,6 +86,13 @@ export class RelatedSearchControlsComponent implements OnInit {
     .subscribe(res => {
       this.platforms = this.utilitiesService.sortedByName(res.data);
     });
+
+    // Set max year
+    // let retrievedMaxYear = new Date().getFullYear() + 2;
+    // console.log('retrievedMaxYear',retrievedMaxYear);
+    // console.log('typeof retrievedMaxYear',typeof retrievedMaxYear);
+    // this.maxYear = retrievedMaxYear;
+    // this.controls.dateRange[]
   }
 
   openModal(id: string){
@@ -126,12 +137,15 @@ export class RelatedSearchControlsComponent implements OnInit {
   dateAfterChange(event: any): void {
     console.log('event',event);
     this.controls.dateRange = [event, this.controls.dateRange[1]];
+    console.log('this.controls.dateRange',this.controls.dateRange);
     this.onControlsChange.emit(this.controls);
   }
 
   dateBeforeChange(event: any): void {
     console.log('event',event);
-    this.controls.dateRange = [this.controls.dateRange[0],event];
+    this.controls.dateRange = [this.controls.dateRange[0], event];
+
+    console.log('this.controls.dateRange',this.controls.dateRange);
     this.onControlsChange.emit(this.controls);
   }
 

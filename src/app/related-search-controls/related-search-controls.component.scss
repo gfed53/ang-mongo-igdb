@@ -62,6 +62,18 @@
     border-radius: 5px;
     color: white;
   }
+
+  .date-range-number-input {
+    transition: 250ms ease-in-out all;
+  }
+
+  .date-range-number-input.ng-invalid {
+    background: $error-red;
+  }
+
+  .date-range-error {
+    background: $error-red;
+  }
 }
 
 /* MODAL STYLES
