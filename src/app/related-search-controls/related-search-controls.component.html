@@ -1,5 +1,6 @@
 <div class="search-controls-container">
-  <form #relatedControls="ngForm" novalidate>
+    <!-- novalidate -->
+  <form #relatedControls="ngForm">
     <h4 class="search-controls-header">Filter By:</h4>
     <div class="search-controls-btns-container">
       <button (click)="openModal('platforms-modal')" id="platform-btn" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
@@ -18,7 +19,11 @@
     </div>
     <div class="date-filter-container">
       <p class="date-filter-header">Date</p>
-      From {{ controls.dateRange[0] }} to {{ controls.dateRange[1] }}
+      <!-- From {{ controls.dateRange[0] }} to {{ controls.dateRange[1] }} -->
+      From
+      <input name="dateRangeAfter" type="number" [(ngModel)]="controls.dateRange[0]" [min]="minYear" [max]="controls.dateRange[1]" (ngModelChange)="dateAfterChange($event)">
+      To
+      <input name="dateRangeBefore" type="number" [(ngModel)]="controls.dateRange[1]" [min]="controls.dateRange[0]" [max]="maxYear" (ngModelChange)="dateBeforeChange($event)">
       <nouislider name="dateRange" [connect]="true" [min]="minYear" [max]="maxYear" [step]="1" [(ngModel)]="controls.dateRange" (ngModelChange)="dateChange($event)"></nouislider>
     </div>
     <div class="order-by-container">

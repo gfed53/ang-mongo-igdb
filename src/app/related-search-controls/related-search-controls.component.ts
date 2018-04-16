@@ -41,9 +41,13 @@ export class RelatedSearchControlsComponent implements OnInit {
   minYear: number = 1950;
   maxYear: number = new Date().getFullYear() + 2;
 
+  // Can't bind, else min/max will dynamically change!
+  startYear: number = this.minYear;
+  endYear: number = this.maxYear;
+
   controls: MyRelatedControls = {
     selectedPlatformIDs: [],
-    dateRange: [this.minYear,this.maxYear],
+    dateRange: [this.startYear,this.endYear],
     order: 'popularity'
   };
   orderChoices = [
@@ -115,9 +119,20 @@ export class RelatedSearchControlsComponent implements OnInit {
   }
 
   dateChange(event: any): void {
+    // console.log('dateChange');
     this.onControlsChange.emit(this.controls);
   }
 
+  dateAfterChange(event: any): void {
+    console.log('event',event);
+    this.controls.dateRange = [event, this.controls.dateRange[1]];
+    this.onControlsChange.emit(this.controls);
+  }
 
+  dateBeforeChange(event: any): void {
+    console.log('event',event);
+    this.controls.dateRange = [this.controls.dateRange[0],event];
+    this.onControlsChange.emit(this.controls);
+  }
 
 }
