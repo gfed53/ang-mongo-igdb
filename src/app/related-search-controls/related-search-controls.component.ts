@@ -68,6 +68,10 @@ export class RelatedSearchControlsComponent implements OnInit {
       label: 'I Don\'t Care'
     }
   ];
+
+  dateAfter: number = this.minYear;
+  dateBefore: number = this.maxYear;
+
   selectedPlatforms = [];
   platformsExpanded: boolean;
   genresExpanded: boolean;
@@ -131,21 +135,49 @@ export class RelatedSearchControlsComponent implements OnInit {
 
   dateChange(event: any): void {
     // console.log('dateChange');
+
+    // Testing manual two-way binding of number input variables
+    this.dateAfter = this.controls.dateRange[0];
+    this.dateBefore = this.controls.dateRange[1];
+
     this.onControlsChange.emit(this.controls);
   }
 
   dateAfterChange(event: any): void {
-    console.log('event',event);
-    this.controls.dateRange = [event, this.controls.dateRange[1]];
-    console.log('this.controls.dateRange',this.controls.dateRange);
+
+    // let afterVal = this.controls.dateRange[0],
+    //     beforeVal = this.controls.dateRange[1];
+    
+    // console.log('afterVal',afterVal);
+    // console.log('beforeVal',beforeVal);
+
+    // Only update value if it's valid on our terms. Testing for now.
+    let afterVal = (event <= this.controls.dateRange[1]) ? event : this.controls.dateRange[0];
+
+    console.log('afterVal',afterVal);
+
+    
+    // setTimeout(() => {this.dateAfter = afterVal;}, 0);
+
+    // console.log('event',event);
+    // console.log('this.controls.dateRange[1]',this.controls.dateRange[1]);
+    this.controls.dateRange = [afterVal, this.controls.dateRange[1]];
+    console.log('this.controls.dateRange now',this.controls.dateRange);
     this.onControlsChange.emit(this.controls);
   }
 
   dateBeforeChange(event: any): void {
-    console.log('event',event);
-    this.controls.dateRange = [this.controls.dateRange[0], event];
 
-    console.log('this.controls.dateRange',this.controls.dateRange);
+    // Only update value if it's valid on our terms. Testing for now.
+    let beforeVal = (event >= this.controls.dateRange[0]) ? event : this.controls.dateRange[1];
+
+    console.log('beforeVal',beforeVal);
+
+    // setTimeout(() => {this.dateBefore = beforeVal; }, 0); 
+
+    this.controls.dateRange = [this.controls.dateRange[0], beforeVal];
+
+    console.log('this.controls.dateRange now',this.controls.dateRange);
     this.onControlsChange.emit(this.controls);
   }
 
