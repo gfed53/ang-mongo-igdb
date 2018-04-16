@@ -22,11 +22,13 @@ export class SingleGameService {
 
 	// Takes array of items and pushes it to source
 	updateResults(list: any[]): void {
+		// Should we not push list to source if length === 0?
 		this.singleSearchResultsSource.next(list);
   }
 
 	// Takes an object (game), pushes to source, observable gets updated.
 	updateGame(game: any): void {
+		// Should we not push game to source if game === null?
 		this.currentGameSource.next(game);
 	}
 

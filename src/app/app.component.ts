@@ -67,6 +67,7 @@ export class AppComponent {
     this.smoothScrollService.scrollTo('#single-result');
   }
 
+  //---------- Will occur when user chooses to switch base game. TODO rename?
   handleAppViewChange(event) {
     setTimeout(() => {
       this.showRelatedResults = event.status;

@@ -55,7 +55,11 @@ export class SingleGameComponent implements OnInit {
   singleSearchResults: any[];
   selectedResult: any;
 
-  //---------- Single Search section will be visually obscured, assuming no zero state.
+  /*---------- 
+    Single search section will be visually obscured and disabled, assuming no zero state.
+    If we don't retrieve any results, we still want the transition to take place and display
+    the zero state notification, but single search form should NOT be disabled.
+  */
   relatedInFocus = {
     status: false,
     zeroState: false
@@ -67,6 +71,7 @@ export class SingleGameComponent implements OnInit {
     .subscribe(list => {
       this.singleSearchResults = list;
 
+      // Manage zero state 
       if(!this.singleSearchResults.length) {
         this.relatedInFocus.zeroState = true;
       } else {
@@ -85,6 +90,7 @@ export class SingleGameComponent implements OnInit {
     });
   }
 
+  //---------- Will occur when user chooses to switch base game. TODO rename?
   handleFocusChange(event) {  
     //---------- Auto scroll(wait a tick)
     setTimeout(() => {
