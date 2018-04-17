@@ -152,8 +152,9 @@ export class RelatedSearchControlsComponent implements OnInit {
     // console.log('beforeVal',beforeVal);
 
     // Only update value if it's valid on our terms. Testing for now.
-    let afterVal = (event <= this.controls.dateRange[1]) ? event : this.controls.dateRange[0];
+    // let afterVal = (event <= this.controls.dateRange[1]) ? event : this.controls.dateRange[0];
 
+    let afterVal = event;
     console.log('afterVal',afterVal);
 
     
@@ -169,7 +170,9 @@ export class RelatedSearchControlsComponent implements OnInit {
   dateBeforeChange(event: any): void {
 
     // Only update value if it's valid on our terms. Testing for now.
-    let beforeVal = (event >= this.controls.dateRange[0]) ? event : this.controls.dateRange[1];
+    // let beforeVal = (event >= this.controls.dateRange[0]) ? event : this.controls.dateRange[1];
+
+    let beforeVal = event;
 
     console.log('beforeVal',beforeVal);
 

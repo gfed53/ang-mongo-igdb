@@ -18,6 +18,8 @@ export class RelatedSearchComponent {
 
   @Output() onFocusChange: EventEmitter<any> = new EventEmitter<any>();
 
+  isFormValid: boolean = true;
+
   controls: MyRelatedControls = {
     selectedPlatformIDs: [],
     order: 'popularity',
@@ -37,11 +39,24 @@ export class RelatedSearchComponent {
   onControlsChange(event: MyRelatedControls): void {
     // console.log('onControlsChange',event); // Keep this for now!
     this.controls = event;
+    this.isFormValid = this.checkFormValid();
     // console.log('this.controls',this.controls);
+
   }
 
   onSwitchGame(){
     this.onFocusChange.emit(false);
+  }
+
+  checkFormValid(){
+    // Just checking dates for now since that's the one item that could be invalid
+    // return this.controls.dateRange.length === 2 && this.controls.dateRange[0] <= this.controls.dateRange[1];
+
+    // let afterValid = this.controls.dateRange
+
+    return this.controls.dateRange.length === 2 ? 
+    this.controls.dateRange[0] <= this.controls.dateRange[1] :
+    true;
   }
 
   searchRelated(game: any, controls?: MyRelatedControls): void {
