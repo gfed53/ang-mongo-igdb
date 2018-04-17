@@ -48,15 +48,26 @@ export class RelatedSearchComponent {
     this.onFocusChange.emit(false);
   }
 
+  // Probably should move this to utilities service. Bizniz logic
   checkFormValid(){
     // Just checking dates for now since that's the one item that could be invalid
-    // return this.controls.dateRange.length === 2 && this.controls.dateRange[0] <= this.controls.dateRange[1];
 
-    // let afterValid = this.controls.dateRange
+    // let dateAfter = this.controls.dateRange[0];
+    // let dateBefore = this.controls.dateRange[1];
 
-    return this.controls.dateRange.length === 2 ? 
-    this.controls.dateRange[0] <= this.controls.dateRange[1] :
+    let [dateAfter, dateBefore] = this.controls.dateRange;
+
+    let isDateAfterValid = dateAfter ?
+    (dateAfter >= 1950 && 
+    (dateBefore ? dateAfter <= dateBefore : true)) :
     true;
+
+    let isDateBeforeValid = dateBefore ?
+    // Hardcoded 2020 for now, maybe create prop in this component and pass down to controls component
+    // Also only need to check overlap once (which we do in isDateAfterValid). No need to check twice, right?
+    dateBefore <= 2020 : true;
+
+    return isDateAfterValid && isDateBeforeValid;
   }
 
   searchRelated(game: any, controls?: MyRelatedControls): void {

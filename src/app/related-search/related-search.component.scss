@@ -16,9 +16,15 @@
   }
 
   .btn-get-related {
+    transition: 250ms ease-in-out all;
     font-size: 1.25em;
     padding: 0.5em;
     width: 6em;
+  }
+
+  .btn-get-related[disabled] {
+    cursor: default;
+    background: $my-green-disabled; 
   }
 }
 
