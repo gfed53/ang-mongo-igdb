@@ -26,6 +26,10 @@ export class RelatedSearchComponent {
     dateRange: []
   };
 
+  // Can't bind, else max will dynamically change!
+  retrievedMaxYear: number = new Date().getFullYear() + 2;
+  maxYear: number = this.retrievedMaxYear;
+
   constructor(
     private relatedSearchService: RelatedSearchService,
     private relatedGamesService: RelatedGamesService,
@@ -39,35 +43,14 @@ export class RelatedSearchComponent {
   onControlsChange(event: MyRelatedControls): void {
     // console.log('onControlsChange',event); // Keep this for now!
     this.controls = event;
-    this.isFormValid = this.checkFormValid();
+    // this.isFormValid = this.checkFormValid();
+    this.isFormValid = this.utilitiesService.checkRelatedFormValid(this.controls.dateRange, this.maxYear);
     // console.log('this.controls',this.controls);
 
   }
 
   onSwitchGame(){
     this.onFocusChange.emit(false);
-  }
-
-  // Probably should move this to utilities service. Bizniz logic
-  checkFormValid(){
-    // Just checking dates for now since that's the one item that could be invalid
-
-    // let dateAfter = this.controls.dateRange[0];
-    // let dateBefore = this.controls.dateRange[1];
-
-    let [dateAfter, dateBefore] = this.controls.dateRange;
-
-    let isDateAfterValid = dateAfter ?
-    (dateAfter >= 1950 && 
-    (dateBefore ? dateAfter <= dateBefore : true)) :
-    true;
-
-    let isDateBeforeValid = dateBefore ?
-    // Hardcoded 2020 for now, maybe create prop in this component and pass down to controls component
-    // Also only need to check overlap once (which we do in isDateAfterValid). No need to check twice, right?
-    dateBefore <= 2020 : true;
-
-    return isDateAfterValid && isDateBeforeValid;
   }
 
   searchRelated(game: any, controls?: MyRelatedControls): void {

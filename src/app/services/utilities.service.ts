@@ -59,4 +59,22 @@ export class UtilitiesService {
     })
   }
 
+  checkRelatedFormValid(dateRange, maxYear){
+    // Just checking dates for now since that's the one item that could be invalid
+
+    let [dateAfter, dateBefore] = dateRange;
+
+    let isDateAfterValid = dateAfter ?
+    (dateAfter >= 1950 && 
+    (dateBefore ? dateAfter <= dateBefore : true)) :
+    true;
+
+    let isDateBeforeValid = dateBefore ?
+    // Hardcoded 2020 for now, maybe create prop in this component and pass down to controls component
+    // Also only need to check overlap once (which we do in isDateAfterValid). No need to check twice, right?
+    dateBefore <= maxYear : true;
+
+    return isDateAfterValid && isDateBeforeValid;
+  }
+
 }

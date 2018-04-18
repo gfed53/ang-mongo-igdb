@@ -34,6 +34,9 @@ import { MyRelatedControls } from '../types/my-related-controls';
 })
 export class RelatedSearchControlsComponent implements OnInit {
 
+  // View doesn't update properly when using this input variable.
+  // @Input() maxYear: number;
+
   @Output() onControlsChange: EventEmitter<any> = new EventEmitter<any>();
 
   platforms: any[] = [];
@@ -44,14 +47,10 @@ export class RelatedSearchControlsComponent implements OnInit {
   retrievedMaxYear: number = new Date().getFullYear() + 2;
   maxYear: number = this.retrievedMaxYear;
 
-  
-  // startYear: number = this.minYear;
-  // // Can't bind, else max will dynamically change!
-  // endYear: number = this.maxYear;
-
   controls: MyRelatedControls = {
     selectedPlatformIDs: [],
     dateRange: [this.minYear,this.maxYear],
+    // dateRange: [],
     order: 'popularity'
   };
   orderChoices = [
@@ -91,12 +90,15 @@ export class RelatedSearchControlsComponent implements OnInit {
       this.platforms = this.utilitiesService.sortedByName(res.data);
     });
 
-    // Set max year
-    // let retrievedMaxYear = new Date().getFullYear() + 2;
-    // console.log('retrievedMaxYear',retrievedMaxYear);
-    // console.log('typeof retrievedMaxYear',typeof retrievedMaxYear);
-    // this.maxYear = retrievedMaxYear;
-    // this.controls.dateRange[]
+    // console.log('this.maxYear',this.maxYear);
+    // console.log('this.controls.dateRange',this.controls.dateRange);
+
+    // setTimeout(() => {this.controls.dateRange = [this.minYear,this.maxYear]; },0);
+    
+
+    // console.log('this.controls.dateRange',this.controls.dateRange);
+
+
   }
 
   openModal(id: string){
