@@ -33,7 +33,7 @@ export class ModalService {
   close(id: string) {
       // close modal specified by id
       let modal = _.find(this.modals, { id: id });
-      modal.close();
+      modal.close('platform-btn');
   }
 
 }

@@ -42,7 +42,7 @@ export class ModalComponent implements OnInit, OnDestroy {
         this.element.on('click', function (e: any) {
             var target = $(e.target);
             if (!target.closest('.modal-body').length) {
-                modal.close();
+                modal.close('platform-btn');
             }
         });
  
@@ -66,14 +66,17 @@ export class ModalComponent implements OnInit, OnDestroy {
         $('body').addClass('modal-open');
 
         tabAccessService.setFocusBoundary(this.element, () => {
-            this.close();
+            this.close('platform-btn');
         });
     }
  
     // close modal
-    close(): void {
+    close(elToFocus: string): void {
         this.onChange.emit(false);
         this.element.hide(200);
         $('body').removeClass('modal-open');
+
+        // Reset focus
+        document.getElementById(elToFocus).focus();
     }
 }
