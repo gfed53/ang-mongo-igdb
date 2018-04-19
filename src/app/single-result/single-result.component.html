@@ -4,8 +4,10 @@
       <p>You've selected...</p>
       <h2>{{currentResult.name}}</h2>
       <div class="result-images-container">
-        <img [ngClass]="{'hidden' : !currentResult.cover.loaded}" class="img-cover" *ngIf="currentResult.cover?.url" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{currentResult.cover.cloudinary_id}}.jpg" (load)="addImageLoadedProp(currentResult, 'cover')">
-        <img [ngClass]="{'hidden' : !currentResult.screenshots.loaded}" class="img-screenshot" *ngIf="currentResult.screenshots" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{currentResult.screenshots[0].cloudinary_id}}.jpg" (load)="addImageLoadedProp(currentResult, 'screenshot')">
+        <!-- <img [ngClass]="{'hidden' : !currentResult.cover.loaded}" class="img-cover" *ngIf="currentResult.cover?.url" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{currentResult.cover.cloudinary_id}}.jpg" (load)="addImageLoadedProp(currentResult, 'cover')"> -->
+        <img [ngClass]="{'hidden' : !currentResult.cover.loaded}" class="img-cover" *ngIf="currentResult.cover?.url" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{currentResult.cover.cloudinary_id}}.jpg" (load)="imageLoaded(currentResult, 'cover')">
+        <!-- <img [ngClass]="{'hidden' : !currentResult.screenshots.loaded}" class="img-screenshot" *ngIf="currentResult.screenshots" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{currentResult.screenshots[0].cloudinary_id}}.jpg" (load)="addImageLoadedProp(currentResult, 'screenshot')"> -->
+        <img [ngClass]="{'hidden' : !currentResult.screenshots.loaded}" class="img-screenshot" *ngIf="currentResult.screenshots" src="https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/{{currentResult.screenshots[0].cloudinary_id}}.jpg" (load)="imageLoaded(currentResult, 'screenshot')">
       </div>
       <p>{{currentResult.first_release_date | date}}</p>
       <p>{{currentResult.summary}}</p>

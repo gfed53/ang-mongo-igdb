@@ -16,7 +16,8 @@ export class SingleResultComponent implements OnInit {
 
   currentIndex: number = 0;
   currentResult: any;
-  addImageLoadedProp = this.utilitiesService.addImageLoadedProp;  
+  addImageLoadedProp = this.utilitiesService.addImageLoadedProp;
+  imagesLoadedCount: number = 0;
 
   constructor(
     private singleGameService: SingleGameService,
@@ -31,7 +32,7 @@ export class SingleResultComponent implements OnInit {
     this.currentResult = this.results[this.currentIndex];
 
     if(this.currentResult){
-      setTimeout(() => { document.getElementById('link-single-more-info').focus(); }, 0);
+      // setTimeout(() => { document.getElementById('link-single-more-info').focus(); }, 0);
     }
     
   }
@@ -58,11 +59,24 @@ export class SingleResultComponent implements OnInit {
     this.singleGameService.updateGame(this.currentResult);
 
     if(this.currentResult){
-      setTimeout(() => {this.smoothScrollService.scrollTo('.result-container')}, 0);
+      // TODO: We want to trigger this only after at least one image has loaded. Otherwise we don't end up scrolling to the right spot.
+      // setTimeout(() => {this.smoothScrollService.scrollTo('.result-container')}, 0);
     }
   }
   
+  imageLoaded(result, type){
+    this.addImageLoadedProp(result, type);
+    this.imagesLoadedCount++;
 
+    this.utilitiesService.firstImageHasLoaded(this.imagesLoadedCount)
+    .then(() => {
+      console.log('now we scroll');
+      setTimeout(() => {this.smoothScrollService.scrollTo('.result-container')}, 0);
+      setTimeout(() => { document.getElementById('link-single-more-info').focus(); }, 0);
+    });
+
+
+  }
 
 
 }

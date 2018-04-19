@@ -157,7 +157,7 @@ export class RelatedSearchControlsComponent implements OnInit {
     // let afterVal = (event <= this.controls.dateRange[1]) ? event : this.controls.dateRange[0];
 
     let afterVal = event;
-    console.log('afterVal',afterVal);
+    // console.log('afterVal',afterVal);
 
     
     // setTimeout(() => {this.dateAfter = afterVal;}, 0);
@@ -165,7 +165,7 @@ export class RelatedSearchControlsComponent implements OnInit {
     // console.log('event',event);
     // console.log('this.controls.dateRange[1]',this.controls.dateRange[1]);
     this.controls.dateRange = [afterVal, this.controls.dateRange[1]];
-    console.log('this.controls.dateRange now',this.controls.dateRange);
+    // console.log('this.controls.dateRange now',this.controls.dateRange);
     this.onControlsChange.emit(this.controls);
   }
 
@@ -176,13 +176,13 @@ export class RelatedSearchControlsComponent implements OnInit {
 
     let beforeVal = event;
 
-    console.log('beforeVal',beforeVal);
+    // console.log('beforeVal',beforeVal);
 
     // setTimeout(() => {this.dateBefore = beforeVal; }, 0); 
 
     this.controls.dateRange = [this.controls.dateRange[0], beforeVal];
 
-    console.log('this.controls.dateRange now',this.controls.dateRange);
+    // console.log('this.controls.dateRange now',this.controls.dateRange);
     this.onControlsChange.emit(this.controls);
   }
 

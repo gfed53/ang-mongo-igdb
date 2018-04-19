@@ -34,6 +34,14 @@ export class UtilitiesService {
 
     return arr;
   }
+
+  firstImageHasLoaded(loadedCount){
+    return new Promise((res, rej) => {
+      if(loadedCount === 1){
+        res();
+      }
+    });
+  }
   
   addImageLoadedProp(item: any, type: string): void {
     /*-------------------------------
