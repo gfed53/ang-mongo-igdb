@@ -46,7 +46,7 @@
       [max]="maxYear"
       #dateRangeBefore="ngModel"
       class="date-range-number-input">
-      <nouislider name="dateRange" [connect]="true" [min]="minYear" [max]="maxYear" [step]="1" [(ngModel)]="controls.dateRange" (ngModelChange)="dateChange($event)" #dateRangeBefore="ngModel"></nouislider>
+      <nouislider name="dateRange" [connect]="true" [keyboard]="true" [min]="minYear" [max]="maxYear" [step]="1" [(ngModel)]="controls.dateRange" (ngModelChange)="dateChange($event)" #dateRangeBefore="ngModel"></nouislider>
     </div>
     <!-- [ngClass]="{'date-range-error': dateRangeBefore.dirty && dateRangeBefore.touched && dateRangeBefore.invalid}"> 
 
