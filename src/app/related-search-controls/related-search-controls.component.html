@@ -1,13 +1,12 @@
 <div class="search-controls-container">
-    <!-- novalidate -->
-  <form #relatedControls="ngForm">
+  <form #relatedControls="ngForm" ngNativeValidate>
     <h4 class="search-controls-header">Filter By:</h4>
     <div class="search-controls-btns-container">
       <button (click)="openModal('platforms-modal')" id="platform-btn" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
       <!-- Platforms that are selected as filters will be displayed here -->
       <div class="platform-labels-container" [@fadeInOut]="selectedPlatforms.length" *ngIf="selectedPlatforms.length && !modalIsOpen">
         <span *ngFor="let platform of platforms">
-          <button 
+          <button
           [@fadeInOut]="platform.checked" 
           *ngIf="platform.checked" 
           class="platform-label"
@@ -19,9 +18,8 @@
     </div>
     <div class="date-filter-container">
       <p class="date-filter-header">Date</p>
-      <!-- From {{ controls.dateRange[0] }} to {{ controls.dateRange[1] }} -->
       From
-      <input 
+      <input
       name="dateRangeAfter" 
       type="number" 
       [(ngModel)]="dateAfter" 
@@ -31,11 +29,6 @@
       #dateRangeAfter="ngModel"
       class="date-range-number-input"
       >
-      <!-- [ngClass]="{'date-range-error': (dateRangeAfter.dirty && dateRangeAfter.touched && dateRangeAfter.invalid)}" 
-
-      (ngModelChange)="dateAfterChange($event)" 
-      
-      -->
       To
       <input 
       name="dateRangeBefore" 
@@ -48,11 +41,6 @@
       class="date-range-number-input">
       <nouislider name="dateRange" [connect]="true" [keyboard]="true" [min]="minYear" [max]="maxYear" [step]="1" [(ngModel)]="controls.dateRange" (ngModelChange)="dateChange($event)" #dateRangeBefore="ngModel"></nouislider>
     </div>
-    <!-- [ngClass]="{'date-range-error': dateRangeBefore.dirty && dateRangeBefore.touched && dateRangeBefore.invalid}"> 
-
-      (ngModelChange)="dateBeforeChange($event)"
-    
-    -->
     <div class="order-by-container">
       <h4 class="search-controls-header">Give Me:</h4>
       <div *ngFor="let choice of orderChoices" class="radio-container">

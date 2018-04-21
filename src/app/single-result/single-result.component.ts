@@ -30,11 +30,6 @@ export class SingleResultComponent implements OnInit {
 
   ngOnInit() {
     this.currentResult = this.results[this.currentIndex];
-
-    if(this.currentResult){
-      // setTimeout(() => { document.getElementById('link-single-more-info').focus(); }, 0);
-    }
-    
   }
 
   ngOnChanges() {
@@ -57,11 +52,6 @@ export class SingleResultComponent implements OnInit {
 
     //---------- Update observable
     this.singleGameService.updateGame(this.currentResult);
-
-    if(this.currentResult){
-      // TODO: We want to trigger this only after at least one image has loaded. Otherwise we don't end up scrolling to the right spot.
-      // setTimeout(() => {this.smoothScrollService.scrollTo('.result-container')}, 0);
-    }
   }
   
   imageLoaded(result, type){
@@ -70,12 +60,8 @@ export class SingleResultComponent implements OnInit {
 
     this.utilitiesService.firstImageHasLoaded(this.imagesLoadedCount)
     .then(() => {
-      console.log('now we scroll');
       setTimeout(() => {this.smoothScrollService.scrollTo('.result-container')}, 0);
-      setTimeout(() => { document.getElementById('link-single-more-info').focus(); }, 0);
     });
-
-
   }
 
 

@@ -80,7 +80,8 @@ export class SingleGameComponent implements OnInit {
 
       this.relatedInFocus.status = true;
       //---------- Auto scroll(wait a tick)
-      setTimeout(() => { this.smoothScrollService.scrollTo('#single-result'); }, 0);
+      // Duplicate - also executing this in Single Result component...
+      // setTimeout(() => { this.smoothScrollService.scrollTo('#single-result'); }, 0);
       
     });
 
