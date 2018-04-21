@@ -43,10 +43,7 @@ export class RelatedSearchComponent {
   onControlsChange(event: MyRelatedControls): void {
     // console.log('onControlsChange',event); // Keep this for now!
     this.controls = event;
-    // this.isFormValid = this.checkFormValid();
     this.isFormValid = this.utilitiesService.checkRelatedFormValid(this.controls.dateRange, this.maxYear);
-    // console.log('this.controls',this.controls);
-
   }
 
   onSwitchGame(){

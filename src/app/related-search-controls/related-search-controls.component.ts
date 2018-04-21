@@ -34,9 +34,6 @@ import { MyRelatedControls } from '../types/my-related-controls';
 })
 export class RelatedSearchControlsComponent implements OnInit {
 
-  // View doesn't update properly when using this input variable.
-  // @Input() maxYear: number;
-
   @Output() onControlsChange: EventEmitter<any> = new EventEmitter<any>();
 
   platforms: any[] = [];
@@ -50,7 +47,6 @@ export class RelatedSearchControlsComponent implements OnInit {
   controls: MyRelatedControls = {
     selectedPlatformIDs: [],
     dateRange: [this.minYear,this.maxYear],
-    // dateRange: [],
     order: 'popularity'
   };
   orderChoices = [
@@ -89,29 +85,16 @@ export class RelatedSearchControlsComponent implements OnInit {
     .subscribe(res => {
       this.platforms = this.utilitiesService.sortedByName(res.data);
     });
-
-    // console.log('this.maxYear',this.maxYear);
-    // console.log('this.controls.dateRange',this.controls.dateRange);
-
-    // setTimeout(() => {this.controls.dateRange = [this.minYear,this.maxYear]; },0);
-    
-
-    // console.log('this.controls.dateRange',this.controls.dateRange);
-
-
   }
 
   openModal(id: string){
     this.modalService.open(id);
     // Set focus
     document.getElementById('text-platform-search').focus();
-
   }
 
   closeModal(id: string){
     this.modalService.close(id);
-    // Reset focus
-    // document.getElementById('platform-btn').focus();
   }
 
   onModalChange(bool){
@@ -131,14 +114,10 @@ export class RelatedSearchControlsComponent implements OnInit {
 
     // We only want array of ids when we make API call, so convert.
     this.controls.selectedPlatformIDs = this.utilitiesService.getArrayOfIds(this.selectedPlatforms);
-
     this.onControlsChange.emit(this.controls);
   }
 
   dateChange(event: any): void {
-    // console.log('dateChange');
-
-    // Testing manual two-way binding of number input variables
     this.dateAfter = this.controls.dateRange[0];
     this.dateBefore = this.controls.dateRange[1];
 
@@ -146,43 +125,14 @@ export class RelatedSearchControlsComponent implements OnInit {
   }
 
   dateAfterChange(event: any): void {
-
-    // let afterVal = this.controls.dateRange[0],
-    //     beforeVal = this.controls.dateRange[1];
-    
-    // console.log('afterVal',afterVal);
-    // console.log('beforeVal',beforeVal);
-
-    // Only update value if it's valid on our terms. Testing for now.
-    // let afterVal = (event <= this.controls.dateRange[1]) ? event : this.controls.dateRange[0];
-
     let afterVal = event;
-    // console.log('afterVal',afterVal);
-
-    
-    // setTimeout(() => {this.dateAfter = afterVal;}, 0);
-
-    // console.log('event',event);
-    // console.log('this.controls.dateRange[1]',this.controls.dateRange[1]);
     this.controls.dateRange = [afterVal, this.controls.dateRange[1]];
-    // console.log('this.controls.dateRange now',this.controls.dateRange);
     this.onControlsChange.emit(this.controls);
   }
 
   dateBeforeChange(event: any): void {
-
-    // Only update value if it's valid on our terms. Testing for now.
-    // let beforeVal = (event >= this.controls.dateRange[0]) ? event : this.controls.dateRange[1];
-
     let beforeVal = event;
-
-    // console.log('beforeVal',beforeVal);
-
-    // setTimeout(() => {this.dateBefore = beforeVal; }, 0); 
-
     this.controls.dateRange = [this.controls.dateRange[0], beforeVal];
-
-    // console.log('this.controls.dateRange now',this.controls.dateRange);
     this.onControlsChange.emit(this.controls);
   }
 

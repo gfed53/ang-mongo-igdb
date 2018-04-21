@@ -78,8 +78,7 @@ export class UtilitiesService {
     true;
 
     let isDateBeforeValid = dateBefore ?
-    // Hardcoded 2020 for now, maybe create prop in this component and pass down to controls component
-    // Also only need to check overlap once (which we do in isDateAfterValid). No need to check twice, right?
+    // Only need to check overlap once (which we do in isDateAfterValid). No need to check twice, right?
     dateBefore <= maxYear : true;
 
     return isDateAfterValid && isDateBeforeValid;

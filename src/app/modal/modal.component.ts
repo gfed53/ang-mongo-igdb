@@ -23,8 +23,6 @@ export class ModalComponent implements OnInit, OnDestroy {
     ) {
         this.element = $(el.nativeElement);
     }
-
-    // focusableEls: any;
  
     ngOnInit(): void {
         let modal = this;
@@ -60,7 +58,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     open(): void {
         const tabAccessService = this.tabAccessService;
         const self = this;
-            // close = this.close;
+    
         this.element.show(200);
         this.onChange.emit(true);
         $('body').addClass('modal-open');
