@@ -18,27 +18,31 @@
     </div>
     <div class="date-filter-container">
       <p class="date-filter-header">Date</p>
-      From
-      <input
-      name="dateRangeAfter" 
-      type="number" 
-      [(ngModel)]="dateAfter" 
-      (ngModelChange)="dateAfterChange($event)" 
-      [min]="minYear" 
-      [max]="dateBefore" 
-      #dateRangeAfter="ngModel"
-      class="date-range-number-input"
-      >
-      To
-      <input 
-      name="dateRangeBefore" 
-      type="number" 
-      [(ngModel)]="dateBefore"
-      (ngModelChange)="dateBeforeChange($event)"
-      [min]="dateAfter" 
-      [max]="maxYear"
-      #dateRangeBefore="ngModel"
-      class="date-range-number-input">
+      <div>
+        <span class="date-filter-text">From</span>
+        <input
+        name="dateRangeAfter" 
+        type="number" 
+        [(ngModel)]="dateAfter" 
+        (ngModelChange)="dateAfterChange($event)" 
+        [min]="minYear" 
+        [max]="dateBefore" 
+        #dateRangeAfter="ngModel"
+        class="date-range-number-input"
+        >
+      </div>
+      <div>
+        <span class="date-filter-text">To</span>
+        <input 
+        name="dateRangeBefore" 
+        type="number" 
+        [(ngModel)]="dateBefore"
+        (ngModelChange)="dateBeforeChange($event)"
+        [min]="dateAfter" 
+        [max]="maxYear"
+        #dateRangeBefore="ngModel"
+        class="date-range-number-input">
+      </div>
       <nouislider name="dateRange" [connect]="true" [keyboard]="true" [min]="minYear" [max]="maxYear" [step]="1" [(ngModel)]="controls.dateRange" (ngModelChange)="dateChange($event)" #dateRangeBefore="ngModel"></nouislider>
     </div>
     <div class="order-by-container">

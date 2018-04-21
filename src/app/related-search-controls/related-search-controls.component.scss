@@ -45,6 +45,12 @@
     margin: 1em 0;
     padding: 1.5em;
     border: 1px solid lightgrey;
+
+    .date-filter-text {
+      display: inline-block;
+      text-align: right;
+      width: 3em;
+    }
   }
 
   .radio-container {
@@ -65,6 +71,8 @@
 
   .date-range-number-input {
     transition: 250ms ease-in-out all;
+    border: 1px solid lightgrey;
+    padding: 1px 2px;
   }
 
   .date-range-number-input.ng-invalid {
