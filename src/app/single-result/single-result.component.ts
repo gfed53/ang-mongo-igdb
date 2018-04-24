@@ -60,7 +60,7 @@ export class SingleResultComponent implements OnInit {
 
     this.utilitiesService.firstImageHasLoaded(this.imagesLoadedCount)
     .then(() => {
-      setTimeout(() => {this.smoothScrollService.scrollTo('.result-container')}, 0);
+      setTimeout(() => {this.smoothScrollService.scrollTo('.single-result-container')}, 0);
     });
   }
 

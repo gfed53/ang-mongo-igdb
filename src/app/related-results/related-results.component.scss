@@ -5,7 +5,7 @@
   margin-top: 2em;
 }
 
-.result-container {
+.related-result-container {
   border-bottom: 2px solid black;
   padding: 1em;
 
@@ -48,7 +48,7 @@
 }
 
 @media screen and ($desktop-1024){
-  .result-container {
+  .related-result-container {
     img {
       max-width: 60%;
     }

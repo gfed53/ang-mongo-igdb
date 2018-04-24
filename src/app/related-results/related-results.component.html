@@ -1,6 +1,6 @@
 <div class="container related-results-container">
   <div *ngIf="relatedResults.length">
-    <div *ngFor="let result of relatedResults" class="result-container"> 
+    <div *ngFor="let result of relatedResults" class="related-result-container"> 
       <h2>{{result.name}}</h2>
       <div>
         <div [ngClass]="{'hidden' : !result.imageLoaded}" class="image-container">
