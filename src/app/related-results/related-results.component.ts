@@ -31,7 +31,10 @@ export class RelatedResultsComponent {
     let a = [item];
     this.singleGameService.updateResults(a);
     this.singleGameService.updateGame(item);
-    setTimeout(() => {this.smoothScrollService.scrollTo('.single-result-container')}, 0);
+    setTimeout(() => {
+      this.smoothScrollService.scrollTo('.single-result-container');
+      document.getElementById('link-single-more-info').focus();
+    }, 0);
   }
 
 }
