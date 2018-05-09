@@ -38,10 +38,7 @@ import { RelatedSearchControlsComponent } from './related-search-controls/relate
 import { RelatedSearchComponent } from './related-search/related-search.component';
 import { RelatedResultsComponent } from './related-results/related-results.component';
 import { ModalComponent } from './modal/modal.component';
-import { DateFilterComponent } from './date-filter/date-filter.component';
 import { LoaderComponent } from './loader/loader.component';
-
-
 
 
 @NgModule({
