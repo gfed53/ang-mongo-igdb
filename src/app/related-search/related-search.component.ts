@@ -16,7 +16,7 @@ export class RelatedSearchComponent {
   @Input() selected: any;
   @Input() inFocus: boolean;
 
-  @Output() onFocusChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onBaseGameChange: EventEmitter<any> = new EventEmitter<any>();
 
   isFormValid: boolean = true;
 
@@ -47,7 +47,7 @@ export class RelatedSearchComponent {
   }
 
   onSwitchGame(){
-    this.onFocusChange.emit(false);
+    this.onBaseGameChange.emit(false);
   }
 
   searchRelated(game: any, controls?: MyRelatedControls): void {

@@ -26,7 +26,7 @@ export class RelatedResultsComponent {
     item.imageLoaded = true;
   }
 
-  //---------- Use a related search result as the new basis 
+  //---------- Use a related search result as the new base game 
   updateSingleResult(item){
     let a = [item];
     this.singleGameService.updateResults(a);

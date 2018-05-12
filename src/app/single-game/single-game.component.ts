@@ -1,5 +1,4 @@
 import { Component, Inject, Output, EventEmitter, OnInit } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
 import { PageScrollConfig } from 'ng2-page-scroll';
 
 import {
@@ -50,7 +49,7 @@ export class SingleGameComponent implements OnInit {
     PageScrollConfig.defaultEasingLogic = this.smoothScrollService.easingLogic;
   }
 
-  @Output() onAppViewChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onBaseGameChange: EventEmitter<any> = new EventEmitter<any>();
 
   singleSearchResults: any[];
   selectedResult: any;
@@ -88,11 +87,11 @@ export class SingleGameComponent implements OnInit {
   }
 
   //---------- Will occur when user chooses to switch base game. TODO rename?
-  handleFocusChange(event) {  
+  handleBaseGameChange(event) {  
     //---------- Auto scroll(wait a tick)
     setTimeout(() => {
       this.smoothScrollService.scrollTo('.header-main'); 
-      this.onAppViewChange.emit(event);
+      this.onBaseGameChange.emit(event);
     }, 0);
 
     setTimeout(() => {

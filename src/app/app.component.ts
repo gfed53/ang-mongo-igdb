@@ -68,7 +68,7 @@ export class AppComponent {
   }
 
   //---------- Will occur when user chooses to switch base game. TODO rename?
-  handleAppViewChange(event) {
+  handleBaseGameChange(event) {
     setTimeout(() => {
       this.showRelatedResults = event.status;
       this.tabAccessService.setSingleSearchDisabled(false);
