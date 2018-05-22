@@ -2,7 +2,7 @@
 
 ## Overview
 
-A video game-themed MEAN stack app powered by the [IGDB API](https://www.igdb.com/api). Check out the live current demo [here](http://game-hunter-315.herokuapp.com/)!
+A video game-themed MEAN stack app powered by the [IGDB API](https://www.igdb.com/api). Check out the [live demo](http://game-hunter-315.herokuapp.com/)!
 
 ## What It Does
 
@@ -10,7 +10,7 @@ This app allows the user to search for a particular game of interest, then grab 
 
 ## Project Structure
 
-I have the front and back end isolated in their own directories. This particular repo solely contains the front end portion of the app. The back end is in a completely different [repo](https://github.com/gfed53/ang-mongo-igdb-be).
+I have the front and back end isolated in their own directories. This particular repo solely contains the front end portion of the app. The back end is in a [completely different repo](https://github.com/gfed53/ang-mongo-igdb-be).
 
 ## Setup (Local)
 
@@ -33,7 +33,7 @@ The following steps will guide you towards running the entire app locally. Note 
 
 * You will need an [IGDB API key](https://www.igdb.com/api) to run this app. Navigate to `./server/config.js`. There is an exported KEYS object with an igdbKey property. Set that property with the value of your acquired API key.
 
-* In one terminal window, run MongoDB (again, instructions [here](https://docs.mongodb.com/manual/installation/)), and then in another window, start up the back end of the app by running `npm start`. The back should now be running at localhost:3000.
+* In one terminal window, run MongoDB (again, [instructions here](https://docs.mongodb.com/manual/installation/)), and then in another window, start up the back end of the app by running `npm start`. The back should now be running at localhost:3000.
 
 ### Setting Up The Front End
 
