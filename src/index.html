@@ -4,13 +4,45 @@
   <meta charset="utf-8">
   <title>GameHunter</title>
   <base href="/">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="./styles.css"> -->
   <script src="https://use.fontawesome.com/58f7fd8335.js"></script>
+  <style type="text/css">
+    /* Loading Animation */    
+    
+  
+    .text-app-load {
+      position: relative;
+      display: inline-block;
+      top: 5em;
+      left: 5em;
+      font-size: 1.5em;
+      animation: slidefaderight 1s infinite;
+    }
+
+    @keyframes slidefaderight {
+      0% {
+        opacity: 0;
+        transform: translateX(-75%);
+      }
+      
+      50% {
+        opacity: 1;
+      }
+      
+      100% {
+        transform: translateX(0);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <app-root>Loading...</app-root>
+  <app-root>
+    <p class="text-app-load">Loading App...</p>
+  </app-root>
 </body>
 </html>
