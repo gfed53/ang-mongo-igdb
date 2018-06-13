@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import * as _ from 'underscore';
-import * as $ from 'jquery';
 
 @Injectable()
 export class UtilitiesService {

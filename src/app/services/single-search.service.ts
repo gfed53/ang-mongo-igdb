@@ -32,7 +32,7 @@ export class SingleSearchService {
 
 	updateSingleResults(list: any[]): void {
 		this.singleSearchResults = list;
-		console.log('this.singleSearchResults',this.singleSearchResults); // keep for now
+		// console.log('this.singleSearchResults',this.singleSearchResults); // keep for now
 	}
 
 }

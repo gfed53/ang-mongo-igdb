@@ -57,6 +57,7 @@ export class TabAccessService {
         break;
 
       case KEY_ESC:
+      // Should KEY_ENTER close modal too?
         closeCB();
         break;
         
