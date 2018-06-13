@@ -1,10 +1,8 @@
 <div class="related-search-container">
   <h3>Now, find more games like this!</h3>
-  <form #relatedControls="ngForm" ngNativeValidate>
     <app-related-search-controls (onControlsChange)="onControlsChange($event)"></app-related-search-controls>
 
     <!-- Get related results -->
     <button (click)="searchRelated(selected,controls)" [disabled]="!isFormValid" class="my-btn btn-get-related">Go!</button>
     <button (click)="onSwitchGame()" class="my-btn">Find Another Game</button>
-  </form>
 </div>
