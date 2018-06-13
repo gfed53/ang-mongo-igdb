@@ -1,5 +1,4 @@
 <div class="search-controls-container">
-  <form #relatedControls="ngForm" ngNativeValidate>
     <h4 class="search-controls-header">Filter By:</h4>
     <div class="search-controls-btns-container">
       <button (click)="openModal('platforms-modal')" id="platform-btn" class="search-controls-btn">Platform <i class="fa fa-caret-down"></i></button>
@@ -54,7 +53,6 @@
         <label>{{choice.label}}</label>
       </div>
     </div>
-  </form>
   <modal (onChange)="onModalChange($event)" id="platforms-modal">
     <div class="modal platforms-modal-inner" role="dialog" aria-labelledby="Platform Selection" aria-describedby="Select platforms to filter by.">
       <div class="modal-body">
