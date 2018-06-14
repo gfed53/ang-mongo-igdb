@@ -27,6 +27,7 @@ input[name="search"] {
 }	
 
 .btn-submit {
+	transition: 150ms ease-in-out all;
 	float: left;
 	height: 37px;
 	line-height: 37px;
@@ -38,5 +39,9 @@ input[name="search"] {
 
 	i {
 		color: #fff;
+	}
+
+	&:hover {
+		background-color: $my-green-hover;
 	}
 }

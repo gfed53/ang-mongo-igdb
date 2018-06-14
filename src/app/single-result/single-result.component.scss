@@ -23,7 +23,13 @@
   }
 
   .link-more-info {
+    color: #d2d2d2;
     font-size: 1.2em;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
  .result-nav-container {
@@ -38,6 +44,27 @@
      padding: 0.5em;
      font-size: 0.85em;
    }
+
+  .result-previous,
+  .result-next {
+    i {
+      transition: 150ms ease-in-out all;
+      position: relative;
+    }
+  }
+
+  .result-previous {
+    &:hover i {
+      transform: translateX(-2px);
+    }
+  }
+
+  .result-next {
+    &:hover i {
+      transform: translateX(2px);
+    }
+  }
+
  }
 
   .col-lg-left {
@@ -46,6 +73,8 @@
   .col-lg-right {
     text-align: right;
   }
+
+  
 }
 
 @media screen and ($desktop-1024){
