@@ -30,15 +30,25 @@
 
   .link-more-info {
     font-size: 1.2em;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .btn {
     -webkit-appearance: none;
+    transition: 150ms ease-in-out all;
     cursor: pointer;
     padding: 0.5em;
     border: 1px solid lightgrey;
     background: white;
     font-weight: bold;
+
+    &:hover {
+      border-color: #333447;
+    }
   }
   
 }
