@@ -40,21 +40,23 @@ export class SingleResultComponent implements OnInit {
   }
 
   toggleGame(dir) {
+
     if(dir === 'prev'){
       this.currentIndex = Math.abs(this.currentIndex - 1 + this.results.length) % this.results.length;
     }
-
     if(dir === 'next'){
       this.currentIndex = Math.abs(this.currentIndex + 1 + this.results.length) % this.results.length;
     }
     
     this.currentResult = this.results[this.currentIndex];
-
     //---------- Update observable
     this.singleGameService.updateGame(this.currentResult);
+    setTimeout(() => {this.smoothScrollService.scrollTo('.single-result-container')}, 0);
+
   }
   
   imageLoaded(result, type){
+    
     this.addImageLoadedProp(result, type);
     this.imagesLoadedCount++;
 
