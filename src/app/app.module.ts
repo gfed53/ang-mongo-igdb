@@ -21,6 +21,7 @@ import { RelatedGamesService } from './services/related-games.service';
 import { ModalService } from './services/modal.service';
 import { SmoothScrollService } from './services/smooth-scroll.service';
 import { TabAccessService } from './services/tab-access.service';
+import { GetGameDealService } from './services/get-game-deal.service';
 
 // Directives
 
@@ -77,7 +78,8 @@ import { LoaderComponent } from './loader/loader.component';
     UtilitiesService,
     ModalService,
     SmoothScrollService,
-    TabAccessService
+    TabAccessService,
+    GetGameDealService
   ],
   bootstrap: [AppComponent]
 })
