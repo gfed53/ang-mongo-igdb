@@ -4,6 +4,7 @@ import { PageScrollConfig } from 'ng2-page-scroll';
 import { SingleGameService } from '../services/single-game.service';
 import { UtilitiesService } from '../services/utilities.service';
 import { SmoothScrollService } from '../services/smooth-scroll.service';
+import { GetGameDealService } from '../services/get-game-deal.service';
 
 @Component({
   selector: 'app-single-result',
@@ -22,7 +23,8 @@ export class SingleResultComponent implements OnInit {
   constructor(
     private singleGameService: SingleGameService,
     private utilitiesService: UtilitiesService,
-    private smoothScrollService: SmoothScrollService
+    private smoothScrollService: SmoothScrollService,
+    private getGameDealService: GetGameDealService,
   ) { 
     PageScrollConfig.defaultDuration = this.smoothScrollService.duration;
     PageScrollConfig.defaultEasingLogic = this.smoothScrollService.easingLogic;
@@ -30,6 +32,13 @@ export class SingleResultComponent implements OnInit {
 
   ngOnInit() {
     this.currentResult = this.results[this.currentIndex];
+
+    // CheapShark
+    this.getGameDealService.getGameDeal(this.currentResult.name)
+    .subscribe((data: any) => {
+      console.log('data in front end',data);
+    });
+
   }
 
   ngOnChanges() {

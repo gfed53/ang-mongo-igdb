@@ -11,6 +11,7 @@ export class GetGameDealService {
 
 	// Will use backend to make API requests
 	getGameDeal(title): Observable<any> {
+    // console.log('title',title);
 		return this._httpClient.post('/cheapshark-api/search-game-deal', {
 			_title: title
 		});
