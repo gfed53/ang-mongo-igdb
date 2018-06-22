@@ -40,6 +40,7 @@ import { RelatedSearchComponent } from './related-search/related-search.componen
 import { RelatedResultsComponent } from './related-results/related-results.component';
 import { ModalComponent } from './modal/modal.component';
 import { LoaderComponent } from './loader/loader.component';
+import { GameDealLinkComponent } from './game-deal-link/game-deal-link.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { LoaderComponent } from './loader/loader.component';
     RelatedResultsComponent,
     ModalComponent,
     LoaderComponent,
-    FilterPipe
+    FilterPipe,
+    GameDealLinkComponent
   ],
   imports: [
     BrowserModule,
