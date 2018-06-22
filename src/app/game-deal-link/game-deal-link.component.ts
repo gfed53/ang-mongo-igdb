@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 
 import { GetGameDealService } from '../services/get-game-deal.service';
 
@@ -7,12 +7,21 @@ import { GetGameDealService } from '../services/get-game-deal.service';
   templateUrl: './game-deal-link.component.html',
   styleUrls: ['./game-deal-link.component.scss']
 })
-export class GameDealLinkComponent {
+export class GameDealLinkComponent implements OnInit, AfterViewInit {
   @Input() gameTitle: String;
+  @Input() textColor: String;
 
   constructor(
     private getGameDealService: GetGameDealService
   ) { }
+
+  ngOnInit() {
+    // console.log('this.textColor',this.textColor);
+  }
+
+  ngAfterViewInit(){
+    // console.log('this.textColor',this.textColor);
+  }
 
   getLink(title: string){
     this.getGameDealService.getGameDeal(title)

@@ -1,0 +1,23 @@
+.button-deal {
+  font-size: 1.25em;
+
+  // 
+  margin: 0 0.5em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  // color: white;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.button-deal--black {
+}
+
+.button-deal--white {
+  color: white;
+}
