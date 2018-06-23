@@ -41,7 +41,7 @@ export class GameDealLinkComponent implements OnInit, AfterViewInit {
           // this._gameDealLink = `http://www.cheapshark.com/redirect?dealID=${id}`;
           this._gameDealLink = this.getGameDealService.getLink(title, data);
           console.log('this._gameDealLink',this._gameDealLink);
-          window.open(this._gameDealLink, '_blank');
+          // window.open(this._gameDealLink, '_blank');
 
           
         },
@@ -50,7 +50,7 @@ export class GameDealLinkComponent implements OnInit, AfterViewInit {
         }
       );
     } else {
-      window.open(this._gameDealLink, '_blank');
+      // window.open(this._gameDealLink, '_blank');
     }
 
     

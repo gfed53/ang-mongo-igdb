@@ -1,1 +1,2 @@
-<button class="button-deal" [ngClass]="{'button-deal--white': textColor === 'white'}" (click)="getLink(gameTitle)">I Want This Game!</button>
+<button *ngIf="!_gameDealLink" class="button-deal" [ngClass]="{'button-deal--white': textColor === 'white'}" (click)="getLink(gameTitle)">I Want This Game!</button>
+<a target="_blank" *ngIf="_gameDealLink" class="button-deal" [ngClass]="{'button-deal--white': textColor === 'white'}" href={{_gameDealLink}}>Go!</a>
