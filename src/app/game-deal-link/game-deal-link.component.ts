@@ -11,6 +11,9 @@ export class GameDealLinkComponent implements OnInit, AfterViewInit {
   @Input() gameTitle: String;
   @Input() textColor: String;
 
+  // http://www.cheapshark.com/redirect?dealID={id}
+  private _gameDealLink: any;
+
   constructor(
     private getGameDealService: GetGameDealService
   ) { }
@@ -24,10 +27,29 @@ export class GameDealLinkComponent implements OnInit, AfterViewInit {
   }
 
   getLink(title: string){
-    this.getGameDealService.getGameDeal(title)
-    .subscribe((data: any) => {
-      console.log('data in front end',data);
-    });
+
+    // To avoid unnecessary calls, cache the link
+    if(!this._gameDealLink){
+      this.getGameDealService.getGameDeal(title)
+        .subscribe((data: any) => {
+          console.log('data in front end',data);
+          const deal = data[0];
+          const id = deal.cheapestDealID;
+          this._gameDealLink = `http://www.cheapshark.com/redirect?dealID=${id}`;
+          console.log('this._gameDealLink',this._gameDealLink);
+          window.open(this._gameDealLink, '_blank');
+
+          
+        },
+        (error) => {
+          console.log('error',error);
+        }
+      );
+    } else {
+      window.open(this._gameDealLink, '_blank');
+    }
+
+    
   }
 
 }
