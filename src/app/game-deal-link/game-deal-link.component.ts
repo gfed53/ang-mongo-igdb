@@ -32,6 +32,7 @@ export class GameDealLinkComponent implements OnInit, AfterViewInit {
     if(!this._gameDealLink){
       this.getGameDealService.getGameDeal(title)
         .subscribe((data: any) => {
+          // TODO: Need error handling in case we don't get any results back.
           console.log('data in front end',data);
           const deal = data[0];
           const id = deal.cheapestDealID;

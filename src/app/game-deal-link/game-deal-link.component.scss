@@ -1,5 +1,5 @@
 .button-deal {
-  font-size: 1.25em;
+  font-size: 1.2em;
 
   // 
   margin: 0 0.5em;
@@ -8,7 +8,8 @@
   cursor: pointer;
   background: transparent;
   border: none;
-  // color: white;
+  border-left: 1px solid;
+  padding-left: 0.5em;
 
   &:hover {
     text-decoration: underline;
