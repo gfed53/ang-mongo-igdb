@@ -13,6 +13,7 @@ export class GameDealLinkComponent implements OnInit, AfterViewInit {
 
   // http://www.cheapshark.com/redirect?dealID={id}
   private _gameDealLink: any;
+  private _isFetchingLink: Boolean = false;
 
   constructor(
     private getGameDealService: GetGameDealService
@@ -27,6 +28,7 @@ export class GameDealLinkComponent implements OnInit, AfterViewInit {
   }
 
   getLink(title: string){
+    this._isFetchingLink = true;
 
     // To avoid unnecessary calls, cache the link
     if(!this._gameDealLink){
@@ -42,6 +44,7 @@ export class GameDealLinkComponent implements OnInit, AfterViewInit {
           this._gameDealLink = this.getGameDealService.getLink(title, data);
           console.log('this._gameDealLink',this._gameDealLink);
           // window.open(this._gameDealLink, '_blank');
+          this._isFetchingLink = false;
 
           
         },

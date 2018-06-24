@@ -1,3 +1,12 @@
+.button-deal,
+.span-is-fetching {
+  font-size: 1.2em;
+  margin: 0 0.5em;
+  padding-left: 0.5em;
+  border-left: 1px solid;
+
+}
+
 .button-deal {
   font-size: 1.2em;
   text-decoration: none;
@@ -20,6 +29,6 @@
 // .button-deal--black {
 // }
 
-.button-deal--white {
+.text--white {
   color: white;
 }
