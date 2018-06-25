@@ -1,3 +1,3 @@
-<button *ngIf="!_gameDealLink && !_isFetchingLink" class="button-deal" [ngClass]="{'text--white': textColor === 'white'}" (click)="getLink(gameTitle)">I Want This Game!</button>
+<button *ngIf="!_gameDealLink && !_isFetchingLink" class="button-deal" [ngClass]="{'text--white': textColor === 'white'}" (click)="getLink(game.name, game.external?.steam)">I Want This Game!</button>
 <a target="_blank" *ngIf="_gameDealLink" class="button-deal" [ngClass]="{'text--white': textColor === 'white'}" href={{_gameDealLink}}>Go!</a>
 <span class="span-is-fetching" [ngClass]="{'text--white': textColor === 'white'}" *ngIf="_isFetchingLink">Getting Link<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></span>

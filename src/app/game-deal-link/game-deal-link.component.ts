@@ -8,7 +8,10 @@ import { GetGameDealService } from '../services/get-game-deal.service';
   styleUrls: ['./game-deal-link.component.scss']
 })
 export class GameDealLinkComponent implements OnInit, AfterViewInit {
-  @Input() gameTitle: String;
+
+  // TODO: probably send whole game object instead of just title as input since we're gonna need other stuff
+  // @Input() gameTitle: String;
+  @Input() game: any;
   @Input() textColor: String;
 
   // http://www.cheapshark.com/redirect?dealID={id}
@@ -21,18 +24,19 @@ export class GameDealLinkComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     // console.log('this.textColor',this.textColor);
+    console.log('this.game',this.game);
   }
 
   ngAfterViewInit(){
     // console.log('this.textColor',this.textColor);
   }
 
-  getLink(title: string){
+  getLink(title: string, steamID: string){
     this._isFetchingLink = true;
 
     // To avoid unnecessary calls, cache the link
     if(!this._gameDealLink){
-      this.getGameDealService.getGameDeal(title)
+      this.getGameDealService.getGameDeal(title, steamID)
         .subscribe((data: any) => {
           // TODO: Need error handling in case we don't get any results back.
           console.log('data in front end',data);

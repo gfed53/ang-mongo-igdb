@@ -16,7 +16,7 @@
         <p>{{result.first_release_date | date}}</p>
         <p>{{result.summary}}</p>
         <a class="link-more-info" href={{result.url}} target="_blank">More Info</a>
-        <app-game-deal-link [textColor]="black" [gameTitle]="result.name"></app-game-deal-link>
+        <app-game-deal-link [textColor]="black" [game]="result"></app-game-deal-link>
         <p>Want to find more games like this?</p>
         <button class="btn" (click)="updateSingleResult(result)">Set This Game</button>
       </div>

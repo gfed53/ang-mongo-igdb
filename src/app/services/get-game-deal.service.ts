@@ -10,11 +10,11 @@ export class GetGameDealService {
 	constructor(private _httpClient: HttpClient){}
 
 	// Will use backend to make API requests
-	getGameDeal(title: String): Observable<any> {
-    // console.log('title',title);
-		return this._httpClient.post('/cheapshark-api/search-game-deal', {
-			_title: title
-		});
+	getGameDeal(title: String, steamID: String): Observable<any> {
+		// console.log('title',title);
+		const options = {_title: title, _steamID: steamID};
+
+		return this._httpClient.post('/cheapshark-api/search-game-deal', options);
 	}
 
 	// Based on data we get back from ChSh API, we return a link as a string
@@ -33,7 +33,7 @@ export class GetGameDealService {
 		const q = title.replace(' ','+').toLowerCase();
 		console.log('q',q);
 	
-		return `https://www.google.com/search?q=${q}&source=lnms&tbm=shop`;
+		return `https://www.google.com/search?q=${q}+video+game&source=lnms&tbm=shop`;
 	}
 
 
