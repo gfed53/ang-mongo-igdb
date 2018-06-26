@@ -18,14 +18,25 @@ export class GetGameDealService {
 	}
 
 	// Based on data we get back from ChSh API, we return a link as a string
-	getLink(title: String, data: any[]): String {
+	getLink(game: any, data: any[]): String {
 		// Check if data array is empty
 		if(data.length === 0){
-			return this.toGoogleShopLink(title);
+			return this.getAltLink(game);
 		} else {
 			const deal = data[0];
 			const id = deal.cheapestDealID;
 			return `http://www.cheapshark.com/redirect?dealID=${id}`;
+		}
+	}
+
+	getAltLink(game): String {
+		// If we have a homepage ???....
+		const homepage = game.websites.filter((item) => item.category === 1)[0];
+		if(game.websites && homepage){
+			console.log('website',homepage.url);
+			return homepage.url;
+		} else {
+			return this.toGoogleShopLink(game.name);
 		}
 	}
 
@@ -35,6 +46,16 @@ export class GetGameDealService {
 	
 		return `https://www.google.com/search?q=${q}+video+game&source=lnms&tbm=shop`;
 	}
+
+	// TODO: If game is free-to-play, we just want to link to game's homepage
+	// Can we find the keyword tag number for free-to-play?
+
+	// 2385?
+
+	// Not sure how to actually do this. API doesn't seem to provide any way to figure out what each keyword actually means (aside from one very specific example in docs that don't help us at all..)
+	
+	// Maybe just link to game's homepage if we ChSh doesn't find it, and call it a day.
+	// If we don't have a homepage (for older games), then create Google shopping link.
 
 
 

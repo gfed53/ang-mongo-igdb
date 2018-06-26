@@ -31,12 +31,12 @@ export class GameDealLinkComponent implements OnInit, AfterViewInit {
     // console.log('this.textColor',this.textColor);
   }
 
-  getLink(title: string, steamID: string){
+  getLink(game: any, steamID: string){
     this._isFetchingLink = true;
 
     // To avoid unnecessary calls, cache the link
     if(!this._gameDealLink){
-      this.getGameDealService.getGameDeal(title, steamID)
+      this.getGameDealService.getGameDeal(game.name, steamID)
         .subscribe((data: any) => {
           // TODO: Need error handling in case we don't get any results back.
           console.log('data in front end',data);
@@ -45,9 +45,8 @@ export class GameDealLinkComponent implements OnInit, AfterViewInit {
           // const id = deal.cheapestDealID;
 
           // this._gameDealLink = `http://www.cheapshark.com/redirect?dealID=${id}`;
-          this._gameDealLink = this.getGameDealService.getLink(title, data);
+          this._gameDealLink = this.getGameDealService.getLink(game, data);
           console.log('this._gameDealLink',this._gameDealLink);
-          // window.open(this._gameDealLink, '_blank');
           this._isFetchingLink = false;
 
           
