@@ -31,8 +31,8 @@ export class GetGameDealService {
 
 	getAltLink(game): String {
 		// If we have a homepage ???....
-		const homepage = game.websites.filter((item) => item.category === 1)[0];
-		if(game.websites && homepage){
+		const homepage = game.websites ? game.websites.filter((item) => item.category === 1)[0] : null;
+		if(homepage){
 			console.log('website',homepage.url);
 			return homepage.url;
 		} else {
