@@ -9,7 +9,6 @@ import {
 } from '@angular/animations';
 
 import { GetPlatformsService } from '../services/get-platforms.service';
-import { GetGenresService } from '../services/get-genres.service';
 import { UtilitiesService } from '../services/utilities.service';
 import { ModalService } from '../services/modal.service';
 
@@ -74,7 +73,6 @@ export class RelatedSearchControlsComponent implements OnInit {
 
   constructor(
     private getPlatformsService: GetPlatformsService,
-    private getGenresService: GetGenresService,
     private utilitiesService: UtilitiesService,
     private modalService: ModalService
   ) { }
@@ -117,6 +115,7 @@ export class RelatedSearchControlsComponent implements OnInit {
     this.onControlsChange.emit(this.controls);
   }
 
+  // CB for slider
   dateChange(event: any): void {
     this.dateAfter = this.controls.dateRange[0];
     this.dateBefore = this.controls.dateRange[1];
@@ -124,12 +123,14 @@ export class RelatedSearchControlsComponent implements OnInit {
     this.onControlsChange.emit(this.controls);
   }
 
+  // CB for number input
   dateAfterChange(event: any): void {
     let afterVal = event;
     this.controls.dateRange = [afterVal, this.controls.dateRange[1]];
     this.onControlsChange.emit(this.controls);
   }
 
+  // CB for number input
   dateBeforeChange(event: any): void {
     let beforeVal = event;
     this.controls.dateRange = [this.controls.dateRange[0], beforeVal];

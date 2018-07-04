@@ -23,8 +23,6 @@
 .button-deal {
   font-size: 1.2em;
   text-decoration: none;
-
-  // 
   margin: 0 0.5em;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -39,15 +37,12 @@
   }
 }
 
-// .button-deal--black {
-// }
-
 .text--white {
   color: white;
 }
 
-// Keyframe
-
+/* Keyframe Animation
+-------------------------------*/
 @keyframes fadein {
   0% {
     opacity: 0;
@@ -61,3 +56,5 @@
     opacity: 0;
   }
 }
+
+/*-------------------------------*/
