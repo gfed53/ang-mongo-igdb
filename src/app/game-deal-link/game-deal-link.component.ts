@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, OnChanges } from '@angular/core';
 
 import { GetGameDealService } from '../services/get-game-deal.service';
 
@@ -7,7 +7,7 @@ import { GetGameDealService } from '../services/get-game-deal.service';
   templateUrl: './game-deal-link.component.html',
   styleUrls: ['./game-deal-link.component.scss']
 })
-export class GameDealLinkComponent implements OnInit, AfterViewInit {
+export class GameDealLinkComponent implements OnInit, AfterViewInit, OnChanges {
 
   @Input() game: any;
   @Input() textColor: String;
@@ -23,6 +23,11 @@ export class GameDealLinkComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
+  }
+
+  ngOnChanges() {
+    // Reset gameLink since we now have a new game
+    this._gameDealLink = null;
   }
 
   getLink(game: any, steamID: string){

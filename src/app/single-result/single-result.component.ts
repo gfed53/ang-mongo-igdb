@@ -35,13 +35,6 @@ export class SingleResultComponent implements OnInit {
 
   ngOnInit() {
     this.currentResult = this.results[this.currentIndex];
-
-    // CheapShark
-    // this.getGameDealService.getGameDeal(this.currentResult.name)
-    // .subscribe((data: any) => {
-    //   console.log('data in front end',data);
-    // });
-
   }
 
   ngOnChanges() {
