@@ -41,6 +41,12 @@ export class GetGameDealService {
 		return `https://www.google.com/search?q=${q}+video+game&source=lnms&tbm=shop`;
 	}
 
+	// For now, the way we'd determine this would be if the release date was no later than 1 month from now.
+	// We'll use this boolean to determine whether button to create link even shows up at all.
+	isGameAvailable(releaseDate){
+		return releaseDate - Date.now() < 2629800000;
+	}
+
 
 
 }

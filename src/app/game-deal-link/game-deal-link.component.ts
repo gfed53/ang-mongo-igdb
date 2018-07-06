@@ -14,6 +14,7 @@ export class GameDealLinkComponent implements OnInit, AfterViewInit, OnChanges {
 
   private _gameDealLink: any;
   private _isFetchingLink: Boolean = false;
+  private _isGameAvailable: Boolean;
 
   constructor(
     private getGameDealService: GetGameDealService
@@ -26,8 +27,14 @@ export class GameDealLinkComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   ngOnChanges() {
-    // Reset gameLink since we now have a new game
+    
+    // console.log('game',this.game);
+    // console.log('first_release_date',this.game.first_release_date);
+
+    // Reset gameLink since we now have a new game, along with availability indicator
     this._gameDealLink = null;
+    this._isGameAvailable = this.getGameDealService.isGameAvailable(this.game.first_release_date);
+    // console.log('this._isGameAvailable',this._isGameAvailable);
   }
 
   getLink(game: any, steamID: string){
