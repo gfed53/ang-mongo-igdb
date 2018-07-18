@@ -9,7 +9,7 @@ import {
   transition
 } from '@angular/animations';
 
-import { SingleSearchService } from '../services/single-search.service';
+// import { SingleSearchService } from '../services/single-search.service';
 import { SingleGameService } from '../services/single-game.service';
 import { SmoothScrollService } from '../services/smooth-scroll.service';
 
@@ -70,7 +70,7 @@ export class SingleGameComponent implements OnInit {
     .subscribe(list => {
       this.singleSearchResults = list;
 
-      // Manage zero state 
+      //---------- Manage zero state 
       if(!this.singleSearchResults.length) {
         this.relatedInFocus.zeroState = true;
       } else {

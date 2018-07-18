@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-
-import { Http } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable.js';
@@ -23,16 +21,6 @@ export class SingleSearchService {
 			_q: q,
 			_filters: filters
 		});
-	}
-
-	// Takes array of items and pushes it to source
-	updateSingle(list: any[]): void {
-		this.singleSearchResultsSource.next(list);
-	}
-
-	updateSingleResults(list: any[]): void {
-		this.singleSearchResults = list;
-		// console.log('this.singleSearchResults',this.singleSearchResults); // keep for now
 	}
 
 }

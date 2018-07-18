@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
 // Service to store data for initially retrieved game (game which will be used as a basis to find related games).
 @Injectable()
 export class SingleGameService {
-	constructor(private _httpClient: HttpClient){}
+	constructor(){}
 
 	// Use observable source/stream for singleSearchResults
 	private singleSearchResultsSource = new Subject<any>();
