@@ -62,6 +62,7 @@
     "@types/node": "^6.0.42",
     "@types/underscore": "^1.8.7",
     "codelyzer": "~2.0.0-beta.1",
+    "hoek": "^4.2.1",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",

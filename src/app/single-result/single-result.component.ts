@@ -15,9 +15,6 @@ export class SingleResultComponent implements OnInit {
 
   @Input() results: any[];
 
-  // Testing
-  white: String = 'white';
-
   currentIndex: number = 0;
   currentResult: any;
   addImageLoadedProp = this.utilitiesService.addImageLoadedProp;
